@@ -81,19 +81,20 @@ class Result {
 
     public static String[] getFieldNames(boolean withDetails) {
         if (withDetails) {
-            return new String[] { TEST_NAME, COMMENT, QUERY_RESULT, ERROR,
-                    START_MILLIS, END_MILLIS, BYTES_SENT, BYTES_RECEIVED };
-        } else {
-            return new String[] { TEST_NAME, COMMENT, QUERY_RESULT, ERROR };
+            return new String[] { TEST_NAME, COMMENT, QUERY_RESULT,
+                    ERROR, START_MILLIS, END_MILLIS, BYTES_SENT,
+                    BYTES_RECEIVED };
         }
+        return new String[] { TEST_NAME, COMMENT, QUERY_RESULT, ERROR };
     }
 
     /**
      * @param _field
      * @return
-     * @throws UnknownResultFieldException 
+     * @throws UnknownResultFieldException
      */
-    public String getFieldValue(String _field) throws UnknownResultFieldException {
+    public String getFieldValue(String _field)
+            throws UnknownResultFieldException {
         // TODO change data structure to hash, to simplify this code?
         if (_field.equals(TEST_NAME))
             return getTestName();
@@ -119,7 +120,8 @@ class Result {
         if (_field.equals(BYTES_RECEIVED))
             return "" + getBytesReceived();
 
-        throw new UnknownResultFieldException("unknown result field: " + _field);
+        throw new UnknownResultFieldException("unknown result field: "
+                + _field);
     }
 
     public void setStart(long ms) {
@@ -166,10 +168,12 @@ class Result {
     }
 
     public long getStartMillis() {
+        // TODO switch to JRE 1.5 and nanos
         return start;
     }
 
     public long getEndMillis() {
+        // TODO switch to JRE 1.5 and nanos
         return end;
     }
 
@@ -207,6 +211,22 @@ class Result {
      */
     public void incrementBytesSent(long bytes) {
         bytesSent += bytes;
+    }
+
+    /**
+     * 
+     */
+    public void setStart() {
+        // TODO switch to JRE 1.5 and nanos
+        setStart(System.currentTimeMillis());
+    }
+
+    /**
+     * 
+     */
+    public void setEnd() {
+        // TODO switch to JRE 1.5 and nanos
+        setEnd(System.currentTimeMillis());
     }
 
 }

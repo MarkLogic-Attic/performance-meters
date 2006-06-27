@@ -38,8 +38,7 @@ abstract class Sampler implements Runnable {
 
     private int errorCount = -1;
 
-    // read 32kB at a time
-    protected static int READSIZE = 32 * 1024;
+    protected static int READSIZE = Configuration.DEFAULT_READSIZE;
 
     // cache this stuff in case there's synchronization
     boolean recordResults = Configuration.DEFAULT_RECORDRESULTS;
@@ -55,6 +54,8 @@ abstract class Sampler implements Runnable {
     String host = Configuration.DEFAULT_HOST;
 
     int port = Configuration.DEFAULT_PORT;
+
+    byte[] readBuffer = new byte[READSIZE];
 
     Sampler(TestIterator ti, Configuration cfg) {
         testIterator = ti;
@@ -83,10 +84,7 @@ abstract class Sampler implements Runnable {
     }
 
     public void run() {
-        // check for a different READSIZE
-        if (config.getReadSize() > 0) {
-            READSIZE = config.getReadSize();
-        }
+        READSIZE = config.getReadSize();
 
         // random tests only make sense as timed tests
         if (config.isTimedTest()) {

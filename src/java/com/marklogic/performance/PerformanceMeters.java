@@ -38,6 +38,10 @@ public class PerformanceMeters {
 
     static final boolean debug = false;
 
+    private static final String NAME = PerformanceMeters.class.getName();
+
+    private static final String VERSION = "2006-06-27.1";
+
     private Configuration config;
 
     List threads, samplers;
@@ -66,6 +70,8 @@ public class PerformanceMeters {
             }
             config.load(props);
         }
+        
+        showProgress(NAME + " starting, version " + VERSION);
 
         if (debug)
             showProgress(config.configString());
@@ -114,10 +120,10 @@ public class PerformanceMeters {
 
     void run() throws Exception {
         // launch threads
-        showProgress("creating threads...");
+        int numThreads = config.getNumThreads();
+        showProgress("creating " + numThreads + " threads...");
         TestIterator ti = null;
         int offsetPerThread = -1;
-        int numThreads = config.getNumThreads();
         if (config.isShared()) {
             ti = new SharedTestIterator(tests);
         } else {
@@ -178,7 +184,7 @@ public class PerformanceMeters {
         String outputPath = config.getOutputPath();
         if (outputPath == null || outputPath.equals("")) {
             // generate a unique path, based on time
-            outputPath = this.getClass().getName() + "-"
+            outputPath = NAME + "-"
                     + System.currentTimeMillis()
                     + reporter.getPreferredFileExtension();
         }

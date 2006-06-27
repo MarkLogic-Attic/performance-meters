@@ -21,6 +21,22 @@
 -->
 <head>
 <title>PerformanceMeters README</title>
+<style>
+td
+{
+  vertical-align: top;
+}
+
+.code
+{
+  font-family: monospace;
+}
+
+.note
+{
+  font-style: italic;
+}
+</style>
 </head>
 <body>
 <h1>PerformanceMeters</h1>
@@ -32,11 +48,12 @@ It takes zero or more property files as its arguments.
 Any specified system properties will override file-based properties,
 and properties found in later files may override properties
 specified in earlier files on the command line.
-It's also possibly to specify properties as VM arguments (-DNAME=value).
+It's also possibly to specify properties as VM arguments
+(<code>-DNAME=value</code>).
 See src/performance-meters.sh for a sample shell script.
 </p>
 <p>Every test is driven by an XML configuration file.
-See src/tests for sample property and XML files.
+See <a href="src/tests/">src/tests</a> for sample property and XML files.
 </p>
 
 <h2>Required libraries:</h2>
@@ -48,70 +65,71 @@ See src/tests for sample property and XML files.
 <table>
 <tr><th>Property</th><th>default value</th><th>notes</th></tr>
 
-<tr><td>host</td><td>localhost</td>
+<tr><td class="code">host</td><td class="code">localhost</td>
   <td>host id for all test connections.</td></tr>
 
-<tr><td>port</td><td>8003</td>
+<tr><td class="code">port</td><td class="code">8003</td>
   <td>host id for all test connections.</td></tr>
 
-<tr><td>user</td><td>admin</td>
+<tr><td class="code">user</td><td class="code">admin</td>
   <td>username for all test connections.</td></tr>
 
-<tr><td>password</td><td>admin</td>
+<tr><td class="code">password</td><td class="code">admin</td>
   <td>password for all test connections.</td></tr>
 
-<tr><td>inputPath</td><td>null</td>
+<tr><td class="code">inputPath</td><td class="note">null</td>
   <td>filesystem path to XML configuration file.</td></tr>
 
-<tr><td>outputPath</td><td>null</td>
+<tr><td class="code">outputPath</td><td class="note">null</td>
   <td>filesystem path to directory where results will be written.</td></tr>
 
-<tr><td>numThreads</td><td>1</td>
+<tr><td class="code">numThreads</td><td class="code">1</td>
   <td>number of concurrent test threads.</td></tr>
 
-<tr><td>reportTime</td><td>true</td>
+<tr><td class="code">reportTime</td><td class="code">true</td>
   <td>If true, query timings will be reported in the results file.</td></tr>
 
-<tr><td>reportPercentileDuration</td><td>0</td>
+<tr><td class="code">reportPercentileDuration</td><td class="code">0</td>
   <td>If non-zero, the ms for the stated percentile of test durations
   will be reported. Common values are 95 and 98.</td></tr>
 
-<tr><td>testTime</td><td>Long.MAX_VALUE (2^63 - 1)</td>
+<tr><td class="code">testTime</td>
+  <td class="note">Long.MAX_VALUE (2^63 - 1)</td>
   <td>Test duration, in seconds.</td></tr>
 
-<tr><td>isRandomTest</td><td>false</td>
+<tr><td class="code">isRandomTest</td><td class="code">false</td>
   <td>If true, the TestList will be shuffled at random.
   In this case, randomSeed may also be set.
   </td></tr>
 
-<tr><td>recordResults</td><td>false</td>
+<tr><td class="code">recordResults</td><td class="code">false</td>
   <td>If true, the results of every test query will be recorded
   in the results file.</td></tr>
 
-<tr><td>checkResults</td><td>false</td>
+<tr><td class="code">checkResults</td><td class="code">false</td>
   <td>If true, test results will be checked
       against the expected values in the XML test configuration file.
       Mismatches will be recorded as errors.
   </td></tr>
 
-<tr><td>shared</td><td>false</td>
+<tr><td class="code">shared</td><td class="code">false</td>
   <td>If true, one TestList will be shared by all threads.
   In this case, the TestList must implement its own synchronization.
   </td></tr>
 
-<tr><td>testType</td><td>XDBC</td>
+<tr><td class="code">testType</td><td class="code">XDBC</td>
   <td>Type of test to run.
   Supported values are XDBC, HTTP, and URI.
   </td></tr>
 
-<tr><td>reporter</td><td>XMLReporter</td>
+<tr><td class="code">reporter</td><td class="code">XMLReporter</td>
   <td>Pluggable class used to generate results files.
     Supplied implementations are XMLReporter
     and CSVReporter (suitable for Excel imports).
   </td></tr>
 
-<tr><td>testListClass</td>
-  <td>com.marklogic.performance.XMLFileTestList</td>
+<tr><td class="code">testListClass</td>
+  <td class="code">com.marklogic.performance.XMLFileTestList</td>
   <td>Support for pluggable TestList classes,
     which supply test configurations.
     The default value uses the built-in, XML-file test list.
@@ -120,15 +138,15 @@ See src/tests for sample property and XML files.
   </td>
 </tr>
 
-<tr><td>randomSeed</td><td>0</td>
+<tr><td class="code">randomSeed</td><td class="code">0</td>
   <td>Seed for pseudo-random number generator.
     Only useful for random tests.</td></tr>
 
-<tr><td>elementQName</td><td>null</td>
+<tr><td class="code">elementQName</td><td class="note">null</td>
   <td>Element QName for com.marklogic.performance.ElementWordTestList class.
     Only used when testListClass is set to use ElementWordTestList.</td></tr>
 
-<tr><td>readSize</td><td>0</td>
+<tr><td class="code">readSize</td><td class="code">32768</td>
   <td>buffer size, in Bytes, for network and file reads.</td></tr>
 
 </table>

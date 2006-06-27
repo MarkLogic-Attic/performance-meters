@@ -43,10 +43,10 @@ class OffsetTestIterator extends AbstractTestIterator {
         if (cursor == totalTests) {
             cursor = 0;
             testsCount++;
-            return (TestInterface) (tests.get(cursor));
+            return (tests.get(cursor));
         }
         testsCount++;
-        return (TestInterface) (tests.get(cursor++));
+        return tests.get(cursor++);
     }
     
     public void reset() {

@@ -110,7 +110,7 @@ class CSVReporter extends AbstractReporter {
         String rv = fieldValue;
         // check for embedded double-quotes and double-escape
         if (rv.indexOf('"') > -1) {
-            rv = rv.replace("\"", "\"\"");
+            rv = rv.replaceAll("\"", "\"\"");
         }
         matcher = multilineWhitespace.matcher(rv);
         if (matcher.matches()) {

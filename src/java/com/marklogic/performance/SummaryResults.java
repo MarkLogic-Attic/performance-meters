@@ -124,7 +124,7 @@ public class SummaryResults {
         Sampler sampler;
         long min, max;
         for (int i = 0; i < samplers.length; i++) {
-            sampler = (Sampler) samplers[i];
+            sampler = samplers[i];
             numberOfTests += sampler.getResultsCount();
             numberOfErrors += sampler.getErrorCount();
             min = sampler.getMinDurationMillis();
@@ -141,9 +141,9 @@ public class SummaryResults {
         avgMillis = totalMillis / numberOfTests;
 
         // gather throughput, in tps and bps
-        testsPerSecond = (((double) numberOfTests) / ((double) durationMillis))
-                * (double) 1000;
-        bytesPerSecond = (1000 * (bytesSent + bytesReceived)) / durationMillis;
+        testsPerSecond = (((double) numberOfTests) / ((double) durationMillis)) * 1000;
+        bytesPerSecond = (1000 * (bytesSent + bytesReceived))
+                / durationMillis;
 
         // gather configuration information
         numberOfThreads = _config.getNumThreads();
@@ -175,23 +175,23 @@ public class SummaryResults {
         double size = events.size();
         Comparator c = new ResultDurationComparator();
         Collections.sort(events, c);
-        int pidx = (int) ((double) reportPercentileDuration * (double) size * (double) .01);
+        int pidx = (int) (reportPercentileDuration * size * .01);
         return ((Result) events.get(pidx)).getDuration();
     }
 
     public String[] getFieldNames() {
         if (reportPercentileDuration > 0) {
-            return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS, NUMBER_OF_THREADS,
-                    MINIMUM_MS, MAXIMUM_MS, AVERAGE_MS, TOTAL_MS,
-                    TEST_DURATION_MS, TOTAL_BYTES_SENT, TOTAL_BYTES_RECEIVED,
+            return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS,
+                    NUMBER_OF_THREADS, MINIMUM_MS, MAXIMUM_MS,
+                    AVERAGE_MS, TOTAL_MS, TEST_DURATION_MS,
+                    TOTAL_BYTES_SENT, TOTAL_BYTES_RECEIVED,
                     TESTS_PER_SECOND, BYTES_PER_SECOND,
                     PERCENTILE_DURATION + reportPercentileDuration };
-        } else {
-            return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS, NUMBER_OF_THREADS,
-                    MINIMUM_MS, MAXIMUM_MS, AVERAGE_MS, TOTAL_MS,
-                    TEST_DURATION_MS, TOTAL_BYTES_SENT, TOTAL_BYTES_RECEIVED,
-                    TESTS_PER_SECOND, BYTES_PER_SECOND };
         }
+        return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS,
+                NUMBER_OF_THREADS, MINIMUM_MS, MAXIMUM_MS, AVERAGE_MS,
+                TOTAL_MS, TEST_DURATION_MS, TOTAL_BYTES_SENT,
+                TOTAL_BYTES_RECEIVED, TESTS_PER_SECOND, BYTES_PER_SECOND };
     }
 
     /**
@@ -242,7 +242,8 @@ public class SummaryResults {
             return "" + getPercentileDuration();
         }
 
-        throw new UnknownResultFieldException("unknown result field: " + _field);
+        throw new UnknownResultFieldException("unknown result field: "
+                + _field);
     }
 
     /**

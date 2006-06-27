@@ -72,15 +72,14 @@ public class ElementWordTest extends AbstractTest {
      * 
      * @see com.marklogic.performance.TestInterface#getQuery()
      */
-    public String getQuery() throws IOException {
+    public String getQuery() {
         return "cts:search(//" + elementQName + ", '" + getNextValue() + "')";
     }
 
     /**
      * @return
-     * @throws IOException
      */
-    private String getNextValue() throws IOException {
+    private String getNextValue() {
         if (wordsIndex >= words.length) {
             wordsIndex = 0;
         }

@@ -18,8 +18,8 @@
  */
 package com.marklogic.performance;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
 
 import com.marklogic.xdbc.XDBCException;
 import com.marklogic.xdbc.XDBCResultSequence;
@@ -27,7 +27,10 @@ import com.marklogic.xdbc.XDBCStatement;
 import com.marklogic.xdmp.XDMPConnection;
 
 class XDBCSampler extends Sampler {
-
+    
+    // use char instead of superclass byte
+    char[] readBuffer = new char[READSIZE];
+    
     /**
      * @param ti
      * @param cfg
@@ -54,7 +57,6 @@ class XDBCSampler extends Sampler {
         }
 
         Result res = new Result(test.getName(), test.getCommentExpectedResult());
-        char[] readBuffer = new char[READSIZE];
         StringBuffer resultsBuffer = new StringBuffer();
         XDBCResultSequence resultSeq = null;
         // do some work
@@ -65,15 +67,16 @@ class XDBCSampler extends Sampler {
             throw new SamplerException(e);
         }
         int actual;
-        res.setStart(System.currentTimeMillis());
+        res.setStart();
         XDBCStatement statement = null;
         try {
             statement = conn.createStatement();
             resultSeq = statement.executeQuery(query);
             res.incrementBytesSent(query.length());
             while (resultSeq.hasNext()) {
+                resultSeq.next();
+                Reader buf = resultSeq.getReader();
                 actual = 1;
-                BufferedReader buf = resultSeq.nextReader();
                 while (actual > 0) {
                     actual = buf.read(readBuffer);
                     if (actual > 0) {
@@ -109,7 +112,7 @@ class XDBCSampler extends Sampler {
                 res.setQueryResult(errorMessage);
             }
         }
-        res.setEnd(System.currentTimeMillis());
+        res.setEnd();
         try {
             if (resultSeq != null && !resultSeq.isClosed()) {
                 resultSeq.close();

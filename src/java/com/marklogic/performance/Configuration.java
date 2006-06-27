@@ -52,6 +52,8 @@ public class Configuration {
 
     private static final String ELEMENTQNAME_KEY = "elementQName";
 
+    public static final int DEFAULT_READSIZE = 32 * 1024;
+
     private String[] host;
 
     private int port;
@@ -87,7 +89,7 @@ public class Configuration {
 
     private boolean isTimedTest = false;
 
-    private int readSize;
+    private int readSize = DEFAULT_READSIZE;
 
     private long testTime;
 
@@ -133,7 +135,7 @@ public class Configuration {
 
         password = props.getProperty("password", DEFAULT_PASSWORD);
 
-        readSize = Integer.parseInt(props.getProperty("readSize", "0"));
+        readSize = Integer.parseInt(props.getProperty("readSize", "" + DEFAULT_READSIZE));
 
         inputPath = props.getProperty("inputPath");
 
@@ -227,7 +229,7 @@ public class Configuration {
     }
 
     public String configString() {
-        return "-Dhost=" + host + " -Dport=" + port + " -Duser=" + user
+        return "-Dhost=" + host[0] + " -Dport=" + port + " -Duser=" + user
                 + " -Dpassword=" + password + " -DinputPath=" + inputPath
                 + " -DoutputPath=" + outputPath + " -DnumThreads=" + numThreads
                 + " -Dshared=" + shared + " -DreportTime=" + reportTime

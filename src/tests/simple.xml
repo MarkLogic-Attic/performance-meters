@@ -1,7 +1,7 @@
 <h:script xmlns:h="http://marklogic.com/xdmp/harness">
   <h:test>
 	<h:name>simple test 1</h:name>
-	<h:comment-expected-result>"hello world"</h:comment-expected-result>
+	<h:comment-expected-result>hello world</h:comment-expected-result>
 	<h:set-up/>
 	<h:query>"hello world"</h:query>
 	<h:tear-down/>
@@ -15,7 +15,7 @@
   </h:test>
   <h:test>
 	<h:name>simple test 3</h:name>
-	<h:comment-expected-result>0</h:comment-expected-result>
+	<h:comment-expected-result>4</h:comment-expected-result>
 	<h:set-up/>
 	<h:query>xdmp:estimate(doc())</h:query>
 	<h:tear-down/>

@@ -28,8 +28,6 @@ import java.net.URLConnection;
 
 class URISampler extends Sampler {
 
-    byte[] readBuffer = new byte[READSIZE];
-
     public final static String AUTO_REDIRECTS = "HTTPSampler.auto_redirects";
 
     URISampler(TestIterator ti, Configuration cfg) {
@@ -46,7 +44,6 @@ class URISampler extends Sampler {
 
         // using keepalive
         conn.setRequestProperty("Connection", "keep-alive");
-        // setConnectionAuthorization(conn, u, getAuthManager());
         String authHeader = "Basic "
                 + Base64Encoder.encode(config.getUser() + ":"
                         + config.getPassword());
@@ -95,7 +92,7 @@ class URISampler extends Sampler {
     protected Result sample(TestInterface test) throws SamplerException {
         Result res = new Result(test.getName(), test.getCommentExpectedResult());
         byte[] responseData = null;
-        res.setStart(System.currentTimeMillis());
+        res.setStart();
         // do some work
         String url;
         try {
@@ -121,7 +118,7 @@ class URISampler extends Sampler {
                 res.setQueryResult(new String(responseData));
             }
         }
-        res.setEnd(System.currentTimeMillis());
+        res.setEnd();
         return res;
     }
 

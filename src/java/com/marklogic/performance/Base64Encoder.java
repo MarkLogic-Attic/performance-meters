@@ -34,6 +34,7 @@ public final class Base64Encoder {
 	 * Private constructor to prevent instantiation.
 	 */
 	private Base64Encoder() {
+        // cannot instantiate
 	}
 
 	public final static String encode(String s) {
