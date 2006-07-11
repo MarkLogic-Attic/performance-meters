@@ -304,6 +304,13 @@ public class Configuration {
     /**
      * @return
      */
+    public boolean isXCC() {
+        return testType.compareToIgnoreCase("XCC") == 0;
+    }
+
+    /**
+     * @return
+     */
     public String getReporterClassName() {
         return reporterClassName;
     }

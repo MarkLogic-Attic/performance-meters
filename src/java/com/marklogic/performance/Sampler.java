@@ -18,6 +18,7 @@
  */
 package com.marklogic.performance;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -44,11 +45,11 @@ abstract class Sampler implements Runnable {
     boolean recordResults = Configuration.DEFAULT_RECORDRESULTS;
 
     boolean reportTime = Configuration.DEFAULT_REPORTTIME;
-    
+
     boolean checkResults = Configuration.DEFAULT_CHECKRESULTS;
 
     String user = Configuration.DEFAULT_USER;
-    
+
     String password = Configuration.DEFAULT_PASSWORD;
 
     String host = Configuration.DEFAULT_HOST;
@@ -116,21 +117,22 @@ abstract class Sampler implements Runnable {
                 if (config.isTimedTest()) {
                     testIterator.reset();
                     if (!testIterator.hasNext()) {
-                        throw new SamplerException("reset did not work for "
-                                + testIterator);
+                        throw new SamplerException(
+                                "reset did not work for " + testIterator);
                     }
                 } else {
                     // exit the loop
                     break;
                 }
             }
-        } catch (SamplerException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
         }
     }
 
-    protected abstract Result sample(TestInterface test) throws SamplerException;
+    protected abstract Result sample(TestInterface test)
+            throws IOException;
 
     void printResults() {
         System.out.println(results.size());

@@ -66,7 +66,8 @@ class URISampler extends Sampler {
         out.flush();
     }
 
-    private byte[] readResponse(HttpURLConnection conn) throws IOException {
+    private byte[] readResponse(HttpURLConnection conn)
+            throws IOException {
         BufferedInputStream in;
         try {
             in = new BufferedInputStream(conn.getInputStream());
@@ -89,17 +90,14 @@ class URISampler extends Sampler {
         return w.toByteArray();
     }
 
-    protected Result sample(TestInterface test) throws SamplerException {
-        Result res = new Result(test.getName(), test.getCommentExpectedResult());
+    protected Result sample(TestInterface test) throws IOException {
+        Result res = new Result(test.getName(), test
+                .getCommentExpectedResult());
         byte[] responseData = null;
         res.setStart();
         // do some work
-        String url;
-        try {
-            url = test.getQuery();
-        } catch (IOException e) {
-            throw new SamplerException(e);
-        }
+        String url = test.getQuery();
+
         try {
             HttpURLConnection conn = setupConnection(res, url);
             // send post data

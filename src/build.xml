@@ -9,10 +9,12 @@
 
     <path id="master-classpath">
         <fileset dir="${java.library.user}">
+            <include name="xcc.jar"/>
             <include name="xdbc.jar"/>
             <include name="xdmp.jar"/>
         </fileset>
         <fileset dir="${java.library.system}">
+            <include name="xcc.jar"/>
             <include name="xdbc.jar"/>
             <include name="xdmp.jar"/>
         </fileset>

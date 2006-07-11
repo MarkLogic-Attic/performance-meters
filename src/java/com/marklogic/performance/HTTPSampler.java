@@ -92,17 +92,14 @@ class HTTPSampler extends Sampler {
         return w.toByteArray();
     }
 
-    protected Result sample(TestInterface test) throws SamplerException {
+    protected Result sample(TestInterface test) throws IOException {
         Result res = new Result(test.getName(), test.getCommentExpectedResult());
         byte[] responseData = null;
         res.setStart();
+
         // do some work
-        String query;
-        try {
-            query = test.getQuery();
-        } catch (IOException e) {
-            throw new SamplerException(e);
-        }
+        String query = test.getQuery();
+
         try {
             String urlEncoded = URLEncoder.encode(query, ENCODING);
             HttpURLConnection conn = setupConnection(res, urlEncoded);
