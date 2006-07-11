@@ -57,57 +57,24 @@ See <a href="src/tests/">src/tests</a> for sample property and XML files.
 </p>
 
 <h2>Required libraries:</h2>
-<p>If you aren't testing XDBC or XCC, you may not need these libraries.
+<p>Note that if you aren't planning to use XCC,
+you may not need the library.
+</p>
+<ul>
+  <li>MarkLogic <a href="http://developer.marklogic.com/">XCC</a></li>
+</ul>
+
+<h2>Optional libraries:</h2>
+<p>If you wish to test using the XDBC test-type,
+you need the XDBC libraries.
 </p>
 <ul>
   <li>MarkLogic <a href="http://developer.marklogic.com/">XDBC</a></li>
-  <li>MarkLogic <a href="http://developer.marklogic.com/">XCC</a></li>
 </ul>
 
 <h2>Available properties:</h2>
 <table>
 <tr><th>Property</th><th>default value</th><th>notes</th></tr>
-
-<tr><td class="code">host</td><td class="code">localhost</td>
-  <td>host id for all test connections.</td></tr>
-
-<tr><td class="code">port</td><td class="code">8003</td>
-  <td>host id for all test connections.</td></tr>
-
-<tr><td class="code">user</td><td class="code">admin</td>
-  <td>username for all test connections.</td></tr>
-
-<tr><td class="code">password</td><td class="code">admin</td>
-  <td>password for all test connections.</td></tr>
-
-<tr><td class="code">inputPath</td><td class="note">null</td>
-  <td>filesystem path to XML configuration file.</td></tr>
-
-<tr><td class="code">outputPath</td><td class="note">null</td>
-  <td>filesystem path to directory where results will be written.</td></tr>
-
-<tr><td class="code">numThreads</td><td class="code">1</td>
-  <td>number of concurrent test threads.</td></tr>
-
-<tr><td class="code">reportTime</td><td class="code">true</td>
-  <td>If true, query timings will be reported in the results file.</td></tr>
-
-<tr><td class="code">reportPercentileDuration</td><td class="code">0</td>
-  <td>If non-zero, the ms for the stated percentile of test durations
-  will be reported. Common values are 95 and 98.</td></tr>
-
-<tr><td class="code">testTime</td>
-  <td class="note">Long.MAX_VALUE (2^63 - 1)</td>
-  <td>Test duration, in seconds.</td></tr>
-
-<tr><td class="code">isRandomTest</td><td class="code">false</td>
-  <td>If true, the TestList will be shuffled at random.
-  In this case, randomSeed may also be set.
-  </td></tr>
-
-<tr><td class="code">recordResults</td><td class="code">false</td>
-  <td>If true, the results of every test query will be recorded
-  in the results file.</td></tr>
 
 <tr><td class="code">checkResults</td><td class="code">false</td>
   <td>If true, test results will be checked
@@ -115,20 +82,95 @@ See <a href="src/tests/">src/tests</a> for sample property and XML files.
       Mismatches will be recorded as errors.
   </td></tr>
 
-<tr><td class="code">shared</td><td class="code">false</td>
-  <td>If true, one TestList will be shared by all threads.
-  In this case, the TestList must implement its own synchronization.
+<tr><td class="code">elementQName</td><td class="note">null</td>
+  <td>Element QName for com.marklogic.performance.ElementWordTestList class.
+    Only used when testListClass is set to use ElementWordTestList.</td></tr>
+
+<tr><td class="code">host</td><td class="code">localhost</td>
+  <td>Host name for all test connections.
+    This must be an instance of MarkLogic Server.
   </td></tr>
 
-<tr><td class="code">testType</td><td class="code">XDBC</td>
-  <td>Type of test to run.
-  Supported values are XCC, XDBC, HTTP, and URI.
+<tr><td class="code">isRandomTest</td><td class="code">false</td>
+  <td>If true, the TestList will be shuffled at random.
+    In this case, <code>randomSeed</code> may also be set.
+    Note that this property is ignored
+    unless <code>testTime</code> is greater than 0.
   </td></tr>
+
+<tr><td class="code">inputPath</td><td class="note">null</td>
+  <td><b>Required</b>:
+    filesystem path to XML configuration file.
+    There is no default, and this property must be supplied.
+  </td></tr>
+
+<tr><td class="code">numThreads</td><td class="code">1</td>
+  <td>Number of concurrent test threads.
+    Each thread will run all of the available tests,
+    unless the <code>shared</code> property is set.
+  </td></tr>
+
+<tr><td class="code">outputPath</td><td class="note">null</td>
+  <td>Filesystem path to directory where results will be written.
+    By default, the current working directory is used.
+  </td></tr>
+
+<tr><td class="code">password</td><td class="code">admin</td>
+  <td>Password for all test connections.</td></tr>
+
+<tr><td class="code">port</td><td class="code">8003</td>
+  <td>Host port for all test connections.
+    Depending on the value of <code>testType</code>,
+    this may be an XDBC or an HTTP server.
+  </td></tr>
+
+<tr><td class="code">randomSeed</td><td class="code">0</td>
+  <td>Seed for pseudo-random number generator.
+    Only useful for random tests.</td></tr>
+
+<tr><td class="code">readSize</td><td class="code">32768</td>
+  <td>The buffer size, in Bytes, for network and file reads.
+    There is rarely any reason to change this value.
+  </td></tr>
+
+<tr><td class="code">recordResults</td><td class="code">false</td>
+  <td>If true, the results of every test query will be recorded
+  in the results file.</td></tr>
 
 <tr><td class="code">reporter</td><td class="code">XMLReporter</td>
   <td>Pluggable class used to generate results files.
     Supplied implementations are XMLReporter
     and CSVReporter (suitable for Excel imports).
+  </td></tr>
+
+<tr><td class="code">reportTime</td><td class="code">true</td>
+  <td>If true, query timings will be reported in the results file.
+    If PerformanceMeters is being used for non-performance QA,
+    this property may be set to false.
+  </td>
+</tr>
+
+<tr><td class="code">reportPercentileDuration</td><td class="code">0</td>
+  <td>If non-zero, the ms for the stated percentile of test durations
+  will be reported. Common values are 95 and 98.</td></tr>
+
+<tr><td class="code">shared</td><td class="code">false</td>
+  <td>If true, one TestList will be shared by all threads.
+  In this case, the TestList must implement its own synchronization.
+  </td></tr>
+
+<tr><td class="code">testTime</td>
+  <td class="note">0</td>
+  <td>
+    If set to a positive value, then the test will be run until
+    at least <code>testTime</code> seconds have passed.
+    If the value is less than 1, then the test is not a timed test.
+    Instead, the available tests will be run only once.
+  </td></tr>
+
+<tr><td class="code">testType</td><td class="code">XCC</td>
+  <td>Type of test to run (case-insensitive).
+  Supported values are XCC, XDBC, HTTP, and URI.
   </td></tr>
 
 <tr><td class="code">testListClass</td>
@@ -141,16 +183,8 @@ See <a href="src/tests/">src/tests</a> for sample property and XML files.
   </td>
 </tr>
 
-<tr><td class="code">randomSeed</td><td class="code">0</td>
-  <td>Seed for pseudo-random number generator.
-    Only useful for random tests.</td></tr>
-
-<tr><td class="code">elementQName</td><td class="note">null</td>
-  <td>Element QName for com.marklogic.performance.ElementWordTestList class.
-    Only used when testListClass is set to use ElementWordTestList.</td></tr>
-
-<tr><td class="code">readSize</td><td class="code">32768</td>
-  <td>buffer size, in Bytes, for network and file reads.</td></tr>
+<tr><td class="code">user</td><td class="code">admin</td>
+  <td>Username for all test connections.</td></tr>
 
 </table>
 </body>

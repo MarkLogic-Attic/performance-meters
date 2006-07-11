@@ -71,10 +71,8 @@ class XDBCSampler extends Sampler {
             resultSeq = statement.executeQuery(query);
             res.incrementBytesSent(query.length());
             while (resultSeq.hasNext()) {
-                resultSeq.next();
-                Reader buf = resultSeq.getReader();
-                actual = 1;
-                while (actual > 0) {
+                Reader buf = resultSeq.nextReader();
+                do {
                     actual = buf.read(readBuffer);
                     if (actual > 0) {
                         res.incrementBytesReceived(actual);
@@ -82,7 +80,7 @@ class XDBCSampler extends Sampler {
                             resultsBuffer.append(readBuffer, 0, actual);
                         }
                     }
-                }
+                } while (actual < 1);
             }
 
             // add the textual result to the results object,

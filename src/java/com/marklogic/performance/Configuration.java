@@ -40,7 +40,7 @@ public class Configuration {
 
     public static final long DEFAULT_RANDOMSEED = 0;
 
-    private static final long DEFAULT_TESTTIME = Long.MAX_VALUE;
+    private static final long DEFAULT_TESTTIME = 0;
 
     public static final boolean DEFAULT_CHECKRESULTS = false;
 
@@ -48,7 +48,8 @@ public class Configuration {
 
     private static final String TESTLISTCLASS_KEY = "testListClass";
 
-    private static final String DEFAULT_TESTLISTCLASS = XMLFileTestList.class.getName();
+    private static final String DEFAULT_TESTLISTCLASS = XMLFileTestList.class
+            .getName();
 
     private static final String ELEMENTQNAME_KEY = "elementQName";
 
@@ -120,31 +121,35 @@ public class Configuration {
      */
     public void load(Properties _props) {
         // fill in the config from the supplied properties object:
-        // allow it to override any existing properties 
+        // allow it to override any existing properties
         props.putAll(_props);
-        
+
         // we support multiple hosts, but they must all be on the same port:
         // this would be easier with multiple connection strings...
         String hostString = props.getProperty("host", DEFAULT_HOST);
         host = hostString.split("\\s+");
 
         // TODO wouldn't a connection-string be simpler? support both?
-        port = Integer.parseInt(props.getProperty("port", "" + DEFAULT_PORT));
+        port = Integer.parseInt(props.getProperty("port", ""
+                + DEFAULT_PORT));
 
         user = props.getProperty("user", DEFAULT_USER);
 
         password = props.getProperty("password", DEFAULT_PASSWORD);
 
-        readSize = Integer.parseInt(props.getProperty("readSize", "" + DEFAULT_READSIZE));
+        readSize = Integer.parseInt(props.getProperty("readSize", ""
+                + DEFAULT_READSIZE));
 
         inputPath = props.getProperty("inputPath");
 
         // default to cwd for output files
         outputPath = props.getProperty("outputPath", "");
 
-        numThreads = Integer.parseInt(props.getProperty("numThreads", "1"));
+        numThreads = Integer.parseInt(props
+                .getProperty("numThreads", "1"));
 
-        reportTime = Boolean.valueOf(props.getProperty("reportTime", "" + DEFAULT_REPORTTIME))
+        reportTime = Boolean.valueOf(
+                props.getProperty("reportTime", "" + DEFAULT_REPORTTIME))
                 .booleanValue();
 
         reportPercentileDuration = Integer.parseInt(props.getProperty(
@@ -153,10 +158,11 @@ public class Configuration {
         testTime = Long.parseLong(props.getProperty("testTime", ""
                 + DEFAULT_TESTTIME));
 
-        isTimedTest = (testTime != DEFAULT_TESTTIME);
+        isTimedTest = (testTime > 0);
 
         isRandomTest = Boolean.valueOf(
-                props.getProperty("isRandomTest", "false")).booleanValue();
+                props.getProperty("isRandomTest", "false"))
+                .booleanValue();
 
         // for backward compatibility
         recordResults = Boolean.valueOf(
@@ -165,8 +171,8 @@ public class Configuration {
                 .booleanValue();
 
         checkResults = Boolean.valueOf(
-                props.getProperty("checkResults", "" + DEFAULT_CHECKRESULTS))
-                .booleanValue();
+                props.getProperty("checkResults", ""
+                        + DEFAULT_CHECKRESULTS)).booleanValue();
 
         if (checkResults && !recordResults) {
             // this doesn't make any sense, so don't honor it
@@ -180,13 +186,20 @@ public class Configuration {
                 props.getProperty("shared", "" + DEFAULT_SHARED))
                 .booleanValue();
 
-        testType = props.getProperty("testType", "XDBC");
-        if (isXDBC()
-                && numThreads > XDMPConnection.getMaxOpenDocInsertStreams()) {
-            XDMPConnection.setMaxOpenDocInsertStreams(numThreads);
+        testType = props.getProperty("testType", "XCC");
+
+        if (isXCC()) {
+            // TODO tune XCC limits?
         }
-        if (isXDBC() && numThreads > XDMPConnection.getMaxOpenResultSequences()) {
-            XDMPConnection.setMaxOpenResultSequences(numThreads);
+
+        if (isXDBC()) {
+            // tune XDBC limits
+            if (numThreads > XDMPConnection.getMaxOpenDocInsertStreams()) {
+                XDMPConnection.setMaxOpenDocInsertStreams(numThreads);
+            }
+            if (numThreads > XDMPConnection.getMaxOpenResultSequences()) {
+                XDMPConnection.setMaxOpenResultSequences(numThreads);
+            }
         }
 
         reporterClassName = props.getProperty("reporter", "XMLReporter");
@@ -194,26 +207,33 @@ public class Configuration {
 
         if (reporterClassName.indexOf('.') < 1) {
             // prepend this class's package name
-            reporterClassName = Configuration.class.getPackage().getName()
+            reporterClassName = Configuration.class.getPackage()
+                    .getName()
                     + "." + reporterClassName;
         }
-        
-        testListClassName = props.getProperty(TESTLISTCLASS_KEY, DEFAULT_TESTLISTCLASS);
+
+        testListClassName = props.getProperty(TESTLISTCLASS_KEY,
+                DEFAULT_TESTLISTCLASS);
         // System.err.println("testListClassName = " + testListClassName);
         if (testListClassName.indexOf('.') < 1) {
             // prepend this class's package name
-            testListClassName = Configuration.class.getPackage().getName()
+            testListClassName = Configuration.class.getPackage()
+                    .getName()
                     + "." + testListClassName;
         }
 
         randomSeed = Long.parseLong(props.getProperty("randomSeed", ""
                 + DEFAULT_RANDOMSEED));
-        if (randomSeed != DEFAULT_RANDOMSEED && !(isTimedTest && isRandomTest)) {
+        if (randomSeed != DEFAULT_RANDOMSEED
+                && !(isTimedTest && isRandomTest)) {
             // this doesn't make any sense, so don't honor it
             System.err
                     .println("WARNING: tried to set randomSeed with timedTest="
-                            + isTimedTest + ", randomTest=" + isRandomTest
-                            + "!\n" + "WARNING: turning off randomSeed!");
+                            + isTimedTest
+                            + ", randomTest="
+                            + isRandomTest
+                            + "!\n"
+                            + "WARNING: turning off randomSeed!");
             randomSeed = DEFAULT_RANDOMSEED;
         }
 
@@ -223,18 +243,18 @@ public class Configuration {
             random = new Random();
             random.setSeed(randomSeed);
         }
-        
+
         // no default value
         elementQName = props.getProperty(ELEMENTQNAME_KEY);
     }
 
     public String configString() {
-        return "-Dhost=" + host[0] + " -Dport=" + port + " -Duser=" + user
-                + " -Dpassword=" + password + " -DinputPath=" + inputPath
-                + " -DoutputPath=" + outputPath + " -DnumThreads=" + numThreads
-                + " -Dshared=" + shared + " -DreportTime=" + reportTime
-                + " -DrecordResults=" + recordResults + " -DtestType="
-                + testType;
+        return "-Dhost=" + host[0] + " -Dport=" + port + " -Duser="
+                + user + " -Dpassword=" + password + " -DinputPath="
+                + inputPath + " -DoutputPath=" + outputPath
+                + " -DnumThreads=" + numThreads + " -Dshared=" + shared
+                + " -DreportTime=" + reportTime + " -DrecordResults="
+                + recordResults + " -DtestType=" + testType;
     }
 
     String getHost() {

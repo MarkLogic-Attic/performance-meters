@@ -105,9 +105,7 @@ abstract class Sampler implements Runnable {
         // not timed test: run once
         long startTime = System.currentTimeMillis();
         try {
-            while (!config.isTimedTest()
-                    || (config.getTestTimeMillis()
-                            - (System.currentTimeMillis() - startTime) > 0)) {
+            while (true) {
                 if (random != null) {
                     testIterator.shuffle(random);
                 }
@@ -115,13 +113,18 @@ abstract class Sampler implements Runnable {
                     results.add(sample(testIterator.next()));
                 }
                 if (config.isTimedTest()) {
+                    if (config.getTestTimeMillis() <
+                            System.currentTimeMillis() - startTime) {
+                        // end of the timed test
+                        break;
+                    }
                     testIterator.reset();
                     if (!testIterator.hasNext()) {
                         throw new SamplerException(
                                 "reset did not work for " + testIterator);
                     }
                 } else {
-                    // exit the loop
+                    // no more tests to run: exit the loop
                     break;
                 }
             }

@@ -40,7 +40,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-07-11.1";
+    private static final String VERSION = "2006-07-11.2";
 
     private Configuration config;
 
@@ -143,8 +143,11 @@ public class PerformanceMeters {
                 sampler = new URISampler(ti, config);
             } else if (config.isXCC()) {
                 sampler = new XCCSampler(ti, config);
-            } else {
+            } else if (config.isXDBC()) {
                 sampler = new XDBCSampler(ti, config);
+            } else {
+                // default to XCC
+                sampler = new XCCSampler(ti, config);
             }
             sampler.setIndex(i);
 

@@ -74,8 +74,7 @@ class XCCSampler extends Sampler {
             while (rs.hasNext()) {
                 item = rs.next();
                 Reader buf = item.asReader();
-                actual = 1;
-                while (actual > 0) {
+                do {
                     actual = buf.read(readBuffer);
                     if (actual > 0) {
                         testResult.incrementBytesReceived(actual);
@@ -83,7 +82,7 @@ class XCCSampler extends Sampler {
                             resultsBuffer.append(readBuffer, 0, actual);
                         }
                     }
-                }
+                } while (actual > 0);
             }
             rs.close();
             sess.close();
