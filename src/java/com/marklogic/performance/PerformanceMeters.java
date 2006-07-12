@@ -40,7 +40,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-07-11.2";
+    private static final String VERSION = "2006-07-12.1";
 
     private Configuration config;
 

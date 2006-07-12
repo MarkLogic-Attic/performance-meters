@@ -32,13 +32,18 @@ class XMLFileTest extends AbstractTest {
         if ((t == null) || (t.getNodeType() != org.w3c.dom.Node.ELEMENT_NODE))
             return null;
         NodeList children = t.getChildNodes();
-        String text = "";
+        StringBuffer text = new StringBuffer();
         for (int c = 0; c < children.getLength(); c++) {
             Node child = children.item(c);
-            if (child.getNodeType() == org.w3c.dom.Node.TEXT_NODE)
-                text += child.getNodeValue();
+            short nodeType = child.getNodeType();
+            if (nodeType == Node.TEXT_NODE) {
+                text.append(child.getNodeValue());
+            } else if (nodeType == Node.CDATA_SECTION_NODE) {
+                text.append(child.getNodeValue());
+            }
+            // otherwise we ignore it...
         }
-        return text;
+        return text.toString();
     }
 
     public XMLFileTest(Node node) {
