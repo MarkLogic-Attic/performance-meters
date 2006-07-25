@@ -150,9 +150,22 @@ you need the XDBC libraries.
   </td>
 </tr>
 
-<tr><td class="code">reportPercentileDuration</td><td class="code">0</td>
-  <td>If non-zero, the ms for the stated percentile of test durations
-  will be reported. Common values are 95 and 98.</td></tr>
+<tr><td class="code">reportPercentileDuration</td><td class="code">null</td>
+  <td>If non-null, one or more percentiles of (millisecond) test durations
+  will be reported. These values may be comma-delimited:
+    for example, <code>reportPercentileDuration=95,98</code>
+    will report the 95th-percentile
+    and 98th-percentile response times.
+    Common values are 95 and 98.
+  </td></tr>
+
+<tr><td class="code">reportStandardDeviation</td><td class="code">false</td>
+  <td>If true, the standard deviation of test durations
+  will be reported, in milliseconds. The calculation is performed
+    per wikipedia's article on
+    <a href="http://en.wikipedia.org/wiki/Standard_deviation">
+    standard deviation</a>.
+  </td></tr>
 
 <tr><td class="code">shared</td><td class="code">false</td>
   <td>If true, one TestList will be shared by all threads.

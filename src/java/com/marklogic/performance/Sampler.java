@@ -63,7 +63,7 @@ abstract class Sampler implements Runnable {
         config = cfg;
         // cache this stuff in case there's synchronization
         recordResults = config.getRecordResults();
-        reportTime = config.getReportTime();
+        reportTime = config.isReportTime();
         checkResults = config.checkResults();
         user = config.getUser();
         password = config.getPassword();

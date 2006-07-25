@@ -112,10 +112,10 @@ class HTTPSampler extends Sampler {
             String errorMessage = e.getMessage();
             if (errorMessage == null)
                 errorMessage = "NULL";
-            if (!config.getReportTime() || config.getRecordResults())
+            if (!config.isReportTime() || config.getRecordResults())
                 res.setQueryResult(errorMessage);
         } finally {
-            if (!config.getReportTime() || config.getRecordResults()) {
+            if (!config.isReportTime() || config.getRecordResults()) {
                 res.setQueryResult(new String(responseData));
             }
         }

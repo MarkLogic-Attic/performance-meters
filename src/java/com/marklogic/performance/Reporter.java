@@ -37,6 +37,7 @@ interface Reporter {
 
     /**
      * Preferred file extension, which includes the dot.
+     * 
      * @return
      */
     String getPreferredFileExtension();

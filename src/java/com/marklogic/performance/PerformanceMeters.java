@@ -40,7 +40,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-07-12.1";
+    private static final String VERSION = "2006-07-25.1";
 
     private Configuration config;
 
@@ -70,18 +70,20 @@ public class PerformanceMeters {
             }
             config.load(props);
         }
-        
+
         showProgress(NAME + " starting, version " + VERSION);
 
         if (debug)
             showProgress(config.configString());
 
         // use reflection to create the reporter, for output
-        Class reporterClass = Class.forName(config.getReporterClassName());
+        Class reporterClass = Class
+                .forName(config.getReporterClassName());
         // System.err.println("reporter class: " + reporterClass.getName());
         Constructor reporterConstructor = reporterClass
                 .getConstructor(new Class[0]);
-        reporter = (Reporter) reporterConstructor.newInstance(new Object[0]);
+        reporter = (Reporter) reporterConstructor
+                .newInstance(new Object[0]);
 
         try {
             PerformanceMeters pm = new PerformanceMeters(config);
@@ -107,7 +109,8 @@ public class PerformanceMeters {
     void initializeTests() throws Exception {
         // this needs to allow for other test types too!
         // use reflection to create a TestList subclass constructor
-        Class testListClass = Class.forName(config.getTestListClassName());
+        Class testListClass = Class
+                .forName(config.getTestListClassName());
         Constructor testListConstructor = testListClass
                 .getConstructor(new Class[0]);
         tests = (TestList) testListConstructor.newInstance(new Object[0]);
@@ -189,29 +192,26 @@ public class PerformanceMeters {
         String outputPath = config.getOutputPath();
         if (outputPath == null || outputPath.equals("")) {
             // generate a unique path, based on time
-            outputPath = NAME + "-"
-                    + System.currentTimeMillis()
+            outputPath = NAME + "-" + System.currentTimeMillis()
                     + reporter.getPreferredFileExtension();
         }
         showProgress("Writing results to " + outputPath);
         FileWriter resultDocument = new FileWriter(outputPath);
-        Sampler[] samplerArray = (Sampler[]) samplers.toArray(new Sampler[0]);
-        SummaryResults summaryResults = new SummaryResults(config, startTime,
-                endTime, samplerArray);
-        if (config.hasReportPercentileDuration()) {
-            summaryResults.setReportPercentileDuration(config
-                    .getReportPercentileDuration());
-        }
+        Sampler[] samplerArray = (Sampler[]) samplers
+                .toArray(new Sampler[0]);
+        SummaryResults summaryResults = new SummaryResults(config,
+                startTime, endTime, samplerArray);
 
         reporter.setSummaryResults(summaryResults);
-        reporter.report(resultDocument, config.getReportTime());
+        reporter.report(resultDocument, config.isReportTime());
         resultDocument.flush();
         resultDocument.close();
 
         // report some generic information
-        if (config.getReportTime()) {
-            System.out.println("Completed " + summaryResults.getNumberOfTests()
-                    + " tests in " + summaryResults.getDurationMillis()
+        if (config.isReportTime()) {
+            System.out.println("Completed "
+                    + summaryResults.getNumberOfTests() + " tests in "
+                    + summaryResults.getDurationMillis()
                     + " milliseconds, with "
                     + summaryResults.getNumberOfErrors() + " errors.");
 
@@ -220,12 +220,25 @@ public class PerformanceMeters {
                     + summaryResults.getMinMillis() + "/"
                     + summaryResults.getMaxMillis() + "/"
                     + summaryResults.getAvgMillis() + " ms");
+            if (config.isReportStandardDeviation()) {
+                // report standard deviation
+                System.out.println("Standard deviation: "
+                        + summaryResults.getStandardDeviation());
+            }
+            // TODO report multiple percentiles
             if (config.hasReportPercentileDuration()) {
-                // report 95% response times
-                int reportPercentile = config.getReportPercentileDuration();
-                System.out.println("Response time (" + reportPercentile
-                        + "th percentile): "
-                        + summaryResults.getPercentileDuration());
+                // report N% response times
+                int[] percentiles = config.getReportPercentileDuration();
+                int reportPercentile;
+                for (int i = 0; i < percentiles.length; i++) {
+                    reportPercentile = percentiles[i];
+                    System.out
+                            .println("Response time ("
+                                    + reportPercentile
+                                    + "th percentile): "
+                                    + summaryResults
+                                            .getPercentileDuration(reportPercentile));
+                }
             }
 
             // report bytes sent, received
@@ -239,12 +252,12 @@ public class PerformanceMeters {
             double tput = summaryResults.getTestsPerSecond();
             int scale = 2;
             System.out.println("Tests per second: "
-                    + new BigDecimal(Double.toString(tput)).setScale(scale,
-                            BigDecimal.ROUND_HALF_EVEN));
+                    + new BigDecimal(Double.toString(tput)).setScale(
+                            scale, BigDecimal.ROUND_HALF_EVEN));
             tput = summaryResults.getBytesPerSecond();
             System.out.println("Average throughput: "
-                    + new BigDecimal(Double.toString(tput)).setScale(scale,
-                            BigDecimal.ROUND_HALF_EVEN) + " B/s");
+                    + new BigDecimal(Double.toString(tput)).setScale(
+                            scale, BigDecimal.ROUND_HALF_EVEN) + " B/s");
         }
 
     }

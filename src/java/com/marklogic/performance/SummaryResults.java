@@ -21,13 +21,17 @@ package com.marklogic.performance;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Vector;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
 public class SummaryResults {
+
+    private static final String STANDARD_DEVIATION = "standard-deviation";
 
     /**
      * actual number will be appended to the field name
@@ -110,9 +114,15 @@ public class SummaryResults {
 
     private Sampler[] samplers;
 
-    private int reportPercentileDuration = 0;
-
     private int numberOfThreads = 1;
+
+    private String[] fields;
+
+    private int[] reportPercentilesArray;
+
+    private boolean reportStandardDeviation;
+
+    private List sortedResults;
 
     public SummaryResults(Configuration _config, long startMillis,
             long endMillis, Sampler[] _samplers) {
@@ -147,51 +157,104 @@ public class SummaryResults {
 
         // gather configuration information
         numberOfThreads = _config.getNumThreads();
+
+        // reporting flags
+        reportStandardDeviation = _config.isReportStandardDeviation();
+        reportPercentilesArray = _config.getReportPercentileDuration();
     }
 
-    public void setReportPercentileDuration(int p) {
-        reportPercentileDuration = p;
+    private void loadSortedResults() {
+        sortedResults = new ArrayList();
+        for (int i = 0; i < samplers.length; i++) {
+            // results are a List of Test objects
+            sortedResults.addAll(samplers[i].getResults());
+        }
+
+        Comparator c = new ResultDurationComparator();
+        Collections.sort(sortedResults, c);
     }
 
     /**
      * implement percentiles
      * 
+     * @param percentile
+     * 
      * @return
      */
-    public long getPercentileDuration() {
-        if (reportPercentileDuration < 1)
+    public long getPercentileDuration(int percentile) {
+        if (percentile < 1)
             return 0;
 
         if (samplers.length < 1)
             return 0;
 
-        // we need a list of all the Result timings from every Sampler
-        List events = new ArrayList();
-        for (int i = 0; i < samplers.length; i++) {
-            // results are a List of Test objects
-            events.addAll(samplers[i].getResults());
+        if (sortedResults == null) {
+            loadSortedResults();
         }
 
-        double size = events.size();
-        Comparator c = new ResultDurationComparator();
-        Collections.sort(events, c);
-        int pidx = (int) (reportPercentileDuration * size * .01);
-        return ((Result) events.get(pidx)).getDuration();
+        double size = sortedResults.size();
+
+        int pidx = (int) (percentile * size * .01);
+        if (pidx > size - 1) {
+            pidx = (int) (size - 1);
+        }
+        return ((Result) sortedResults.get(pidx)).getDuration();
+    }
+
+    /**
+     * @see http://en.wikipedia.org/wiki/Standard_deviation
+     * @return
+     */
+    double getStandardDeviation() {
+        if (samplers.length < 1)
+            return 0;
+
+        if (sortedResults == null) {
+            loadSortedResults();
+        }
+
+        // iterate through the results from all the results
+        Iterator iter = sortedResults.iterator();
+        Result result;
+        double mean = getAvgMillis();
+        double sumOfSquares = 0;
+        while (iter.hasNext()) {
+            result = (Result) iter.next();
+            sumOfSquares += Math.pow(result.getDuration() - mean, 2);
+        }
+        double n = getNumberOfTests();
+        double sdev = Math.sqrt(sumOfSquares / n);
+        return sdev;
     }
 
     public String[] getFieldNames() {
-        if (reportPercentileDuration > 0) {
-            return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS,
-                    NUMBER_OF_THREADS, MINIMUM_MS, MAXIMUM_MS,
-                    AVERAGE_MS, TOTAL_MS, TEST_DURATION_MS,
-                    TOTAL_BYTES_SENT, TOTAL_BYTES_RECEIVED,
-                    TESTS_PER_SECOND, BYTES_PER_SECOND,
-                    PERCENTILE_DURATION + reportPercentileDuration };
+        if (fields == null) {
+            List fieldsList = new Vector();
+            fieldsList.add(NUMBER_OF_TESTS);
+            fieldsList.add(NUMBER_OF_ERRORS);
+            fieldsList.add(NUMBER_OF_THREADS);
+            fieldsList.add(MINIMUM_MS);
+            fieldsList.add(MAXIMUM_MS);
+            fieldsList.add(AVERAGE_MS);
+            fieldsList.add(TOTAL_MS);
+            fieldsList.add(TEST_DURATION_MS);
+            fieldsList.add(TOTAL_BYTES_SENT);
+            fieldsList.add(TOTAL_BYTES_RECEIVED);
+            fieldsList.add(TESTS_PER_SECOND);
+            fieldsList.add(BYTES_PER_SECOND);
+            if (reportPercentilesArray != null
+                    && reportPercentilesArray.length > 0) {
+                for (int i = 0; i < reportPercentilesArray.length; i++) {
+                    fieldsList.add(PERCENTILE_DURATION
+                            + reportPercentilesArray[i]);
+                }
+            }
+            if (reportStandardDeviation) {
+                fieldsList.add(STANDARD_DEVIATION);
+            }
+            fields = (String[]) fieldsList.toArray(new String[0]);
         }
-        return new String[] { NUMBER_OF_TESTS, NUMBER_OF_ERRORS,
-                NUMBER_OF_THREADS, MINIMUM_MS, MAXIMUM_MS, AVERAGE_MS,
-                TOTAL_MS, TEST_DURATION_MS, TOTAL_BYTES_SENT,
-                TOTAL_BYTES_RECEIVED, TESTS_PER_SECOND, BYTES_PER_SECOND };
+        return fields;
     }
 
     /**
@@ -239,7 +302,13 @@ public class SummaryResults {
             return "" + getBytesPerSecond();
 
         if (_field.startsWith(PERCENTILE_DURATION)) {
-            return "" + getPercentileDuration();
+            int percentile = java.lang.Integer.parseInt(_field
+                    .replaceFirst(PERCENTILE_DURATION + "(\\d+)$", "$1"));
+            return "" + getPercentileDuration(percentile);
+        }
+
+        if (_field.startsWith(STANDARD_DEVIATION)) {
+            return "" + getStandardDeviation();
         }
 
         throw new UnknownResultFieldException("unknown result field: "

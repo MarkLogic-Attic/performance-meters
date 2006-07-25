@@ -55,6 +55,8 @@ public class Configuration {
 
     public static final int DEFAULT_READSIZE = 32 * 1024;
 
+    private static final boolean DEFAULT_REPORTSTDDEV = false;
+
     private String[] host;
 
     private int port;
@@ -94,7 +96,7 @@ public class Configuration {
 
     private long testTime;
 
-    private int reportPercentileDuration;
+    private int[] reportDurationPercentiles;
 
     private boolean checkResults = DEFAULT_CHECKRESULTS;
 
@@ -107,6 +109,8 @@ public class Configuration {
     private String testListClassName;
 
     private String elementQName;
+
+    private boolean reportStandardDeviation = DEFAULT_REPORTSTDDEV;
 
     Configuration() {
         // set up the initial object using system properties
@@ -152,8 +156,19 @@ public class Configuration {
                 props.getProperty("reportTime", "" + DEFAULT_REPORTTIME))
                 .booleanValue();
 
-        reportPercentileDuration = Integer.parseInt(props.getProperty(
-                "reportPercentileDuration", "0"));
+        // support multiple percentiles: CSV or SSV
+        String[] percentileString = props.getProperty(
+                "reportPercentileDuration", "").split("[,\\s]+");
+        reportDurationPercentiles = new int[percentileString.length];
+        for (int i = 0; i < percentileString.length; i++) {
+            reportDurationPercentiles[i] = Integer
+                    .parseInt(percentileString[i]);
+        }
+        
+        // support standard deviation
+        reportStandardDeviation = Boolean.valueOf(
+                props.getProperty("reportStandardDeviation", "" + DEFAULT_REPORTSTDDEV))
+                .booleanValue();
 
         testTime = Long.parseLong(props.getProperty("testTime", ""
                 + DEFAULT_TESTTIME));
@@ -289,7 +304,7 @@ public class Configuration {
         return port;
     }
 
-    boolean getReportTime() {
+    boolean isReportTime() {
         return reportTime;
     }
 
@@ -368,14 +383,15 @@ public class Configuration {
      * @return
      */
     public boolean hasReportPercentileDuration() {
-        return reportPercentileDuration > 0;
+        return reportDurationPercentiles != null
+                && reportDurationPercentiles.length > 0;
     }
 
     /**
      * @return
      */
-    public int getReportPercentileDuration() {
-        return reportPercentileDuration;
+    public int[] getReportPercentileDuration() {
+        return reportDurationPercentiles;
     }
 
     /**
@@ -397,6 +413,10 @@ public class Configuration {
      */
     public String getElementQName() {
         return elementQName;
+    }
+
+    public boolean isReportStandardDeviation() {
+        return reportStandardDeviation;
     }
 
 }
