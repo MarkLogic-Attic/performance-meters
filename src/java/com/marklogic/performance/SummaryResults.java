@@ -160,7 +160,11 @@ public class SummaryResults {
 
         // reporting flags
         reportStandardDeviation = _config.isReportStandardDeviation();
+        if (_config.hasReportPercentileDuration()) {
         reportPercentilesArray = _config.getReportPercentileDuration();
+        } else {
+            reportPercentilesArray = null;
+        }
     }
 
     private void loadSortedResults() {
@@ -242,8 +246,7 @@ public class SummaryResults {
             fieldsList.add(TOTAL_BYTES_RECEIVED);
             fieldsList.add(TESTS_PER_SECOND);
             fieldsList.add(BYTES_PER_SECOND);
-            if (reportPercentilesArray != null
-                    && reportPercentilesArray.length > 0) {
+            if (reportPercentilesArray != null) {
                 for (int i = 0; i < reportPercentilesArray.length; i++) {
                     fieldsList.add(PERCENTILE_DURATION
                             + reportPercentilesArray[i]);

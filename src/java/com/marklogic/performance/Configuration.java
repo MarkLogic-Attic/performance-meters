@@ -157,18 +157,24 @@ public class Configuration {
                 .booleanValue();
 
         // support multiple percentiles: CSV or SSV
-        String[] percentileString = props.getProperty(
-                "reportPercentileDuration", "").split("[,\\s]+");
-        reportDurationPercentiles = new int[percentileString.length];
-        for (int i = 0; i < percentileString.length; i++) {
-            reportDurationPercentiles[i] = Integer
-                    .parseInt(percentileString[i]);
+        String percentileString = props
+                .getProperty("reportPercentileDuration");
+        if (percentileString == null) {
+            reportDurationPercentiles = null;
+        } else {
+            String[] percentileStringArray = percentileString
+                    .split("[,\\s]+");
+            reportDurationPercentiles = new int[percentileStringArray.length];
+            for (int i = 0; i < percentileStringArray.length; i++) {
+                reportDurationPercentiles[i] = Integer
+                        .parseInt(percentileStringArray[i]);
+            }
         }
-        
+
         // support standard deviation
         reportStandardDeviation = Boolean.valueOf(
-                props.getProperty("reportStandardDeviation", "" + DEFAULT_REPORTSTDDEV))
-                .booleanValue();
+                props.getProperty("reportStandardDeviation", ""
+                        + DEFAULT_REPORTSTDDEV)).booleanValue();
 
         testTime = Long.parseLong(props.getProperty("testTime", ""
                 + DEFAULT_TESTTIME));
