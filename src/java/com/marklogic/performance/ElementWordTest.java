@@ -52,7 +52,7 @@ public class ElementWordTest extends AbstractTest {
         System.err.println(new Date() + ": building word list...");
         BufferedReader br = new BufferedReader(new FileReader(_file));
         String word = null;
-        ArrayList tempList = new ArrayList();
+        ArrayList<String> tempList = new ArrayList<String>();
         try {
             while ((word = br.readLine()) != null) {
                 tempList.add(word);
@@ -63,7 +63,7 @@ public class ElementWordTest extends AbstractTest {
         }
         System.err.println(new Date() + ": shuffling word list...");
         Collections.shuffle(tempList);
-        words = (String[]) tempList.toArray(new String[0]);
+        words = tempList.toArray(new String[0]);
         wordsIndex = 0;
     }
 

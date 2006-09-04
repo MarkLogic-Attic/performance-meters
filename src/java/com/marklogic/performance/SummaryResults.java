@@ -96,21 +96,17 @@ public class SummaryResults {
 
     private long numberOfErrors = 0;
 
-    long minMillis = Long.MAX_VALUE;
+    long minNanos = Long.MAX_VALUE;
 
-    long maxMillis = Long.MIN_VALUE;
+    long maxNanos = Long.MIN_VALUE;
 
-    long totalMillis = 0;
+    long totalNanos = 0;
 
-    long durationMillis = 0;
-
-    long avgMillis;
+    long durationNanos = 0;
 
     long bytesSent = 0;
 
     long bytesReceived = 0;
-
-    double testsPerSecond, bytesPerSecond;
 
     private Sampler[] samplers;
 
@@ -122,12 +118,12 @@ public class SummaryResults {
 
     private boolean reportStandardDeviation;
 
-    private List sortedResults;
+    private List<Result> sortedResults;
 
-    public SummaryResults(Configuration _config, long startMillis,
-            long endMillis, Sampler[] _samplers) {
+    public SummaryResults(Configuration _config, long startNanos,
+            long endNanos, Sampler[] _samplers) {
         samplers = _samplers;
-        durationMillis = endMillis - startMillis;
+        durationNanos = endNanos - startNanos;
 
         // gather min, max, avg response times
         // gather bytes sent, received
@@ -137,23 +133,18 @@ public class SummaryResults {
             sampler = samplers[i];
             numberOfTests += sampler.getResultsCount();
             numberOfErrors += sampler.getErrorCount();
-            min = sampler.getMinDurationMillis();
-            if (min < minMillis)
-                minMillis = min;
-            max = sampler.getMaxDurationMillis();
-            if (max > maxMillis)
-                maxMillis = max;
-            totalMillis += sampler.getTotalMillis();
+            min = sampler.getMinDurationNanos();
+            if (min < minNanos) {
+                minNanos = min;
+            }
+            max = sampler.getMaxDurationNanos();
+            if (max > maxNanos) {
+                maxNanos = max;
+            }
+            totalNanos += sampler.getTotalNanos();
             bytesSent += sampler.getBytesSent();
             bytesReceived += sampler.getBytesReceived();
         }
-
-        avgMillis = totalMillis / numberOfTests;
-
-        // gather throughput, in tps and bps
-        testsPerSecond = (((double) numberOfTests) / ((double) durationMillis)) * 1000;
-        bytesPerSecond = (1000 * (bytesSent + bytesReceived))
-                / durationMillis;
 
         // gather configuration information
         numberOfThreads = _config.getNumThreads();
@@ -161,20 +152,21 @@ public class SummaryResults {
         // reporting flags
         reportStandardDeviation = _config.isReportStandardDeviation();
         if (_config.hasReportPercentileDuration()) {
-        reportPercentilesArray = _config.getReportPercentileDuration();
+            reportPercentilesArray = _config
+                    .getReportPercentileDuration();
         } else {
             reportPercentilesArray = null;
         }
     }
 
     private void loadSortedResults() {
-        sortedResults = new ArrayList();
+        sortedResults = new ArrayList<Result>();
         for (int i = 0; i < samplers.length; i++) {
             // results are a List of Test objects
             sortedResults.addAll(samplers[i].getResults());
         }
 
-        Comparator c = new ResultDurationComparator();
+        Comparator<Result> c = new ResultDurationComparator();
         Collections.sort(sortedResults, c);
     }
 
@@ -185,7 +177,7 @@ public class SummaryResults {
      * 
      * @return
      */
-    public long getPercentileDuration(int percentile) {
+    public long getPercentileDurationNanos(int percentile) {
         if (percentile < 1)
             return 0;
 
@@ -202,7 +194,12 @@ public class SummaryResults {
         if (pidx > size - 1) {
             pidx = (int) (size - 1);
         }
-        return ((Result) sortedResults.get(pidx)).getDuration();
+        return sortedResults.get(pidx).getDurationNanos();
+    }
+
+    public double getPercentileDurationMillis(int percentile) {
+        return getPercentileDurationNanos(percentile)
+                / Configuration.NANOS_PER_MILLI;
     }
 
     /**
@@ -220,20 +217,18 @@ public class SummaryResults {
         // iterate through the results from all the results
         Iterator iter = sortedResults.iterator();
         Result result;
-        double mean = getAvgMillis();
         double sumOfSquares = 0;
         while (iter.hasNext()) {
             result = (Result) iter.next();
-            sumOfSquares += Math.pow(result.getDuration() - mean, 2);
+            sumOfSquares += Math.pow(result.getDurationMillis()
+                    - getAvgMillis(), 2);
         }
-        double n = getNumberOfTests();
-        double sdev = Math.sqrt(sumOfSquares / n);
-        return sdev;
+        return Math.sqrt(sumOfSquares / getNumberOfTests());
     }
 
     public String[] getFieldNames() {
         if (fields == null) {
-            List fieldsList = new Vector();
+            List<String> fieldsList = new Vector<String>();
             fieldsList.add(NUMBER_OF_TESTS);
             fieldsList.add(NUMBER_OF_ERRORS);
             fieldsList.add(NUMBER_OF_THREADS);
@@ -255,7 +250,7 @@ public class SummaryResults {
             if (reportStandardDeviation) {
                 fieldsList.add(STANDARD_DEVIATION);
             }
-            fields = (String[]) fieldsList.toArray(new String[0]);
+            fields = fieldsList.toArray(new String[0]);
         }
         return fields;
     }
@@ -307,7 +302,7 @@ public class SummaryResults {
         if (_field.startsWith(PERCENTILE_DURATION)) {
             int percentile = java.lang.Integer.parseInt(_field
                     .replaceFirst(PERCENTILE_DURATION + "(\\d+)$", "$1"));
-            return "" + getPercentileDuration(percentile);
+            return "" + getPercentileDurationMillis(percentile);
         }
 
         if (_field.startsWith(STANDARD_DEVIATION)) {
@@ -325,8 +320,9 @@ public class SummaryResults {
         return numberOfThreads;
     }
 
-    public long getAvgMillis() {
-        return avgMillis;
+    public double getAvgMillis() {
+        return (double) totalNanos
+        / (numberOfTests * Configuration.NANOS_PER_MILLI);
     }
 
     public long getBytesReceived() {
@@ -337,16 +333,28 @@ public class SummaryResults {
         return bytesSent;
     }
 
-    public long getDurationMillis() {
-        return durationMillis;
+    public long getDurationNanos() {
+        return durationNanos;
     }
 
-    public long getMaxMillis() {
-        return maxMillis;
+    public double getDurationMillis() {
+        return durationNanos / Configuration.NANOS_PER_MILLI;
     }
 
-    public long getMinMillis() {
-        return minMillis;
+    public long getMaxNanos() {
+        return maxNanos;
+    }
+
+    public double getMaxMillis() {
+        return maxNanos / Configuration.NANOS_PER_MILLI;
+    }
+
+    public long getMinNanos() {
+        return minNanos;
+    }
+
+    public double getMinMillis() {
+        return minNanos / Configuration.NANOS_PER_MILLI;
     }
 
     public long getNumberOfTests() {
@@ -354,15 +362,21 @@ public class SummaryResults {
     }
 
     public double getTestsPerSecond() {
-        return testsPerSecond;
+        return numberOfTests * Configuration.NANOS_PER_SECOND
+        / durationNanos;
     }
 
-    public long getTotalMillis() {
-        return totalMillis;
+    public long getTotalNanos() {
+        return totalNanos;
+    }
+
+    public double getTotalMillis() {
+        return getTotalNanos() / Configuration.NANOS_PER_MILLI;
     }
 
     public double getBytesPerSecond() {
-        return bytesPerSecond;
+        return (Configuration.NANOS_PER_SECOND * (bytesSent + bytesReceived))
+        / durationNanos;
     }
 
     /**

@@ -67,7 +67,7 @@ class Result {
 
     private String testName, comment, queryResult;
 
-    private long start, end, bytesSent, bytesReceived;
+    private long startNanos, endNanos, bytesSent, bytesReceived;
 
     private boolean error;
 
@@ -124,12 +124,12 @@ class Result {
                 + _field);
     }
 
-    public void setStart(long ms) {
-        start = ms;
+    public void setStart(long _nanos) {
+        startNanos = _nanos;
     }
 
-    public void setEnd(long ms) {
-        end = ms;
+    public void setEnd(long _nanos) {
+        endNanos = _nanos;
     }
 
     public void setError(boolean err) {
@@ -167,24 +167,36 @@ class Result {
         return error;
     }
 
-    public long getStartMillis() {
-        // TODO switch to JRE 1.5 and nanos
-        return start;
+    public long getStartNanos() {
+        return startNanos;
     }
 
-    public long getEndMillis() {
-        // TODO switch to JRE 1.5 and nanos
-        return end;
+    public long getEndNanos() {
+        return endNanos;
+    }
+
+    public double getStartMillis() {
+        return startNanos / Configuration.NANOS_PER_MILLI;
+    }
+
+    public double getEndMillis() {
+        return endNanos / Configuration.NANOS_PER_MILLI;
     }
 
     /**
      * @return
      */
-    public long getDuration() {
-        // TODO should we be casting this? potential for overflow!
-        return (end - start);
+    public long getDurationNanos() {
+        return endNanos - startNanos;
     }
 
+    /**
+     * @return
+     */
+    public double getDurationMillis() {
+        return getDurationNanos() / 1000;
+    }
+    
     /**
      * @return
      */
@@ -217,16 +229,14 @@ class Result {
      * 
      */
     public void setStart() {
-        // TODO switch to JRE 1.5 and nanos
-        setStart(System.currentTimeMillis());
+        setStart(System.nanoTime());
     }
 
     /**
      * 
      */
     public void setEnd() {
-        // TODO switch to JRE 1.5 and nanos
-        setEnd(System.currentTimeMillis());
+        setEnd(System.nanoTime());
     }
 
 }

@@ -40,11 +40,13 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-08-31.1";
+    private static final String VERSION = "2006-09-04.1";
 
     private Configuration config;
 
-    List threads, samplers;
+    List<Thread> threads;
+
+    List<Sampler> samplers;
 
     TestList tests;
 
@@ -102,8 +104,8 @@ public class PerformanceMeters {
 
     PerformanceMeters(Configuration _config) {
         config = _config;
-        threads = new ArrayList();
-        samplers = new ArrayList();
+        threads = new ArrayList<Thread>();
+        samplers = new ArrayList<Sampler>();
     }
 
     void initializeTests() throws Exception {
@@ -133,8 +135,8 @@ public class PerformanceMeters {
             offsetPerThread = tests.size() / numThreads;
         }
 
+        Sampler sampler;
         for (int i = 0; i < numThreads; i++) {
-            Sampler sampler = null;
             if (offsetPerThread != -1) {
                 // need a new ti every time
                 ti = new OffsetTestIterator(tests, i * offsetPerThread);
@@ -144,8 +146,6 @@ public class PerformanceMeters {
                 sampler = new HTTPSampler(ti, config);
             } else if (config.isURI()) {
                 sampler = new URISampler(ti, config);
-            } else if (config.isXCC()) {
-                sampler = new XCCSampler(ti, config);
             } else if (config.isXDBC()) {
                 sampler = new XDBCSampler(ti, config);
             } else {
@@ -160,23 +160,24 @@ public class PerformanceMeters {
         }
 
         // with really large numbers of threads, creation time is significant
+        // TODO can we use java.util.concurrent?
         showProgress("starting...");
-        startTime = System.currentTimeMillis();
+        startTime = System.nanoTime();
         for (int i = 0; i < numThreads; i++) {
-            ((Thread) threads.get(i)).start();
+            threads.get(i).start();
         }
 
         // wait for all to finish
         for (int i = 0; i < threads.size(); i++) {
             try {
-                ((Thread) (threads.get(i))).join();
+                (threads.get(i)).join();
             } catch (InterruptedException e) {
                 /* should not happen */
                 continue;
             }
         }
 
-        endTime = System.currentTimeMillis();
+        endTime = System.nanoTime();
     }
 
     /**
@@ -197,8 +198,7 @@ public class PerformanceMeters {
         }
         showProgress("Writing results to " + outputPath);
         FileWriter resultDocument = new FileWriter(outputPath);
-        Sampler[] samplerArray = (Sampler[]) samplers
-                .toArray(new Sampler[0]);
+        Sampler[] samplerArray = samplers.toArray(new Sampler[0]);
         SummaryResults summaryResults = new SummaryResults(config,
                 startTime, endTime, samplerArray);
 
@@ -225,7 +225,7 @@ public class PerformanceMeters {
                 System.out.println("Standard deviation: "
                         + summaryResults.getStandardDeviation());
             }
-            // TODO report multiple percentiles
+            // report multiple percentiles
             if (config.hasReportPercentileDuration()) {
                 // report N% response times
                 int[] percentiles = config.getReportPercentileDuration();
@@ -237,7 +237,7 @@ public class PerformanceMeters {
                                     + reportPercentile
                                     + "th percentile): "
                                     + summaryResults
-                                            .getPercentileDuration(reportPercentile));
+                                            .getPercentileDurationMillis(reportPercentile));
                 }
             }
 

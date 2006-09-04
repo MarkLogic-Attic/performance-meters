@@ -56,7 +56,13 @@ public class Configuration {
     public static final int DEFAULT_READSIZE = 32 * 1024;
 
     private static final boolean DEFAULT_REPORTSTDDEV = false;
+    
+    public static final long MILLIS_PER_SECOND = 1000;
 
+    public static final long NANOS_PER_MILLI = 1000 * 1000;
+    
+    public static final long NANOS_PER_SECOND = 1000 * 1000 * 1000;
+    
     private String[] host;
 
     private int port;
@@ -133,7 +139,9 @@ public class Configuration {
         String hostString = props.getProperty("host", DEFAULT_HOST);
         host = hostString.split("\\s+");
 
-        // TODO wouldn't a connection-string be simpler? support both?
+        /* a connection-string would be simpler for xcc,
+         * but not for xdbc... someday we'll remove xdbc support.
+         */
         port = Integer.parseInt(props.getProperty("port", ""
                 + DEFAULT_PORT));
 
@@ -210,7 +218,7 @@ public class Configuration {
         testType = props.getProperty("testType", "XCC");
 
         if (isXCC()) {
-            // TODO tune XCC limits?
+            // no need to tune XCC limits
         }
 
         if (isXDBC()) {
@@ -381,8 +389,8 @@ public class Configuration {
         return testTime;
     }
 
-    public long getTestTimeMillis() {
-        return 1000 * testTime;
+    public long getTestTimeNanos() {
+        return NANOS_PER_SECOND * testTime;
     }
 
     /**

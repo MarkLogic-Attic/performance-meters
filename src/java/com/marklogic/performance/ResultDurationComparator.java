@@ -22,9 +22,9 @@ import java.util.Comparator;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- *
+ * 
  */
-public class ResultDurationComparator implements Comparator {
+public class ResultDurationComparator implements Comparator<Result> {
 
     /**
      * 
@@ -33,25 +33,24 @@ public class ResultDurationComparator implements Comparator {
         super();
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
-    public int compare(Object o1, Object o2) {
-        // TODO what happens if the difference is greater than MAXLONG? unlikely...
-        long diff =
-            (((Result) o1).getDuration()
-                - ((Result) o2).getDuration());
+    public int compare(Result r1, Result r2) {
         // TODO what happens if we overflow the int?
-        return (int) Math.min(diff, Long.MAX_VALUE);
+        return (int) Math.min((r1.getDurationNanos() - r2
+                .getDurationNanos()), Long.MAX_VALUE);
     }
 
-    /* (non-Javadoc)
-     * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.util.Comparator#equals(java.lang.Object, java.lang.Object)
      */
-    public boolean equals(Object o1, Object o2) {
-        return (
-            ((Result) o1).getDuration()
-                == ((Result) o2).getDuration());
+    public boolean equals(Result o1, Result o2) {
+        return o1.getDurationNanos() == o2.getDurationNanos();
     }
 
 }

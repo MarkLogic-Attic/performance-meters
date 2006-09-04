@@ -29,7 +29,7 @@ import java.util.Random;
  */
 public abstract class TestList {
 
-    List tests = new ArrayList();
+    List<AbstractTest> tests = new ArrayList<AbstractTest>();
     
     protected Configuration configuration;
 
@@ -52,7 +52,7 @@ public abstract class TestList {
      * @return
      */
     public TestInterface get(int i) {
-        return (TestInterface) tests.get(i);
+        return tests.get(i);
     }
 
     /**

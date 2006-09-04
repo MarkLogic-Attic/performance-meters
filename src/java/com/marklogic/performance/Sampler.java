@@ -29,7 +29,7 @@ import java.util.Random;
 abstract class Sampler implements Runnable {
     TestIterator testIterator;
 
-    List results;
+    List<Result> results;
 
     Configuration config;
 
@@ -69,19 +69,19 @@ abstract class Sampler implements Runnable {
         password = config.getPassword();
         host = config.getHost();
         port = config.getPort();
-        results = new ArrayList();
+        results = new ArrayList<Result>();
     }
 
     public int getResultsCount() {
         return results.size();
     }
 
-    public List getResults() {
+    public List<Result> getResults() {
         return results;
     }
 
     public TestInterface[] getResultsArray() {
-        return (TestInterface[]) results.toArray(new TestInterface[0]);
+        return results.toArray(new TestInterface[0]);
     }
 
     public void run() {
@@ -103,7 +103,7 @@ abstract class Sampler implements Runnable {
 
         // timed test: run for a specified number of seconds
         // not timed test: run once
-        long startTime = System.currentTimeMillis();
+        long startTime = System.nanoTime();
         try {
             while (true) {
                 if (random != null) {
@@ -113,8 +113,9 @@ abstract class Sampler implements Runnable {
                     results.add(sample(testIterator.next()));
                 }
                 if (config.isTimedTest()) {
-                    if (config.getTestTimeMillis() <
-                            System.currentTimeMillis() - startTime) {
+                    if (config.getTestTimeNanos() < System
+                            .nanoTime()
+                            - startTime) {
                         // end of the timed test
                         break;
                     }
@@ -139,20 +140,22 @@ abstract class Sampler implements Runnable {
 
     void printResults() {
         System.out.println(results.size());
-        for (int i = 0; i < results.size(); i++)
-            ((Result) (results.get(i))).print();
+        for (int i = 0; i < results.size(); i++) {
+            results.get(i).print();
+        }
     }
 
     /**
      * @return
      */
-    public long getMinDurationMillis() {
+    public long getMinDurationNanos() {
         long min = Long.MAX_VALUE;
         long d;
         for (int i = 0; i < results.size(); i++) {
-            d = ((Result) results.get(i)).getDuration();
-            if (d < min)
+            d = results.get(i).getDurationNanos();
+            if (d < min) {
                 min = d;
+            }
         }
         return min;
     }
@@ -160,13 +163,14 @@ abstract class Sampler implements Runnable {
     /**
      * @return
      */
-    public long getMaxDurationMillis() {
+    public long getMaxDurationNanos() {
         long max = Long.MIN_VALUE;
         long d;
         for (int i = 0; i < results.size(); i++) {
-            d = ((Result) results.get(i)).getDuration();
-            if (d > max)
+            d = results.get(i).getDurationNanos();
+            if (d > max) {
                 max = d;
+            }
         }
         return max;
     }
@@ -174,12 +178,19 @@ abstract class Sampler implements Runnable {
     /**
      * @return
      */
-    public long getTotalMillis() {
+    public long getTotalNanos() {
         long tm = 0;
         for (int i = 0; i < results.size(); i++) {
-            tm += ((Result) results.get(i)).getDuration();
+            tm += results.get(i).getDurationNanos();
         }
         return tm;
+    }
+
+    /**
+     * @return
+     */
+    public double getTotalMillis() {
+        return getTotalNanos() / Configuration.NANOS_PER_MILLI;
     }
 
     /**
@@ -188,7 +199,7 @@ abstract class Sampler implements Runnable {
     public long getBytesSent() {
         long bs = 0;
         for (int i = 0; i < results.size(); i++) {
-            bs += ((Result) results.get(i)).getBytesSent();
+            bs += results.get(i).getBytesSent();
         }
         return bs;
     }
@@ -199,7 +210,7 @@ abstract class Sampler implements Runnable {
     public long getBytesReceived() {
         long br = 0;
         for (int i = 0; i < results.size(); i++) {
-            br += ((Result) results.get(i)).getBytesReceived();
+            br += results.get(i).getBytesReceived();
         }
         return br;
     }

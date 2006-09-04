@@ -25,11 +25,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- *
+ * 
  */
 public class XMLFileTestList extends TestList {
 
@@ -37,28 +38,38 @@ public class XMLFileTestList extends TestList {
         super.initialize(_config);
 
         // load the file into a DOM object.
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory factory = DocumentBuilderFactory
+                .newInstance();
+        factory.setCoalescing(true);
+        factory.setIgnoringComments(true);
+        factory.setIgnoringElementContentWhitespace(true);
+        factory.setNamespaceAware(true);
+        factory.setXIncludeAware(true);
+
         DocumentBuilder builder = factory.newDocumentBuilder();
         String inputPath = configuration.getInputPath();
         if (inputPath == null) {
             throw new IOException(
                     "missing required configuration parameter: inputPath");
         }
-        
+
         File inputFile = new File(inputPath);
         if (!inputFile.canRead()) {
             throw new IOException("missing or unreadable inputPath: "
                     + inputFile.getCanonicalPath());
         }
-        
+
         Document scriptDocument = builder.parse(inputFile);
-        NodeList testList = scriptDocument.getDocumentElement().getChildNodes();
+        NodeList testList = scriptDocument.getDocumentElement()
+                .getChildNodes();
+        Node childNode;
         for (int i = 0; i < testList.getLength(); i++) {
-            if (testList.item(i).getNodeType() != org.w3c.dom.Node.ELEMENT_NODE) {
+            childNode = testList.item(i);
+            if (childNode.getNodeType() != org.w3c.dom.Node.ELEMENT_NODE) {
                 continue;
             }
-            tests.add(new XMLFileTest(testList.item(i)));
+            tests.add(new XMLFileTest(childNode));
         }
     }
-    
+
 }

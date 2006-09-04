@@ -18,54 +18,84 @@
  */
 package com.marklogic.performance;
 
+import java.io.IOException;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 class XMLFileTest extends AbstractTest {
-    
+
+    /**
+     * 
+     */
+    private static final String TEST_LOCAL_NAME = "test";
+
+    /**
+     * 
+     */
+    public static final String HARNESS_NAMESPACE = "http://marklogic.com/xdmp/harness";
+
+    /**
+     * 
+     */
+    private static final String COMMENT_EXPECTED_RESULT_LOCAL_NAME = "comment-expected-result";
+
+    /**
+     * 
+     */
+    private static final String NAME_LOCAL_NAME = "name";
+
+    /**
+     * 
+     */
+    private static final String QUERY_LOCAL_NAME = "query";
+
     private String commentExpectedResult;
 
     private String query;
 
-    private String GetNodeText(Node t) {
-        if ((t == null) || (t.getNodeType() != org.w3c.dom.Node.ELEMENT_NODE))
-            return null;
-        NodeList children = t.getChildNodes();
-        StringBuffer text = new StringBuffer();
-        for (int c = 0; c < children.getLength(); c++) {
-            Node child = children.item(c);
-            short nodeType = child.getNodeType();
-            if (nodeType == Node.TEXT_NODE) {
-                text.append(child.getNodeValue());
-            } else if (nodeType == Node.CDATA_SECTION_NODE) {
-                text.append(child.getNodeValue());
-            }
-            // otherwise we ignore it...
+    public XMLFileTest(Node node) throws IOException {
+        if (! node.getNamespaceURI().equals(HARNESS_NAMESPACE)
+                || ! node.getLocalName().equals(TEST_LOCAL_NAME)) {
+            throw new IOException("invalid element: " +
+                    node.getLocalName() + " in " + node.getNamespaceURI()
+                    + " is not " + TEST_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
         }
-        return text.toString();
-    }
-
-    public XMLFileTest(Node node) {
-        Node queryNode = (((Element) node).getElementsByTagName("h:query")
-                .item(0));
-        Node nameNode = (((Element) node).getElementsByTagName("h:name")
-                .item(0));
+        Node queryNode = (((Element) node).getElementsByTagNameNS(
+                HARNESS_NAMESPACE, QUERY_LOCAL_NAME).item(0));
+        Node nameNode = (((Element) node).getElementsByTagNameNS(
+                HARNESS_NAMESPACE, NAME_LOCAL_NAME).item(0));
         Node commentExpectedResultNode = (((Element) node)
-                .getElementsByTagName("h:comment-expected-result").item(0));
-        query = GetNodeText(queryNode);
-        name = GetNodeText(nameNode);
-        commentExpectedResult = GetNodeText(commentExpectedResultNode).trim();
+                .getElementsByTagNameNS(HARNESS_NAMESPACE,
+                        COMMENT_EXPECTED_RESULT_LOCAL_NAME).item(0));
+        if (queryNode == null) {
+            throw new NullPointerException("missing required element: "
+                    + QUERY_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
+        }
+        if (nameNode == null) {
+            throw new NullPointerException("missing required element: "
+                    + NAME_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
+        }
+        query = queryNode.getTextContent();
+        name = nameNode.getTextContent();
+        if (commentExpectedResultNode != null) {
+            commentExpectedResult = commentExpectedResultNode
+                    .getTextContent().trim();
+        }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.TestInterface#getQuery()
      */
     public String getQuery() {
         return query;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.TestInterface#getCommentExpectedResult()
      */
     public String getCommentExpectedResult() {
