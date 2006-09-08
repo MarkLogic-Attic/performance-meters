@@ -55,11 +55,18 @@ class XMLFileTest extends AbstractTest {
     private String query;
 
     public XMLFileTest(Node node) throws IOException {
-        if (! node.getNamespaceURI().equals(HARNESS_NAMESPACE)
-                || ! node.getLocalName().equals(TEST_LOCAL_NAME)) {
-            throw new IOException("invalid element: " +
-                    node.getLocalName() + " in " + node.getNamespaceURI()
-                    + " is not " + TEST_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
+        if (node.getNamespaceURI() == null) {
+            throw new IOException("invalid element: "
+                    + node.getLocalName() + " in "
+                    + node.getNamespaceURI() + " is not "
+                    + TEST_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
+        }
+        if (!node.getNamespaceURI().equals(HARNESS_NAMESPACE)
+                || !node.getLocalName().equals(TEST_LOCAL_NAME)) {
+            throw new IOException("invalid element: "
+                    + node.getLocalName() + " in "
+                    + node.getNamespaceURI() + " is not "
+                    + TEST_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
         }
         Node queryNode = (((Element) node).getElementsByTagNameNS(
                 HARNESS_NAMESPACE, QUERY_LOCAL_NAME).item(0));

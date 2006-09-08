@@ -23,7 +23,7 @@ package com.marklogic.performance;
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-class Result {
+public class Result {
 
     /**
      * 
@@ -71,7 +71,7 @@ class Result {
 
     private boolean error;
 
-    Result(String _testName, String _comment) {
+    public Result(String _testName, String _comment) {
         testName = _testName;
         comment = _comment;
         error = false;

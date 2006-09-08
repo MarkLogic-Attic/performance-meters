@@ -18,7 +18,6 @@
  */
 package com.marklogic.performance;
 
-import java.lang.Boolean;
 import java.util.Properties;
 import java.util.Random;
 
@@ -26,36 +25,71 @@ import com.marklogic.xdmp.XDMPConnection;
 
 public class Configuration {
 
-    public static final boolean DEFAULT_RECORDRESULTS = false;
+    /**
+     * 
+     */
+    public static final String TEST_TIME_KEY = "testTime";
 
-    private static final boolean DEFAULT_SHARED = false;
+    /**
+     * 
+     */
+    public static final String REPORT_STANDARD_DEVIATION_KEY = "reportStandardDeviation";
 
-    public static final String DEFAULT_HOST = "localhost";
+    /**
+     * 
+     */
+    public static final String REPORTER_DEFAULT = "XMLReporter";
 
-    public static final int DEFAULT_PORT = 8003;
+    /**
+     * 
+     */
+    public static final String REPORTER_KEY = "reporter";
 
-    public static final String DEFAULT_USER = "admin";
+    /**
+     * 
+     */
+    public static final String RANDOM_SEED_KEY = "randomSeed";
 
-    public static final String DEFAULT_PASSWORD = "admin";
+    /**
+     * 
+     */
+    public static final String IS_RANDOM_TEST_DEFAULT = "false";
 
-    public static final long DEFAULT_RANDOMSEED = 0;
+    /**
+     * 
+     */
+    public static final String IS_RANDOM_TEST_KEY = "isRandomTest";
 
-    private static final long DEFAULT_TESTTIME = 0;
+    public static final boolean RECORDRESULTS_DEFAULT = false;
 
-    public static final boolean DEFAULT_CHECKRESULTS = false;
+    public static final boolean SHARED_DEFAULT = false;
 
-    public static final boolean DEFAULT_REPORTTIME = true;
+    public static final String HOST_DEFAULT = "localhost";
 
-    private static final String TESTLISTCLASS_KEY = "testListClass";
+    public static final int PORT_DEFAULT = 8003;
 
-    private static final String DEFAULT_TESTLISTCLASS = XMLFileTestList.class
+    public static final String USER_DEFAULT = "admin";
+
+    public static final String PASSWORD_DEFAULT = "admin";
+
+    public static final long RANDOMSEED_DEFAULT = 0;
+
+    public static final long TESTTIME_DEFAULT = 0;
+
+    public static final boolean CHECKRESULTS_DEFAULT = false;
+
+    public static final boolean REPORTTIME_DEFAULT = true;
+
+    public static final String TESTLISTCLASS_KEY = "testListClass";
+
+    public static final String TESTLISTCLASS_DEFAULT = XMLFileTestList.class
             .getName();
 
-    private static final String ELEMENTQNAME_KEY = "elementQName";
+    public static final String ELEMENTQNAME_KEY = "elementQName";
 
-    public static final int DEFAULT_READSIZE = 32 * 1024;
+    public static final int READSIZE_DEFAULT = 32 * 1024;
 
-    private static final boolean DEFAULT_REPORTSTDDEV = false;
+    public static final boolean REPORTSTDDEV_DEFAULT = false;
     
     public static final long MILLIS_PER_SECOND = 1000;
 
@@ -92,19 +126,19 @@ public class Configuration {
 
     private String reporterClassName;
 
-    private long randomSeed = DEFAULT_RANDOMSEED;
+    private long randomSeed = RANDOMSEED_DEFAULT;
 
     private boolean isRandomTest = false;
 
     private boolean isTimedTest = false;
 
-    private int readSize = DEFAULT_READSIZE;
+    private int readSize = READSIZE_DEFAULT;
 
     private long testTime;
 
     private int[] reportDurationPercentiles;
 
-    private boolean checkResults = DEFAULT_CHECKRESULTS;
+    private boolean checkResults = CHECKRESULTS_DEFAULT;
 
     private Random random;
 
@@ -116,7 +150,7 @@ public class Configuration {
 
     private String elementQName;
 
-    private boolean reportStandardDeviation = DEFAULT_REPORTSTDDEV;
+    private boolean reportStandardDeviation = REPORTSTDDEV_DEFAULT;
 
     Configuration() {
         // set up the initial object using system properties
@@ -136,21 +170,21 @@ public class Configuration {
 
         // we support multiple hosts, but they must all be on the same port:
         // this would be easier with multiple connection strings...
-        String hostString = props.getProperty("host", DEFAULT_HOST);
+        String hostString = props.getProperty("host", HOST_DEFAULT);
         host = hostString.split("\\s+");
 
         /* a connection-string would be simpler for xcc,
          * but not for xdbc... someday we'll remove xdbc support.
          */
         port = Integer.parseInt(props.getProperty("port", ""
-                + DEFAULT_PORT));
+                + PORT_DEFAULT));
 
-        user = props.getProperty("user", DEFAULT_USER);
+        user = props.getProperty("user", USER_DEFAULT);
 
-        password = props.getProperty("password", DEFAULT_PASSWORD);
+        password = props.getProperty("password", PASSWORD_DEFAULT);
 
         readSize = Integer.parseInt(props.getProperty("readSize", ""
-                + DEFAULT_READSIZE));
+                + READSIZE_DEFAULT));
 
         inputPath = props.getProperty("inputPath");
 
@@ -161,7 +195,7 @@ public class Configuration {
                 .getProperty("numThreads", "1"));
 
         reportTime = Boolean.valueOf(
-                props.getProperty("reportTime", "" + DEFAULT_REPORTTIME))
+                props.getProperty("reportTime", "" + REPORTTIME_DEFAULT))
                 .booleanValue();
 
         // support multiple percentiles: CSV or SSV
@@ -181,27 +215,27 @@ public class Configuration {
 
         // support standard deviation
         reportStandardDeviation = Boolean.valueOf(
-                props.getProperty("reportStandardDeviation", ""
-                        + DEFAULT_REPORTSTDDEV)).booleanValue();
+                props.getProperty(REPORT_STANDARD_DEVIATION_KEY, ""
+                        + REPORTSTDDEV_DEFAULT)).booleanValue();
 
-        testTime = Long.parseLong(props.getProperty("testTime", ""
-                + DEFAULT_TESTTIME));
+        testTime = Long.parseLong(props.getProperty(TEST_TIME_KEY, ""
+                + TESTTIME_DEFAULT));
 
         isTimedTest = (testTime > 0);
 
         isRandomTest = Boolean.valueOf(
-                props.getProperty("isRandomTest", "false"))
+                props.getProperty(IS_RANDOM_TEST_KEY, IS_RANDOM_TEST_DEFAULT))
                 .booleanValue();
 
         // for backward compatibility
         recordResults = Boolean.valueOf(
                 props.getProperty("recordResults", props.getProperty(
-                        "forceResults", "" + DEFAULT_RECORDRESULTS)))
+                        "forceResults", "" + RECORDRESULTS_DEFAULT)))
                 .booleanValue();
 
         checkResults = Boolean.valueOf(
                 props.getProperty("checkResults", ""
-                        + DEFAULT_CHECKRESULTS)).booleanValue();
+                        + CHECKRESULTS_DEFAULT)).booleanValue();
 
         if (checkResults && !recordResults) {
             // this doesn't make any sense, so don't honor it
@@ -212,7 +246,7 @@ public class Configuration {
         }
 
         shared = Boolean.valueOf(
-                props.getProperty("shared", "" + DEFAULT_SHARED))
+                props.getProperty("shared", "" + SHARED_DEFAULT))
                 .booleanValue();
 
         testType = props.getProperty("testType", "XCC");
@@ -231,7 +265,7 @@ public class Configuration {
             }
         }
 
-        reporterClassName = props.getProperty("reporter", "XMLReporter");
+        reporterClassName = props.getProperty(REPORTER_KEY, REPORTER_DEFAULT);
         // System.err.println("reporterClassName = " + reporterClassName);
 
         if (reporterClassName.indexOf('.') < 1) {
@@ -242,7 +276,7 @@ public class Configuration {
         }
 
         testListClassName = props.getProperty(TESTLISTCLASS_KEY,
-                DEFAULT_TESTLISTCLASS);
+                TESTLISTCLASS_DEFAULT);
         // System.err.println("testListClassName = " + testListClassName);
         if (testListClassName.indexOf('.') < 1) {
             // prepend this class's package name
@@ -251,9 +285,9 @@ public class Configuration {
                     + "." + testListClassName;
         }
 
-        randomSeed = Long.parseLong(props.getProperty("randomSeed", ""
-                + DEFAULT_RANDOMSEED));
-        if (randomSeed != DEFAULT_RANDOMSEED
+        randomSeed = Long.parseLong(props.getProperty(RANDOM_SEED_KEY, ""
+                + RANDOMSEED_DEFAULT));
+        if (randomSeed != RANDOMSEED_DEFAULT
                 && !(isTimedTest && isRandomTest)) {
             // this doesn't make any sense, so don't honor it
             System.err
@@ -263,10 +297,10 @@ public class Configuration {
                             + isRandomTest
                             + "!\n"
                             + "WARNING: turning off randomSeed!");
-            randomSeed = DEFAULT_RANDOMSEED;
+            randomSeed = RANDOMSEED_DEFAULT;
         }
 
-        if (randomSeed != DEFAULT_RANDOMSEED) {
+        if (randomSeed != RANDOMSEED_DEFAULT) {
             System.err.println("using base random seed: " + randomSeed);
             // random tests only make sense as timed tests
             random = new Random();

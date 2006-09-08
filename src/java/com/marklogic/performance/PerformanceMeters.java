@@ -40,7 +40,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-09-04.1";
+    private static final String VERSION = "2006-09-08.2";
 
     private Configuration config;
 
@@ -160,7 +160,7 @@ public class PerformanceMeters {
         }
 
         // with really large numbers of threads, creation time is significant
-        // TODO can we use java.util.concurrent?
+        // TODO can we use java.util.concurrent? with a BlockingQueue?
         showProgress("starting...");
         startTime = System.nanoTime();
         for (int i = 0; i < numThreads; i++) {

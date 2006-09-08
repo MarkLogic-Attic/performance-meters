@@ -38,10 +38,10 @@ public class ResultDurationComparator implements Comparator<Result> {
      * 
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
-    public int compare(Result r1, Result r2) {
-        // TODO what happens if we overflow the int?
-        return (int) Math.min((r1.getDurationNanos() - r2
-                .getDurationNanos()), Long.MAX_VALUE);
+    public int compare(Result a, Result b) {
+        long aValue = a.getDurationNanos();
+        long bValue = b.getDurationNanos();
+        return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
     }
 
     /*
@@ -49,8 +49,8 @@ public class ResultDurationComparator implements Comparator<Result> {
      * 
      * @see java.util.Comparator#equals(java.lang.Object, java.lang.Object)
      */
-    public boolean equals(Result o1, Result o2) {
-        return o1.getDurationNanos() == o2.getDurationNanos();
+    public boolean equals(Result a, Result b) {
+        return a.getDurationNanos() == b.getDurationNanos();
     }
 
 }

@@ -39,22 +39,22 @@ abstract class Sampler implements Runnable {
 
     private int errorCount = -1;
 
-    protected static int READSIZE = Configuration.DEFAULT_READSIZE;
+    protected static int READSIZE = Configuration.READSIZE_DEFAULT;
 
     // cache this stuff in case there's synchronization
-    boolean recordResults = Configuration.DEFAULT_RECORDRESULTS;
+    boolean recordResults = Configuration.RECORDRESULTS_DEFAULT;
 
-    boolean reportTime = Configuration.DEFAULT_REPORTTIME;
+    boolean reportTime = Configuration.REPORTTIME_DEFAULT;
 
-    boolean checkResults = Configuration.DEFAULT_CHECKRESULTS;
+    boolean checkResults = Configuration.CHECKRESULTS_DEFAULT;
 
-    String user = Configuration.DEFAULT_USER;
+    String user = Configuration.USER_DEFAULT;
 
-    String password = Configuration.DEFAULT_PASSWORD;
+    String password = Configuration.PASSWORD_DEFAULT;
 
-    String host = Configuration.DEFAULT_HOST;
+    String host = Configuration.HOST_DEFAULT;
 
-    int port = Configuration.DEFAULT_PORT;
+    int port = Configuration.PORT_DEFAULT;
 
     byte[] readBuffer = new byte[READSIZE];
 
@@ -92,7 +92,7 @@ abstract class Sampler implements Runnable {
             if (config.isRandomTest()) {
                 random = new Random();
                 long randomSeed = config.getRandomSeed();
-                if (randomSeed != Configuration.DEFAULT_RANDOMSEED) {
+                if (randomSeed != Configuration.RANDOMSEED_DEFAULT) {
                     // adjust for thread identity: the exact technique
                     // shouldn't matter much
                     randomSeed = randomSeed + index;
@@ -104,29 +104,35 @@ abstract class Sampler implements Runnable {
         // timed test: run for a specified number of seconds
         // not timed test: run once
         long startTime = System.nanoTime();
+        long testTimeNanos = config.getTestTimeNanos();
         try {
-            while (true) {
+            while (testTimeNanos != 0) {
                 if (random != null) {
                     testIterator.shuffle(random);
                 }
                 while (testIterator.hasNext()) {
                     results.add(sample(testIterator.next()));
+                    if (testTimeNanos != 0) {
+                        if (testTimeNanos < System.nanoTime() - startTime) {
+                            // end of the timed test
+                            break;
+                        }
+                    }
                 }
-                if (config.isTimedTest()) {
-                    if (config.getTestTimeNanos() < System
-                            .nanoTime()
-                            - startTime) {
-                        // end of the timed test
-                        break;
-                    }
-                    testIterator.reset();
-                    if (!testIterator.hasNext()) {
-                        throw new SamplerException(
-                                "reset did not work for " + testIterator);
-                    }
-                } else {
+
+                if (testTimeNanos == 0) {
                     // no more tests to run: exit the loop
                     break;
+                }
+
+                if (testTimeNanos < System.nanoTime() - startTime) {
+                    // end of the timed test
+                    break;
+                }
+                testIterator.reset();
+                if (!testIterator.hasNext()) {
+                    throw new SamplerException("reset did not work for "
+                            + testIterator);
                 }
             }
         } catch (IOException e) {
