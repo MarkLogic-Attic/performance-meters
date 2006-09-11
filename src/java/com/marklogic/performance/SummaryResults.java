@@ -187,11 +187,11 @@ public class SummaryResults {
         if (sortedResults == null) {
             loadSortedResults();
             // DEBUG
-//            Iterator<Result> iter = sortedResults.iterator();
-//            while (iter.hasNext()) {
-//                System.err.println("DEBUG: sorted = "
-//                        + iter.next().getDurationNanos());
-//            }
+            // Iterator<Result> iter = sortedResults.iterator();
+            // while (iter.hasNext()) {
+            // System.err.println("DEBUG: sorted = "
+            // + iter.next().getDurationNanos());
+            // }
         }
 
         double size = sortedResults.size();
@@ -200,8 +200,8 @@ public class SummaryResults {
         if (pidx > size - 1) {
             pidx = (int) (size - 1);
         }
-//        System.err.println("DEBUG: percentile=" + percentile + ", size="
-//                + size + ", pidx=" + pidx);
+        // System.err.println("DEBUG: percentile=" + percentile + ", size="
+        // + size + ", pidx=" + pidx);
         return sortedResults.get(pidx).getDurationNanos();
     }
 
@@ -214,7 +214,7 @@ public class SummaryResults {
      * @see http://en.wikipedia.org/wiki/Standard_deviation
      * @return
      */
-    double getStandardDeviation() {
+    public double getStandardDeviationNanos() {
         if (samplers.length < 1) {
             return 0;
         }
@@ -224,15 +224,19 @@ public class SummaryResults {
         }
 
         // iterate through the results from all the results
-        Iterator iter = sortedResults.iterator();
-        Result result;
+        Iterator<Result> iter = sortedResults.iterator();
         double sumOfSquares = 0;
+        double avgNanos = getAvgNanos();
         while (iter.hasNext()) {
-            result = (Result) iter.next();
-            sumOfSquares += Math.pow(result.getDurationMillis()
-                    - getAvgMillis(), 2);
+            sumOfSquares += Math.pow(iter.next().getDurationNanos()
+                    - avgNanos, 2);
         }
         return Math.sqrt(sumOfSquares / getNumberOfTests());
+    }
+
+    public double getStandardDeviationMillis() {
+        return getStandardDeviationNanos()
+                / Configuration.NANOS_PER_MILLI;
     }
 
     public String[] getFieldNames() {
@@ -315,7 +319,7 @@ public class SummaryResults {
         }
 
         if (_field.startsWith(STANDARD_DEVIATION)) {
-            return "" + getStandardDeviation();
+            return "" + getStandardDeviationMillis();
         }
 
         throw new UnknownResultFieldException("unknown result field: "
@@ -329,9 +333,12 @@ public class SummaryResults {
         return numberOfThreads;
     }
 
+    public double getAvgNanos() {
+        return (double) totalNanos / numberOfTests;
+    }
+
     public double getAvgMillis() {
-        return (double) totalNanos
-                / (numberOfTests * Configuration.NANOS_PER_MILLI);
+        return getAvgNanos() / Configuration.NANOS_PER_MILLI;
     }
 
     public long getBytesReceived() {

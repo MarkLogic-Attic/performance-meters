@@ -20,7 +20,7 @@ package com.marklogic.performance;
 
 import java.util.Random;
 
-interface TestIterator {
+public interface TestIterator {
 
     public boolean hasNext();
 

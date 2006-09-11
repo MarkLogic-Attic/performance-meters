@@ -111,7 +111,10 @@ you need the XDBC libraries.
   </td></tr>
 
 <tr><td class="code">outputPath</td><td class="note">null</td>
-  <td>Filesystem path to directory where results will be written.
+  <td>Filesystem path to which results will be written.
+    If the path already exists, and is a directory,
+    a time- and date-stamped file will be generated.
+    Otherwise, the exact filename will be used.
     By default, the current working directory is used.
   </td></tr>
 

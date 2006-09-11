@@ -26,10 +26,10 @@ import java.util.Random;
 
 // TODO implement fixed number of test loops (iterations)
 
-abstract class Sampler implements Runnable {
+public abstract class Sampler implements Runnable {
     TestIterator testIterator;
 
-    List<Result> results;
+    protected List<Result> results;
 
     Configuration config;
 
@@ -58,7 +58,7 @@ abstract class Sampler implements Runnable {
 
     byte[] readBuffer = new byte[READSIZE];
 
-    Sampler(TestIterator ti, Configuration cfg) {
+    protected Sampler(TestIterator ti, Configuration cfg) {
         testIterator = ti;
         config = cfg;
         // cache this stuff in case there's synchronization

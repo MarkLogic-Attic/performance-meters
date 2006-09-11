@@ -18,8 +18,7 @@
  */
 package com.marklogic.performance;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -27,7 +26,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
@@ -40,7 +38,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-09-08.2";
+    private static final String VERSION = "2006-09-10.1";
 
     private Configuration config;
 
@@ -57,26 +55,13 @@ public class PerformanceMeters {
     public static void main(String args[]) throws Exception {
         // start with getting the config parameters
         // if the user supplied any args, assume they are properties files
-        Configuration config = new Configuration();
-
-        if (args.length > 0) {
-            Properties props = new Properties();
-            for (int i = 0; i < args.length; i++) {
-                try {
-                    props.load(new FileInputStream(args[i]));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            config.load(props);
-        }
+        Configuration config = new Configuration(args, true);
 
         showProgress(NAME + " starting, version " + VERSION);
 
-        if (debug)
+        if (debug) {
             showProgress(config.configString());
+        }
 
         // use reflection to create the reporter, for output
         Class reporterClass = Class
@@ -196,8 +181,16 @@ public class PerformanceMeters {
             outputPath = NAME + "-" + System.currentTimeMillis()
                     + reporter.getPreferredFileExtension();
         }
-        showProgress("Writing results to " + outputPath);
-        FileWriter resultDocument = new FileWriter(outputPath);
+        File outputFile = new File(outputPath);
+        if (outputFile.exists() && outputFile.isDirectory()) {
+            // generate a unique file, in the specified dir
+            outputFile = new File(outputFile, NAME + "-"
+                    + System.currentTimeMillis()
+                    + reporter.getPreferredFileExtension());
+        }
+        showProgress("Writing results to "
+                + outputFile.getCanonicalPath());
+        FileWriter resultDocument = new FileWriter(outputFile);
         Sampler[] samplerArray = samplers.toArray(new Sampler[0]);
         SummaryResults summaryResults = new SummaryResults(config,
                 startTime, endTime, samplerArray);
@@ -223,7 +216,7 @@ public class PerformanceMeters {
             if (config.isReportStandardDeviation()) {
                 // report standard deviation
                 System.out.println("Standard deviation: "
-                        + summaryResults.getStandardDeviation());
+                        + summaryResults.getStandardDeviationMillis());
             }
             // report multiple percentiles
             if (config.hasReportPercentileDuration()) {

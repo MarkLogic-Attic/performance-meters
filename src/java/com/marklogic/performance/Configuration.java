@@ -18,6 +18,8 @@
  */
 package com.marklogic.performance;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
@@ -90,13 +92,13 @@ public class Configuration {
     public static final int READSIZE_DEFAULT = 32 * 1024;
 
     public static final boolean REPORTSTDDEV_DEFAULT = false;
-    
+
     public static final long MILLIS_PER_SECOND = 1000;
 
     public static final long NANOS_PER_MILLI = 1000 * 1000;
-    
+
     public static final long NANOS_PER_SECOND = 1000 * 1000 * 1000;
-    
+
     private String[] host;
 
     private int port;
@@ -152,12 +154,22 @@ public class Configuration {
 
     private boolean reportStandardDeviation = REPORTSTDDEV_DEFAULT;
 
-    Configuration() {
-        // set up the initial object using system properties
+    public Configuration(String[] paths, boolean loadSystemProperties)
+            throws IOException {
+        // set up the initial object using a set of paths, plus system properties
         // if the user wants to supply more properties,
         // the load() method is public.
         props = new Properties();
-        load(System.getProperties());
+
+        if (paths.length > 0) {
+            for (int i = 0; i < paths.length; i++) {
+                props.load(new FileInputStream(paths[i]));
+            }
+        }
+
+        if (loadSystemProperties) {
+            load(System.getProperties());
+        }
     }
 
     /**
@@ -173,8 +185,9 @@ public class Configuration {
         String hostString = props.getProperty("host", HOST_DEFAULT);
         host = hostString.split("\\s+");
 
-        /* a connection-string would be simpler for xcc,
-         * but not for xdbc... someday we'll remove xdbc support.
+        /*
+         * a connection-string would be simpler for xcc, but not for xdbc...
+         * someday we'll remove xdbc support.
          */
         port = Integer.parseInt(props.getProperty("port", ""
                 + PORT_DEFAULT));
@@ -224,8 +237,8 @@ public class Configuration {
         isTimedTest = (testTime > 0);
 
         isRandomTest = Boolean.valueOf(
-                props.getProperty(IS_RANDOM_TEST_KEY, IS_RANDOM_TEST_DEFAULT))
-                .booleanValue();
+                props.getProperty(IS_RANDOM_TEST_KEY,
+                        IS_RANDOM_TEST_DEFAULT)).booleanValue();
 
         // for backward compatibility
         recordResults = Boolean.valueOf(
@@ -265,7 +278,8 @@ public class Configuration {
             }
         }
 
-        reporterClassName = props.getProperty(REPORTER_KEY, REPORTER_DEFAULT);
+        reporterClassName = props.getProperty(REPORTER_KEY,
+                REPORTER_DEFAULT);
         // System.err.println("reporterClassName = " + reporterClassName);
 
         if (reporterClassName.indexOf('.') < 1) {
@@ -321,6 +335,10 @@ public class Configuration {
     }
 
     String getHost() {
+        if (host == null) {
+            return null;
+        }
+        
         if (host.length < 2) {
             return host[0];
         }

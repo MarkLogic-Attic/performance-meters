@@ -24,7 +24,7 @@ import java.io.IOException;
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  *
  */
-interface TestInterface {
+public interface TestInterface {
 
     public abstract String getQuery() throws IOException;
 
