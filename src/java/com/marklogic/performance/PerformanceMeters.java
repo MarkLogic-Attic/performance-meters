@@ -38,7 +38,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-09-10.1";
+    private static final String VERSION = "2006-09-15.1";
 
     private Configuration config;
 
@@ -240,7 +240,7 @@ public class PerformanceMeters {
                     + summaryResults.getBytesReceived() + " B");
 
             // report throughput nicely
-            // be sure to work around this:
+            // be sure to use toString, to work around this issue:
             // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4863883
             double tput = summaryResults.getTestsPerSecond();
             int scale = 2;

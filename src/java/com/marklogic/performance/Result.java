@@ -176,11 +176,11 @@ public class Result {
     }
 
     public double getStartMillis() {
-        return startNanos / Configuration.NANOS_PER_MILLI;
+        return (double) startNanos / Configuration.NANOS_PER_MILLI;
     }
 
     public double getEndMillis() {
-        return endNanos / Configuration.NANOS_PER_MILLI;
+        return (double) endNanos / Configuration.NANOS_PER_MILLI;
     }
 
     /**
@@ -194,9 +194,10 @@ public class Result {
      * @return
      */
     public double getDurationMillis() {
-        return getDurationNanos() / 1000;
+        return (double) getDurationNanos()
+                / Configuration.NANOS_PER_MILLI;
     }
-    
+
     /**
      * @return
      */
