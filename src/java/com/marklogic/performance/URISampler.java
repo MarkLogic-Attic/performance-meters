@@ -21,26 +21,25 @@ package com.marklogic.performance;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
+/*
+ * this class expects the query to contain a simple URI, which it attempts to
+ * GET from the server
+ */
 class URISampler extends Sampler {
-
-    public final static String AUTO_REDIRECTS = "HTTPSampler.auto_redirects";
 
     URISampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
-    private HttpURLConnection setupConnection(Result res, String uri)
+    private HttpURLConnection setupConnection(String uri)
             throws IOException {
 
         URL url = new URL("http", config.getHost(), config.getPort(), uri);
-        HttpURLConnection conn;
         HttpURLConnection.setFollowRedirects(true);
-        conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         // using keepalive
         conn.setRequestProperty("Connection", "keep-alive");
@@ -49,45 +48,35 @@ class URISampler extends Sampler {
                         + config.getPassword());
         conn.setRequestProperty("Authorization", authHeader);
         // set post headers
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Length", "" + 9);
-        conn.setRequestProperty("Content-Type",
-                "application/x-www-form-urlencoded");
+        conn.setRequestMethod("GET");
         conn.setDoOutput(true);
-        // setPostHeaders(conn);
         return conn;
-    }
-
-    private void sendPostData(URLConnection connection, String query)
-            throws IOException {
-        String postData = "query=foo";
-        PrintWriter out = new PrintWriter(connection.getOutputStream());
-        out.print(postData);
-        out.flush();
     }
 
     private byte[] readResponse(HttpURLConnection conn)
             throws IOException {
-        BufferedInputStream in;
+        BufferedInputStream in = null;
+        ByteArrayOutputStream w = null;
         try {
             in = new BufferedInputStream(conn.getInputStream());
-        } catch (IOException e) {
-            in = new BufferedInputStream(conn.getErrorStream());
-        } catch (Exception e) {
-            in = new BufferedInputStream(conn.getErrorStream());
+            w = new ByteArrayOutputStream();
+            int x = 0;
+            boolean first = true;
+            while ((x = in.read(readBuffer)) > -1) {
+                if (first)
+                    first = false; // to capture latency end
+                w.write(readBuffer, 0, x);
+            }
+            w.flush();
+            return w.toByteArray();
+        } finally {
+            if (null != in) {
+                in.close();
+            }
+            if (null != w) {
+                w.close();
+            }
         }
-        java.io.ByteArrayOutputStream w = new ByteArrayOutputStream();
-        int x = 0;
-        boolean first = true;
-        while ((x = in.read(readBuffer)) > -1) {
-            if (first)
-                first = false; // to capture latency end
-            w.write(readBuffer, 0, x);
-        }
-        in.close();
-        w.flush();
-        w.close();
-        return w.toByteArray();
     }
 
     protected Result sample(TestInterface test) throws IOException {
@@ -95,25 +84,23 @@ class URISampler extends Sampler {
                 .getCommentExpectedResult());
         byte[] responseData = null;
         res.setStart();
-        // do some work
-        String url = test.getQuery();
+        String uri = test.getQuery();
 
         try {
-            HttpURLConnection conn = setupConnection(res, url);
-            // send post data
-            sendPostData(conn, url);
+            HttpURLConnection conn = setupConnection(uri);
             // get response
             responseData = readResponse(conn);
+            if (!config.isReportTime()
+                    || config.getRecordResults()) {
+                res.setQueryResult(new String(responseData));
+            }
         } catch (IOException e) {
             res.setError(true);
             String errorMessage = e.getMessage();
             if (errorMessage == null)
                 errorMessage = "NULL";
-            if (!config.isReportTime() || config.getRecordResults())
-                res.setQueryResult(errorMessage);
-        } finally {
             if (!config.isReportTime() || config.getRecordResults()) {
-                res.setQueryResult(new String(responseData));
+                res.setQueryResult(errorMessage);
             }
         }
         res.setEnd();
