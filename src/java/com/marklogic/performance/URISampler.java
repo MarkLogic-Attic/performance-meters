@@ -88,8 +88,11 @@ class URISampler extends Sampler {
 
         try {
             HttpURLConnection conn = setupConnection(uri);
+            res.incrementBytesSent(uri.length());
             // get response
             responseData = readResponse(conn);
+            res.incrementBytesReceived(responseData.length);
+            
             if (!config.isReportTime()
                     || config.getRecordResults()) {
                 res.setQueryResult(new String(responseData));
