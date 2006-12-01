@@ -32,7 +32,7 @@ import com.marklogic.xcc.Session;
 class XCCSampler extends Sampler {
 
     // use char instead of superclass byte
-    char[] readBuffer = new char[READSIZE];
+    char[] readBuffer = new char[readsize];
 
     /**
      * @param ti

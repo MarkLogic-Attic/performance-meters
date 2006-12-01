@@ -37,15 +37,15 @@ class URISampler extends Sampler {
     private HttpURLConnection setupConnection(String uri)
             throws IOException {
 
-        URL url = new URL("http", config.getHost(), config.getPort(), uri);
+        URL url = new URL("http", host, port, uri);
         HttpURLConnection.setFollowRedirects(true);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
         // using keepalive
         conn.setRequestProperty("Connection", "keep-alive");
         String authHeader = "Basic "
-                + Base64Encoder.encode(config.getUser() + ":"
-                        + config.getPassword());
+                + Base64Encoder.encode(user + ":"
+                        + password);
         conn.setRequestProperty("Authorization", authHeader);
         // set post headers
         conn.setRequestMethod("GET");

@@ -26,7 +26,7 @@ import java.util.Random;
 
 // TODO implement fixed number of test loops (iterations)
 
-public abstract class Sampler implements Runnable {
+public abstract class Sampler extends Thread {
     TestIterator testIterator;
 
     protected List<Result> results;
@@ -39,7 +39,7 @@ public abstract class Sampler implements Runnable {
 
     private int errorCount = -1;
 
-    protected static int READSIZE = Configuration.READSIZE_DEFAULT;
+    protected static int readsize = Configuration.READSIZE_DEFAULT;
 
     // cache this stuff in case there's synchronization
     boolean recordResults = Configuration.RECORDRESULTS_DEFAULT;
@@ -56,20 +56,11 @@ public abstract class Sampler implements Runnable {
 
     int port = Configuration.PORT_DEFAULT;
 
-    byte[] readBuffer = new byte[READSIZE];
+    byte[] readBuffer = new byte[readsize];
 
     protected Sampler(TestIterator ti, Configuration cfg) {
         testIterator = ti;
         config = cfg;
-        // cache this stuff in case there's synchronization
-        recordResults = config.getRecordResults();
-        reportTime = config.isReportTime();
-        checkResults = config.checkResults();
-        user = config.getUser();
-        password = config.getPassword();
-        host = config.getHost();
-        port = config.getPort();
-        results = new ArrayList<Result>();
     }
 
     public int getResultsCount() {
@@ -85,7 +76,16 @@ public abstract class Sampler implements Runnable {
     }
 
     public void run() {
-        READSIZE = config.getReadSize();
+        // cache this stuff in case there's synchronization
+        readsize = config.getReadSize();
+        recordResults = config.getRecordResults();
+        reportTime = config.isReportTime();
+        checkResults = config.checkResults();
+        user = config.getUser();
+        password = config.getPassword();
+        host = config.getHost();
+        port = config.getPort();
+        results = new ArrayList<Result>();
 
         // random tests only make sense as timed tests
         if (config.isTimedTest()) {
@@ -105,6 +105,9 @@ public abstract class Sampler implements Runnable {
         // not timed test: run once
         long startTime = System.nanoTime();
         long testTimeNanos = config.getTestTimeNanos();
+        long lastConfigUpdate = startTime;
+        long updateNanos = Configuration.NANOS_PER_SECOND;
+        long nowTime;
         try {
             while (testTimeNanos != 0) {
                 if (random != null) {
@@ -117,6 +120,16 @@ public abstract class Sampler implements Runnable {
                             // end of the timed test
                             break;
                         }
+                    }
+                    // try to avoid thread starvation
+                    yield();
+                    // config may contain multiple hosts,
+                    // so balance load by updating once in a while,
+                    // but not every time, or we have locking issues.
+                    nowTime = System.nanoTime();
+                    if (nowTime - updateNanos > lastConfigUpdate) {
+                        host = config.getHost();
+                        lastConfigUpdate = System.nanoTime();
                     }
                 }
 

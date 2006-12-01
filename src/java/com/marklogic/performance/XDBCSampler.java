@@ -29,7 +29,7 @@ import com.marklogic.xdmp.XDMPConnection;
 class XDBCSampler extends Sampler {
 
     // use char instead of superclass byte
-    char[] readBuffer = new char[READSIZE];
+    char[] readBuffer = new char[readsize];
 
     /**
      * @param ti

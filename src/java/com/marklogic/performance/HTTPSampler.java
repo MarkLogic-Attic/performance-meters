@@ -39,8 +39,7 @@ class HTTPSampler extends Sampler {
 
     private HttpURLConnection setupConnection(Result res, String query)
             throws IOException {
-        URL url = new URL("http", config.getHost(), config.getPort(),
-                "/evaluate.xqy");
+        URL url = new URL("http", host, port, "/evaluate.xqy");
         HttpURLConnection conn;
         HttpURLConnection.setFollowRedirects(true);
         conn = (HttpURLConnection) url.openConnection();
@@ -48,8 +47,7 @@ class HTTPSampler extends Sampler {
         // using keepalive
         conn.setRequestProperty("Connection", "keep-alive");
         String authHeader = "Basic "
-                + Base64Encoder.encode(config.getUser() + ":"
-                        + config.getPassword());
+                + Base64Encoder.encode(user + ":" + password);
         conn.setRequestProperty("Authorization", authHeader);
         // set post headers
         conn.setRequestMethod("POST");
@@ -69,7 +67,8 @@ class HTTPSampler extends Sampler {
         out.flush();
     }
 
-    private byte[] readResponse(HttpURLConnection conn) throws IOException {
+    private byte[] readResponse(HttpURLConnection conn)
+            throws IOException {
         BufferedInputStream in;
         try {
             in = new BufferedInputStream(conn.getInputStream());
@@ -93,7 +92,8 @@ class HTTPSampler extends Sampler {
     }
 
     protected Result sample(TestInterface test) throws IOException {
-        Result res = new Result(test.getName(), test.getCommentExpectedResult());
+        Result res = new Result(test.getName(), test
+                .getCommentExpectedResult());
         byte[] responseData = null;
         res.setStart();
 

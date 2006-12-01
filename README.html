@@ -94,6 +94,8 @@ you need the XDBC libraries.
 <tr><td class="code">host</td><td class="code">localhost</td>
   <td>Host name for all test connections.
     This must be an instance of MarkLogic Server.
+    Multiple, space-delimited hostnames are also supported:
+    tests will automatically round-robin across all available hosts.
   </td></tr>
 
 <tr><td class="code">isRandomTest</td><td class="code">false</td>

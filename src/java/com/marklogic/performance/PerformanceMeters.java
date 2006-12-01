@@ -38,11 +38,9 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2006-11-29.1";
+    private static final String VERSION = "2006-11-30.1";
 
     private Configuration config;
-
-    List<Thread> threads;
 
     List<Sampler> samplers;
 
@@ -89,7 +87,6 @@ public class PerformanceMeters {
 
     PerformanceMeters(Configuration _config) {
         config = _config;
-        threads = new ArrayList<Thread>();
         samplers = new ArrayList<Sampler>();
     }
 
@@ -140,8 +137,7 @@ public class PerformanceMeters {
             sampler.setIndex(i);
 
             samplers.add(sampler);
-            Thread th = new Thread(sampler, "sampler #" + i);
-            threads.add(th);
+            sampler.setName("sampler #" + i);
         }
 
         // with really large numbers of threads, creation time is significant
@@ -149,13 +145,13 @@ public class PerformanceMeters {
         showProgress("starting...");
         startTime = System.nanoTime();
         for (int i = 0; i < numThreads; i++) {
-            threads.get(i).start();
+            samplers.get(i).start();
         }
 
         // wait for all to finish
-        for (int i = 0; i < threads.size(); i++) {
+        for (int i = 0; i < samplers.size(); i++) {
             try {
-                (threads.get(i)).join();
+                (samplers.get(i)).join();
             } catch (InterruptedException e) {
                 /* should not happen */
                 continue;
