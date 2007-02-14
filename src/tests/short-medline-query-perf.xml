@@ -6,7 +6,7 @@
  input() ,  
  cts:word-query('EARTHWORM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST2</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST2</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ARTIFICIAL SEEDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -14,7 +14,7 @@
  input() ,  
  cts:word-query('ARTIFICIAL SEEDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST3</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST3</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BROMELAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -22,7 +22,7 @@
  input() ,  
  cts:word-query('BROMELAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST4</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST4</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FRUIT PINEAPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -30,7 +30,7 @@
  input() ,  
  cts:word-query('FRUIT PINEAPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST5</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST5</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PINEAPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -38,7 +38,7 @@
  input() ,  
  cts:word-query('PINEAPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST6</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST6</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FRUIT PINEAPPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -46,7 +46,7 @@
  input() ,  
  cts:word-query('FRUIT PINEAPPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST7</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST7</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LIBRARY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -54,7 +54,7 @@
  input() ,  
  cts:word-query('LIBRARY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST8</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST8</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ARABIDOPSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -62,7 +62,7 @@
  input() ,  
  cts:word-query('ARABIDOPSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST9</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST9</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MODIFIED KELOWNA EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -70,7 +70,7 @@
  input() ,  
  cts:word-query('MODIFIED KELOWNA EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST10</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST10</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHOSPHORUS BY KELOWNA EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -78,7 +78,7 @@
  input() ,  
  cts:word-query('PHOSPHORUS BY KELOWNA EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST11</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST11</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SOIL EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -86,7 +86,7 @@
  input() ,  
  cts:word-query('SOIL EXTRACTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST12</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST12</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MERCURY POPULATION EXPOSURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -94,7 +94,7 @@
  input() ,  
  cts:word-query('MERCURY POPULATION EXPOSURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST13</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST13</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MERCURY WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -102,7 +102,7 @@
  input() ,  
  cts:word-query('MERCURY WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST14</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST14</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PUBLIC HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -110,7 +110,7 @@
  input() ,  
  cts:word-query('PUBLIC HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST15</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST15</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ANTHRACNOSE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -118,7 +118,7 @@
  input() ,  
  cts:word-query('ANTHRACNOSE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST16</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST16</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('27 SEPTEMBER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -126,7 +126,7 @@
  input() ,  
  cts:word-query('27 SEPTEMBER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST17</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST17</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('JOURNALAUGUST LIPIDSJUNE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -134,7 +134,7 @@
  input() ,  
  cts:word-query('JOURNALAUGUST LIPIDSJUNE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST18</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST18</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('1 THRU 23',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -142,7 +142,7 @@
  input() ,  
  cts:word-query('1 THRU 23',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST19</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST19</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MERISTEM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -150,7 +150,7 @@
  input() ,  
  cts:word-query('MERISTEM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST20</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST20</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FLORAL TRANSITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -158,7 +158,7 @@
  input() ,  
  cts:word-query('FLORAL TRANSITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST21</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST21</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('19 THRU 24',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -166,7 +166,7 @@
  input() ,  
  cts:word-query('19 THRU 24',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST22</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST22</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CORRELATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -174,7 +174,7 @@
  input() ,  
  cts:word-query('CORRELATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST23</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST23</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EMBRYOGENESIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -182,7 +182,7 @@
  input() ,  
  cts:word-query('EMBRYOGENESIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST24</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST24</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ALFRED HITCHCOCK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -190,7 +190,7 @@
  input() ,  
  cts:word-query('ALFRED HITCHCOCK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST25</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST25</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ZEALAND',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -198,7 +198,7 @@
  input() ,  
  cts:word-query('ZEALAND',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST26</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST26</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SOUTHWEST NATIVE AMERICANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -206,7 +206,7 @@
  input() ,  
  cts:word-query('SOUTHWEST NATIVE AMERICANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST27</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST27</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('POLLUTION IN WATER FOR PB',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -214,7 +214,7 @@
  input() ,  
  cts:word-query('POLLUTION IN WATER FOR PB',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST28</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST28</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -222,7 +222,7 @@
  input() ,  
  cts:word-query('ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST29</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST29</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('STURGEON',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -230,7 +230,7 @@
  input() ,  
  cts:word-query('STURGEON',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST30</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST30</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('WARFARIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -238,7 +238,7 @@
  input() ,  
  cts:word-query('WARFARIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST31</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST31</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PILCHARDUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -246,7 +246,7 @@
  input() ,  
  cts:word-query('PILCHARDUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST32</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST32</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PINEAPPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -254,7 +254,7 @@
  input() ,  
  cts:word-query('PINEAPPLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST33</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST33</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PLANT DENSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -262,7 +262,7 @@
  input() ,  
  cts:word-query('PLANT DENSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST34</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST34</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CYTOPLASMA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -270,7 +270,7 @@
  input() ,  
  cts:word-query('CYTOPLASMA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST35</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST35</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('METHOPRENE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -278,7 +278,7 @@
  input() ,  
  cts:word-query('METHOPRENE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST36</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST36</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('OYSTER FISHERIES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -286,7 +286,7 @@
  input() ,  
  cts:word-query('OYSTER FISHERIES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST37</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST37</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MERCURY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -294,7 +294,7 @@
  input() ,  
  cts:word-query('MERCURY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST38</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST38</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('COLLETOTRICHUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -302,7 +302,7 @@
  input() ,  
  cts:word-query('COLLETOTRICHUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST39</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST39</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FLOWERING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -310,7 +310,7 @@
  input() ,  
  cts:word-query('FLOWERING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST40</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST40</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CHROMATIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -318,7 +318,7 @@
  input() ,  
  cts:word-query('CHROMATIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST41</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST41</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EPIGENETICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -326,7 +326,7 @@
  input() ,  
  cts:word-query('EPIGENETICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST42</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST42</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('IMPRINTING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -334,7 +334,7 @@
  input() ,  
  cts:word-query('IMPRINTING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST43</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST43</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILENCING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -342,7 +342,7 @@
  input() ,  
  cts:word-query('SILENCING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST44</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST44</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LYGUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -350,7 +350,7 @@
  input() ,  
  cts:word-query('LYGUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST45</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST45</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BACULOVIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -358,7 +358,7 @@
  input() ,  
  cts:word-query('BACULOVIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST46</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST46</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BACULOVIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -366,7 +366,7 @@
  input() ,  
  cts:word-query('BACULOVIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST47</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST47</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LYGUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -374,7 +374,7 @@
  input() ,  
  cts:word-query('LYGUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST48</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST48</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BOTANICA MARINA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -382,7 +382,7 @@
  input() ,  
  cts:word-query('BOTANICA MARINA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST49</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST49</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PB POLLUTION IN WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -390,7 +390,7 @@
  input() ,  
  cts:word-query('PB POLLUTION IN WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST50</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST50</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PB POLLUTION IN WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -398,7 +398,7 @@
  input() ,  
  cts:word-query('PB POLLUTION IN WATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST51</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST51</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PB POLLUTION IN ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -406,7 +406,7 @@
  input() ,  
  cts:word-query('PB POLLUTION IN ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST52</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST52</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('1 OCTOBER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -414,7 +414,7 @@
  input() ,  
  cts:word-query('1 OCTOBER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST53</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST53</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FOOTBALL PYSICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -422,7 +422,7 @@
  input() ,  
  cts:word-query('FOOTBALL PYSICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST54</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST54</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FOOTBALL PHYSICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -430,7 +430,7 @@
  input() ,  
  cts:word-query('FOOTBALL PHYSICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST55</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST55</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHENOTYPIC PLASTICITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -438,7 +438,7 @@
  input() ,  
  cts:word-query('PHENOTYPIC PLASTICITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST56</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST56</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PLANT HERBIVORE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -446,7 +446,7 @@
  input() ,  
  cts:word-query('PLANT HERBIVORE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST57</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST57</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MANDUCA SEXTA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -454,7 +454,7 @@
  input() ,  
  cts:word-query('MANDUCA SEXTA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST58</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST58</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CHLOROSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -462,7 +462,7 @@
  input() ,  
  cts:word-query('CHLOROSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST59</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST59</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EMBRYOGENESIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -470,7 +470,7 @@
  input() ,  
  cts:word-query('EMBRYOGENESIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST60</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST60</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SHADOW OF A DOUBT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -478,7 +478,7 @@
  input() ,  
  cts:word-query('SHADOW OF A DOUBT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST61</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST61</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('POLLUTION FOR HEAVY METALS IN WATERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -486,7 +486,7 @@
  input() ,  
  cts:word-query('POLLUTION FOR HEAVY METALS IN WATERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST62</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST62</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NATIVE AMERICANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -494,7 +494,7 @@
  input() ,  
  cts:word-query('NATIVE AMERICANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST63</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST63</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PORIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -502,7 +502,7 @@
  input() ,  
  cts:word-query('PORIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST64</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST64</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PORIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -510,7 +510,7 @@
  input() ,  
  cts:word-query('PORIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST65</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST65</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PB POLLUTION IN ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -518,7 +518,7 @@
  input() ,  
  cts:word-query('PB POLLUTION IN ALGAE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST66</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST66</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('INR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -526,7 +526,7 @@
  input() ,  
  cts:word-query('INR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST67</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST67</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PROTHROMBIN TIME',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -534,7 +534,7 @@
  input() ,  
  cts:word-query('PROTHROMBIN TIME',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST68</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST68</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NEAR PATIENT TESTING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -542,7 +542,7 @@
  input() ,  
  cts:word-query('NEAR PATIENT TESTING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST69</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST69</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NEAR PATIENT TEST',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -550,7 +550,7 @@
  input() ,  
  cts:word-query('NEAR PATIENT TEST',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST70</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST70</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PRIMARY HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -558,7 +558,7 @@
  input() ,  
  cts:word-query('PRIMARY HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST71</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST71</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PRIMARY CARE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -566,7 +566,7 @@
  input() ,  
  cts:word-query('PRIMARY CARE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST72</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST72</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CARYOPHYLLENE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -574,7 +574,7 @@
  input() ,  
  cts:word-query('CARYOPHYLLENE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST73</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST73</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TRANSCRIPTOME ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -582,7 +582,7 @@
  input() ,  
  cts:word-query('TRANSCRIPTOME ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST74</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST74</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SNMP HOW TO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -590,7 +590,7 @@
  input() ,  
  cts:word-query('SNMP HOW TO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST75</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST75</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HPLC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -598,7 +598,7 @@
  input() ,  
  cts:word-query('HPLC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST76</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST76</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PARKER J',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -606,7 +606,7 @@
  input() ,  
  cts:word-query('PARKER J',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST77</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST77</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CERTIFICATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -614,7 +614,7 @@
  input() ,  
  cts:word-query('CERTIFICATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST78</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST78</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYBRIDI?ATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -622,7 +622,7 @@
  input() ,  
  cts:word-query('HYBRIDI?ATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST79</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST79</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('APRICOT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -630,7 +630,7 @@
  input() ,  
  cts:word-query('APRICOT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST80</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST80</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CERTIFICATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -638,7 +638,7 @@
  input() ,  
  cts:word-query('CERTIFICATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST81</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST81</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FIREWALL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -646,7 +646,7 @@
  input() ,  
  cts:word-query('FIREWALL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST82</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST82</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SORPTION OF HEAVY METALS PHOSPHATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -654,7 +654,7 @@
  input() ,  
  cts:word-query('SORPTION OF HEAVY METALS PHOSPHATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST83</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST83</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NAFION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -662,7 +662,7 @@
  input() ,  
  cts:word-query('NAFION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST84</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST84</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ABS THERMOFORMING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -670,7 +670,7 @@
  input() ,  
  cts:word-query('ABS THERMOFORMING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST85</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST85</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('THERMOFORMING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -678,7 +678,7 @@
  input() ,  
  cts:word-query('THERMOFORMING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST86</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST86</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EXTRUCION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -686,7 +686,7 @@
  input() ,  
  cts:word-query('EXTRUCION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST87</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST87</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EXTRUCION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -694,7 +694,7 @@
  input() ,  
  cts:word-query('EXTRUCION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST88</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST88</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('STRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -702,7 +702,7 @@
  input() ,  
  cts:word-query('STRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST89</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST89</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('STRUCTION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -710,7 +710,7 @@
  input() ,  
  cts:word-query('STRUCTION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST90</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST90</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ABS STRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -718,7 +718,7 @@
  input() ,  
  cts:word-query('ABS STRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST91</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST91</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TIR RECEPTOR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -726,7 +726,7 @@
  input() ,  
  cts:word-query('TIR RECEPTOR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST92</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST92</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PAH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -734,7 +734,7 @@
  input() ,  
  cts:word-query('PAH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST93</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST93</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYDROGEN GENERATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -742,7 +742,7 @@
  input() ,  
  cts:word-query('HYDROGEN GENERATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST94</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST94</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYDROGEN WATER VAPOUR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -750,7 +750,7 @@
  input() ,  
  cts:word-query('HYDROGEN WATER VAPOUR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST95</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST95</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NITROGEN WATER VAPOUR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -758,7 +758,7 @@
  input() ,  
  cts:word-query('NITROGEN WATER VAPOUR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST96</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST96</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RIO AMECA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -766,7 +766,7 @@
  input() ,  
  cts:word-query('RIO AMECA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST97</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST97</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MATHEMATICAL ECOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -774,7 +774,7 @@
  input() ,  
  cts:word-query('MATHEMATICAL ECOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST98</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST98</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DIGITAL SISTEMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -782,7 +782,7 @@
  input() ,  
  cts:word-query('DIGITAL SISTEMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST99</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST99</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHILOGENY CICHLID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -790,7 +790,7 @@
  input() ,  
  cts:word-query('PHILOGENY CICHLID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST100</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST100</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MUSHROOMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -798,7 +798,7 @@
  input() ,  
  cts:word-query('MUSHROOMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST101</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST101</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ENTOMOPHATOGENIC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -806,7 +806,7 @@
  input() ,  
  cts:word-query('ENTOMOPHATOGENIC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST102</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST102</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHYLOGENY CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -814,7 +814,7 @@
  input() ,  
  cts:word-query('PHYLOGENY CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST103</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST103</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BIOGLAS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -822,7 +822,7 @@
  input() ,  
  cts:word-query('BIOGLAS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST104</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST104</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('GLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -830,7 +830,7 @@
  input() ,  
  cts:word-query('GLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST105</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST105</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BIOGLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -838,7 +838,7 @@
  input() ,  
  cts:word-query('BIOGLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST106</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST106</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('KAOLINITE NANOPARTICLES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -846,7 +846,7 @@
  input() ,  
  cts:word-query('KAOLINITE NANOPARTICLES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST107</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST107</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('KAOLINITE NANOCOMPOSITES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -854,7 +854,7 @@
  input() ,  
  cts:word-query('KAOLINITE NANOCOMPOSITES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST108</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST108</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILICATES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -862,7 +862,7 @@
  input() ,  
  cts:word-query('SILICATES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST109</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST109</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('METACOGNITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -870,7 +870,7 @@
  input() ,  
  cts:word-query('METACOGNITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST110</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST110</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FORMATION INITIALE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -878,7 +878,7 @@
  input() ,  
  cts:word-query('FORMATION INITIALE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST111</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST111</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DIFFERENCE SILICATES BETWEEN SILICAS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -886,7 +886,7 @@
  input() ,  
  cts:word-query('DIFFERENCE SILICATES BETWEEN SILICAS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST112</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST112</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILICATES BETWEEN SILICAS DIFFERENCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -894,7 +894,7 @@
  input() ,  
  cts:word-query('SILICATES BETWEEN SILICAS DIFFERENCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST113</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST113</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILICATES BETWEEN SILICAS DIFFERENCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -902,7 +902,7 @@
  input() ,  
  cts:word-query('SILICATES BETWEEN SILICAS DIFFERENCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST114</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST114</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILICATES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -910,7 +910,7 @@
  input() ,  
  cts:word-query('SILICATES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST115</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST115</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LIGNIN CARBOHYDRATE COMPLEX',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -918,7 +918,7 @@
  input() ,  
  cts:word-query('LIGNIN CARBOHYDRATE COMPLEX',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST116</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST116</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('IPSEC PROTOCOL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -926,7 +926,7 @@
  input() ,  
  cts:word-query('IPSEC PROTOCOL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST117</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST117</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TRANSCRIPTOME ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -934,7 +934,7 @@
  input() ,  
  cts:word-query('TRANSCRIPTOME ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST118</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST118</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -942,7 +942,7 @@
  input() ,  
  cts:word-query('ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST119</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST119</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR EVOLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -950,7 +950,7 @@
  input() ,  
  cts:word-query('MOLECULAR EVOLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST120</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST120</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BIODIVERSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -958,7 +958,7 @@
  input() ,  
  cts:word-query('BIODIVERSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST121</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST121</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RAMAN LASERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -966,7 +966,7 @@
  input() ,  
  cts:word-query('RAMAN LASERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST122</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST122</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('OLEKSIAK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -974,7 +974,7 @@
  input() ,  
  cts:word-query('OLEKSIAK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST123</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST123</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BACILLUS THURINGIENSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -982,7 +982,7 @@
  input() ,  
  cts:word-query('BACILLUS THURINGIENSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST124</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST124</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('POLLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -990,7 +990,7 @@
  input() ,  
  cts:word-query('POLLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST125</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST125</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYBRID?',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -998,7 +998,7 @@
  input() ,  
  cts:word-query('HYBRID?',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST126</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST126</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR WEIGHT OF BUTYL ACRYLATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1006,7 +1006,7 @@
  input() ,  
  cts:word-query('MOLECULAR WEIGHT OF BUTYL ACRYLATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST127</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST127</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RAMAN LASERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1014,7 +1014,7 @@
  input() ,  
  cts:word-query('RAMAN LASERS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST128</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST128</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('APRICOT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1022,7 +1022,7 @@
  input() ,  
  cts:word-query('APRICOT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST129</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST129</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TRAFFIC PM10 HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1030,7 +1030,7 @@
  input() ,  
  cts:word-query('TRAFFIC PM10 HEALTH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST130</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST130</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('POLLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1038,7 +1038,7 @@
  input() ,  
  cts:word-query('POLLUTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST131</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST131</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('GILLET',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1046,7 +1046,7 @@
  input() ,  
  cts:word-query('GILLET',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST132</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST132</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DISPERSAL REVIEW',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1054,7 +1054,7 @@
  input() ,  
  cts:word-query('DISPERSAL REVIEW',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST133</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST133</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CHIMIOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1062,7 +1062,7 @@
  input() ,  
  cts:word-query('CHIMIOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST134</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST134</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HEAVY METAL PHOSPHATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1070,7 +1070,7 @@
  input() ,  
  cts:word-query('HEAVY METAL PHOSPHATE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST135</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST135</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CHEMIOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1078,7 +1078,7 @@
  input() ,  
  cts:word-query('CHEMIOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST136</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST136</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BACTERIAL CHEMOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1086,7 +1086,7 @@
  input() ,  
  cts:word-query('BACTERIAL CHEMOTACTISM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST137</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST137</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BACTERIAL MOTILITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1094,7 +1094,7 @@
  input() ,  
  cts:word-query('BACTERIAL MOTILITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST138</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST138</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1102,7 +1102,7 @@
  input() ,  
  cts:word-query('ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST139</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST139</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PROCESSING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1110,7 +1110,7 @@
  input() ,  
  cts:word-query('PROCESSING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST140</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST140</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CLIMATIC CHANGE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1118,7 +1118,7 @@
  input() ,  
  cts:word-query('CLIMATIC CHANGE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST141</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST141</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TASTE INFLUENCE AROMA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1126,7 +1126,7 @@
  input() ,  
  cts:word-query('TASTE INFLUENCE AROMA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST142</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST142</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RECYCLING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1134,7 +1134,7 @@
  input() ,  
  cts:word-query('RECYCLING ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST143</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST143</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CAENORHABDITIS ELEGANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1142,7 +1142,7 @@
  input() ,  
  cts:word-query('CAENORHABDITIS ELEGANS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST144</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST144</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('THERMOFORMING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1150,7 +1150,7 @@
  input() ,  
  cts:word-query('THERMOFORMING',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST145</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST145</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EXTRUCTION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1158,7 +1158,7 @@
  input() ,  
  cts:word-query('EXTRUCTION ABS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST146</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST146</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ABS EXTRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1166,7 +1166,7 @@
  input() ,  
  cts:word-query('ABS EXTRUCTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST147</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST147</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MASS SPECTROMETRY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1174,7 +1174,7 @@
  input() ,  
  cts:word-query('MASS SPECTROMETRY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST148</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST148</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ENTHALPY OF VAPORIZATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1182,7 +1182,7 @@
  input() ,  
  cts:word-query('ENTHALPY OF VAPORIZATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST149</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST149</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('TETRAHYDROPYRANE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1190,7 +1190,7 @@
  input() ,  
  cts:word-query('TETRAHYDROPYRANE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST150</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST150</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYDROGEN GENERATION CONTENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1198,7 +1198,7 @@
  input() ,  
  cts:word-query('HYDROGEN GENERATION CONTENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST151</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST151</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ISOXAFLUTOLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1206,7 +1206,7 @@
  input() ,  
  cts:word-query('ISOXAFLUTOLE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST152</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST152</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MATHEMATICAL ECOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1214,7 +1214,7 @@
  input() ,  
  cts:word-query('MATHEMATICAL ECOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST153</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST153</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('EGYPTIAN PUBLIC HEALTH ASSOCIATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1222,7 +1222,7 @@
  input() ,  
  cts:word-query('EGYPTIAN PUBLIC HEALTH ASSOCIATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST154</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST154</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DIGITAL SYSTEMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1230,7 +1230,7 @@
  input() ,  
  cts:word-query('DIGITAL SYSTEMS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST155</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST155</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CICLIDOS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1238,7 +1238,7 @@
  input() ,  
  cts:word-query('CICLIDOS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST156</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST156</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR CLOCK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1246,7 +1246,7 @@
  input() ,  
  cts:word-query('MOLECULAR CLOCK',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST157</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST157</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHILOGENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1254,7 +1254,7 @@
  input() ,  
  cts:word-query('PHILOGENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST158</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST158</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHYLOGENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1262,7 +1262,7 @@
  input() ,  
  cts:word-query('PHYLOGENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST159</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST159</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ELECTRODEIONIZATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1270,7 +1270,7 @@
  input() ,  
  cts:word-query('ELECTRODEIONIZATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST160</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST160</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR CLOCK ANS CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1278,7 +1278,7 @@
  input() ,  
  cts:word-query('MOLECULAR CLOCK ANS CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST161</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST161</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR CLOCK ANS CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1286,7 +1286,7 @@
  input() ,  
  cts:word-query('MOLECULAR CLOCK ANS CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST162</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST162</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MOLECULAR CLOCK O CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1294,7 +1294,7 @@
  input() ,  
  cts:word-query('MOLECULAR CLOCK O CICHLIDS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST163</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST163</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NEUTRALIST THEORY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1302,7 +1302,7 @@
  input() ,  
  cts:word-query('NEUTRALIST THEORY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST164</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST164</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BIOGLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1310,7 +1310,7 @@
  input() ,  
  cts:word-query('BIOGLASS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST165</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST165</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('KAOLINES SHAPES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1318,7 +1318,7 @@
  input() ,  
  cts:word-query('KAOLINES SHAPES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST166</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST166</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('KAOLINES TREATMENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1326,7 +1326,7 @@
  input() ,  
  cts:word-query('KAOLINES TREATMENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST167</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST167</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('KAOLINITE DEFINITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1334,7 +1334,7 @@
  input() ,  
  cts:word-query('KAOLINITE DEFINITION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST168</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST168</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CYCLOPROPANETRICARBONITRILE TRICHLORO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1342,7 +1342,7 @@
  input() ,  
  cts:word-query('CYCLOPROPANETRICARBONITRILE TRICHLORO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST169</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST169</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PHOTOACOUSTIC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1350,7 +1350,7 @@
  input() ,  
  cts:word-query('PHOTOACOUSTIC',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST170</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST170</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LIQUID CHROMATOGRAPHY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1358,7 +1358,7 @@
  input() ,  
  cts:word-query('LIQUID CHROMATOGRAPHY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST171</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST171</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('OESTRADIOL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1366,7 +1366,7 @@
  input() ,  
  cts:word-query('OESTRADIOL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST172</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST172</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('THIOLACETIC ACID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1374,7 +1374,7 @@
  input() ,  
  cts:word-query('THIOLACETIC ACID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST173</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST173</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PLASMOPARA HALSTEDII',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1382,7 +1382,7 @@
  input() ,  
  cts:word-query('PLASMOPARA HALSTEDII',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST174</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST174</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MALONIC ACID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1390,7 +1390,7 @@
  input() ,  
  cts:word-query('MALONIC ACID',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST175</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST175</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('BOTANY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1398,7 +1398,7 @@
  input() ,  
  cts:word-query('BOTANY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST176</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST176</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('APPLIED',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1406,7 +1406,7 @@
  input() ,  
  cts:word-query('APPLIED',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST177</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST177</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NANOBIOTECHNOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1414,7 +1414,7 @@
  input() ,  
  cts:word-query('NANOBIOTECHNOLOGY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST178</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST178</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('AMACRIN CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1422,7 +1422,7 @@
  input() ,  
  cts:word-query('AMACRIN CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST179</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST179</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('AMACRINE CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1430,7 +1430,7 @@
  input() ,  
  cts:word-query('AMACRINE CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST180</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST180</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('AMACRINE CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1438,7 +1438,7 @@
  input() ,  
  cts:word-query('AMACRINE CELLS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST181</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST181</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MAGNETIC RESONANCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1446,7 +1446,7 @@
  input() ,  
  cts:word-query('MAGNETIC RESONANCE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST182</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST182</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NIR ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1454,7 +1454,7 @@
  input() ,  
  cts:word-query('NIR ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST183</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST183</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('OIL CONTENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1462,7 +1462,7 @@
  input() ,  
  cts:word-query('OIL CONTENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST184</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST184</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CHLOROPHYLL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1470,7 +1470,7 @@
  input() ,  
  cts:word-query('CHLOROPHYLL',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST185</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST185</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1478,7 +1478,7 @@
  input() ,  
  cts:word-query('ANALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST186</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST186</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DISACCHARIDES DETECTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1486,7 +1486,7 @@
  input() ,  
  cts:word-query('DISACCHARIDES DETECTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST187</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST187</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ADITIVES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1494,7 +1494,7 @@
  input() ,  
  cts:word-query('ADITIVES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST188</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST188</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MCM 41',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1502,7 +1502,7 @@
  input() ,  
  cts:word-query('MCM 41',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST189</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST189</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CATALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1510,7 +1510,7 @@
  input() ,  
  cts:word-query('CATALYSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST190</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST190</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FOOD',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1518,7 +1518,7 @@
  input() ,  
  cts:word-query('FOOD',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST191</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST191</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HETEROSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1526,7 +1526,7 @@
  input() ,  
  cts:word-query('HETEROSIS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST192</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST192</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('INFLORESCENCE APICAL MERISTEM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1534,7 +1534,7 @@
  input() ,  
  cts:word-query('INFLORESCENCE APICAL MERISTEM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST193</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST193</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('INBREEDING DEPRESSION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1542,7 +1542,7 @@
  input() ,  
  cts:word-query('INBREEDING DEPRESSION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST194</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST194</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PROCION MARINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1550,7 +1550,7 @@
  input() ,  
  cts:word-query('PROCION MARINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST195</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST195</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ERADICATING POLIO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1558,7 +1558,7 @@
  input() ,  
  cts:word-query('ERADICATING POLIO',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST196</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST196</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('NTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1566,7 +1566,7 @@
  input() ,  
  cts:word-query('NTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST197</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST197</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SNTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1574,7 +1574,7 @@
  input() ,  
  cts:word-query('SNTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST198</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST198</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('GENETICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1582,7 +1582,7 @@
  input() ,  
  cts:word-query('GENETICS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST199</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST199</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MELON NECROTIC SPOT VIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1590,7 +1590,7 @@
  input() ,  
  cts:word-query('MELON NECROTIC SPOT VIRUS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST200</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST200</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HYDROGEN PEROXIDE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1598,7 +1598,7 @@
  input() ,  
  cts:word-query('HYDROGEN PEROXIDE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST201</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST201</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SYNTENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1606,7 +1606,7 @@
  input() ,  
  cts:word-query('SYNTENY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST202</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST202</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE OF LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1614,7 +1614,7 @@
  input() ,  
  cts:word-query('SUTURE OF LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST203</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST203</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1622,7 +1622,7 @@
  input() ,  
  cts:word-query('LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST204</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST204</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('POLILISINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1630,7 +1630,7 @@
  input() ,  
  cts:word-query('POLILISINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST205</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST205</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FABRICATION OF SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1638,7 +1638,7 @@
  input() ,  
  cts:word-query('FABRICATION OF SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST206</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST206</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1646,7 +1646,7 @@
  input() ,  
  cts:word-query('SUTURE LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST207</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST207</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1654,7 +1654,7 @@
  input() ,  
  cts:word-query('SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST208</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST208</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1662,7 +1662,7 @@
  input() ,  
  cts:word-query('SUTURE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST209</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST209</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SSR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1670,7 +1670,7 @@
  input() ,  
  cts:word-query('SSR',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST210</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST210</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE POLILYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1678,7 +1678,7 @@
  input() ,  
  cts:word-query('SUTURE POLILYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST211</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST211</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SARS COV ANTIBODY PREVALENCE IN ALL HONG KONG PATIENTS CONTACTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1686,7 +1686,7 @@
  input() ,  
  cts:word-query('SARS COV ANTIBODY PREVALENCE IN ALL HONG KONG PATIENTS CONTACTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST212</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST212</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('5S NTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1694,7 +1694,7 @@
  input() ,  
  cts:word-query('5S NTS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST213</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST213</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('THERMOPHILIC ANAEROBIC DIGESTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1702,7 +1702,7 @@
  input() ,  
  cts:word-query('THERMOPHILIC ANAEROBIC DIGESTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST214</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST214</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('VARIABLE SPEED WIND TURBINES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1710,7 +1710,7 @@
  input() ,  
  cts:word-query('VARIABLE SPEED WIND TURBINES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST215</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST215</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PSBA TRNH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1718,7 +1718,7 @@
  input() ,  
  cts:word-query('PSBA TRNH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST216</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST216</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SILAGE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1726,7 +1726,7 @@
  input() ,  
  cts:word-query('SILAGE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST217</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST217</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1734,7 +1734,7 @@
  input() ,  
  cts:word-query('LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST218</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST218</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RUTHENIUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1742,7 +1742,7 @@
  input() ,  
  cts:word-query('RUTHENIUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST219</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST219</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RUTHENIUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1750,7 +1750,7 @@
  input() ,  
  cts:word-query('RUTHENIUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST220</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST220</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1758,7 +1758,7 @@
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST221</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST221</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1766,7 +1766,7 @@
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST222</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST222</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DECUBITUS PREVENTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1774,7 +1774,7 @@
  input() ,  
  cts:word-query('DECUBITUS PREVENTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST223</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST223</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('DECUBITUS PREVENTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1782,7 +1782,7 @@
  input() ,  
  cts:word-query('DECUBITUS PREVENTION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST224</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST224</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1790,7 +1790,7 @@
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST225</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST225</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MEDITERANIEN FEVER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1798,7 +1798,7 @@
  input() ,  
  cts:word-query('MEDITERANIEN FEVER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST226</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST226</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HEREDIA FJ',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1806,7 +1806,7 @@
  input() ,  
  cts:word-query('HEREDIA FJ',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST227</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST227</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1814,7 +1814,7 @@
  input() ,  
  cts:word-query('PAIN',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST228</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST228</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('WASTEWATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1822,7 +1822,7 @@
  input() ,  
  cts:word-query('WASTEWATER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST229</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST229</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SUTURE LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1830,7 +1830,7 @@
  input() ,  
  cts:word-query('SUTURE LYS',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST230</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST230</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1838,7 +1838,7 @@
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST231</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST231</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1846,7 +1846,7 @@
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST232</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST232</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1854,7 +1854,7 @@
  input() ,  
  cts:word-query('HOLDING ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST233</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST233</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1862,7 +1862,7 @@
  input() ,  
  cts:word-query('ALEXITHYMIA',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST234</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST234</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FABRICATION SUTURE POLY L LYSINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1870,7 +1870,7 @@
  input() ,  
  cts:word-query('FABRICATION SUTURE POLY L LYSINE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST235</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST235</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1878,7 +1878,7 @@
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST236</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST236</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1886,7 +1886,7 @@
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST237</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST237</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1894,7 +1894,7 @@
  input() ,  
  cts:word-query('ONE DIMENSIONAL OXIDES',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST238</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST238</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('LANCET FISH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1902,7 +1902,7 @@
  input() ,  
  cts:word-query('LANCET FISH',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST239</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST239</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CELLULASE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1910,7 +1910,7 @@
  input() ,  
  cts:word-query('CELLULASE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST240</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST240</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SPIN WAVE DENSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1918,7 +1918,7 @@
  input() ,  
  cts:word-query('SPIN WAVE DENSITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST241</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST241</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('FOREST',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1926,7 +1926,7 @@
  input() ,  
  cts:word-query('FOREST',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST242</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST242</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RESOURCE MANAGEMENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1934,7 +1934,7 @@
  input() ,  
  cts:word-query('RESOURCE MANAGEMENT',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST243</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST243</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('RURAL DEVELOP',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1942,7 +1942,7 @@
  input() ,  
  cts:word-query('RURAL DEVELOP',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST244</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST244</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('HARTREE FOCK INSTABILITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1950,7 +1950,7 @@
  input() ,  
  cts:word-query('HARTREE FOCK INSTABILITY',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST245</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST245</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('MARKER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1958,7 +1958,7 @@
  input() ,  
  cts:word-query('MARKER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST246</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST246</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('WAVELET VEGETATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1966,7 +1966,7 @@
  input() ,  
  cts:word-query('WAVELET VEGETATION',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST247</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST247</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('SAR RICE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1974,7 +1974,7 @@
  input() ,  
  cts:word-query('SAR RICE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST248</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST248</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('ALTERNATIVE OXIDASE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1982,7 +1982,7 @@
  input() ,  
  cts:word-query('ALTERNATIVE OXIDASE',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST249</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST249</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('PEPPER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1990,7 +1990,7 @@
  input() ,  
  cts:word-query('PEPPER',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST250</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test><h:test><h:name>TEST250</h:name><h:comment-expected-result/><h:set-up/><h:query>&lt;search-results&gt;&lt;estimate&gt;{xdmp:estimate(cts:search( 
  input() ,  
  cts:word-query('CAPSICUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
@@ -1998,4 +1998,4 @@
  input() ,  
  cts:word-query('CAPSICUM',('case-insensitive', 'punctuation-insensitive', 'unwildcarded', 'lang=en')) 
  ) 
-)[1 to 10]/base-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test></h:script>
+)[1 to 10]/xdmp:node-uri(.)}&lt;/top&gt;&lt;/search-results&gt;</h:query><h:tear-down/></h:test></h:script>

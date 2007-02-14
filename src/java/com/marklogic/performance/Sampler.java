@@ -109,7 +109,7 @@ public abstract class Sampler extends Thread {
         long updateNanos = Configuration.NANOS_PER_SECOND;
         long nowTime;
         try {
-            while (testTimeNanos != 0) {
+            do {
                 if (random != null) {
                     testIterator.shuffle(random);
                 }
@@ -147,7 +147,7 @@ public abstract class Sampler extends Thread {
                     throw new SamplerException("reset did not work for "
                             + testIterator);
                 }
-            }
+            } while (testTimeNanos != 0);
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
