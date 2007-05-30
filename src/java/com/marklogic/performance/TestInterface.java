@@ -20,6 +20,8 @@ package com.marklogic.performance;
 
 import java.io.IOException;
 
+import com.marklogic.xcc.types.XdmVariable;
+
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  *
@@ -31,5 +33,15 @@ public interface TestInterface {
     public abstract String getName();
 
     public abstract String getCommentExpectedResult();
+
+    /**
+     * @return
+     */
+    public abstract boolean hasVariables();
+
+    /**
+     * @return
+     */
+    public abstract XdmVariable[] getVariables();
 
 }

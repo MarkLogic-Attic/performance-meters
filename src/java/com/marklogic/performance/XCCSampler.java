@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,8 @@ import com.marklogic.xcc.RequestOptions;
 import com.marklogic.xcc.ResultItem;
 import com.marklogic.xcc.ResultSequence;
 import com.marklogic.xcc.Session;
+import com.marklogic.xcc.exceptions.XccException;
+import com.marklogic.xcc.types.XdmVariable;
 
 class XCCSampler extends Sampler {
 
@@ -65,6 +67,7 @@ class XCCSampler extends Sampler {
             requestOptions.setCacheResult(false);
             Request req = sess.newAdhocQuery(query);
             req.setOptions(requestOptions);
+            setVariables(req, test);
             ResultSequence rs = sess.submitRequest(req);
             testResult.incrementBytesSent(query.length());
 
@@ -98,8 +101,10 @@ class XCCSampler extends Sampler {
                     testResult.setError(true);
                 }
             }
-        } catch (Exception e) {
-            System.err.println("Error running query: " + query);
+        } catch (XccException e) {
+            String name = test.getName();
+            System.err.println("Error running query: "
+                    + (null != name ? name : query));
             e.printStackTrace();
 
             testResult.setError(true);
@@ -113,6 +118,23 @@ class XCCSampler extends Sampler {
         }
         testResult.setEnd();
         return testResult;
+    }
+
+    /**
+     * @param req
+     * @param test
+     */
+    private void setVariables(Request req, TestInterface test) {
+        if (!test.hasVariables()) {
+            return;
+        }
+
+        XdmVariable[] variables = test.getVariables();
+        for (int i = 0; i < variables.length; i++) {
+            if (null != variables[i]) {
+                req.setVariable(variables[i]);
+            }
+        }
     }
 
 }

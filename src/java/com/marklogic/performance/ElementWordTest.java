@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,6 +26,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+
+import com.marklogic.xcc.types.XdmVariable;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
@@ -93,6 +95,20 @@ public class ElementWordTest extends AbstractTest {
      */
     public String getCommentExpectedResult() {
         // invalid for this test type
+        return null;
+    }
+
+    /* (non-Javadoc)
+     * @see com.marklogic.performance.TestInterface#hasVariables()
+     */
+    public boolean hasVariables() {
+        return false;
+    }
+
+    /* (non-Javadoc)
+     * @see com.marklogic.performance.TestInterface#getVariables()
+     */
+    public XdmVariable[] getVariables() {
         return null;
     }
 
