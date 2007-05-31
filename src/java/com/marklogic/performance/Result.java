@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,6 +48,11 @@ public class Result {
     /**
      * 
      */
+    private static final String DURATION_MILLIS = "duration-millis";
+
+    /**
+     * 
+     */
     private static final String ERROR = "got-error";
 
     /**
@@ -83,7 +88,7 @@ public class Result {
         if (withDetails) {
             return new String[] { TEST_NAME, COMMENT, QUERY_RESULT,
                     ERROR, START_MILLIS, END_MILLIS, BYTES_SENT,
-                    BYTES_RECEIVED };
+                    BYTES_RECEIVED, DURATION_MILLIS };
         }
         return new String[] { TEST_NAME, COMMENT, QUERY_RESULT, ERROR };
     }
@@ -114,6 +119,9 @@ public class Result {
         if (_field.equals(END_MILLIS))
             return "" + getEndMillis();
 
+        if (_field.equals(DURATION_MILLIS))
+            return "" + getDurationMillis();
+        
         if (_field.equals(BYTES_SENT))
             return "" + getBytesSent();
 
