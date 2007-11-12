@@ -78,16 +78,16 @@ class CSVReporter extends AbstractReporter {
         out.write("\n");
 
         for (int i = 0; i < samplers.length; i++) {
-            List results = samplers[i].getResults();
+            List<Result> results = samplers[i].getResults();
             // put in a result for end time, total time and queries per second.
             for (int j = 0; j < results.size(); j++) {
-                putResult(out, fields, (Result) (results.get(j)), reportTime);
+                putResult(out, fields, results.get(j), reportTime);
             }
         }
 
     }
 
-    private void putResult(Writer out, String[] fields, Result res,
+    private void putResult(Writer out, String[] fields, ResultInterface res,
             boolean reportTime) throws IOException {
         for (int i = 0; i < fields.length; i++) {
             if (i > 0)

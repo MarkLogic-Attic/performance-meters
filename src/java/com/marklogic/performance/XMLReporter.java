@@ -28,7 +28,7 @@ import java.util.List;
  * 
  */
 class XMLReporter extends AbstractReporter {
-    
+
     public XMLReporter() {
         super();
     }
@@ -48,7 +48,8 @@ class XMLReporter extends AbstractReporter {
 
     private boolean reportTime = true;
 
-    public void report(Writer out, boolean _reportTime) throws IOException {
+    public void report(Writer out, boolean _reportTime)
+            throws IOException {
 
         reportTime = _reportTime;
 
@@ -69,11 +70,11 @@ class XMLReporter extends AbstractReporter {
         // use the built-in fieldnames to report results
         String[] fields = Result.getFieldNames(reportTime);
         for (int i = 0; i < samplers.length; i++) {
-            List results = samplers[i].getResults();
+            List<Result> results = samplers[i].getResults();
             // put in a result for end time, total time and queries per second.
             // hack in a thread index, too
             for (int j = 0; j < results.size(); j++) {
-                putResult(out, fields, (Result) (results.get(j)), reportTime, i);
+                putResult(out, fields, results.get(j), reportTime, i);
             }
         }
 
@@ -81,7 +82,7 @@ class XMLReporter extends AbstractReporter {
 
     }
 
-    private void putResult(Writer out, String[] fields, Result res,
+    private void putResult(Writer out, String[] fields, ResultInterface res,
             boolean reportTime, int threadIndex) throws IOException {
         formatNode(out, resultNodeBegin, 1, true, true);
 
@@ -100,12 +101,12 @@ class XMLReporter extends AbstractReporter {
     public static String escapeXml(String _in) {
         if (_in == null)
             return "";
-        return _in.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(
-                ">", "&gt;");
+        return _in.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;");
     }
 
-    private void formatElement(Writer out, String qName, String value, int level)
-            throws IOException {
+    private void formatElement(Writer out, String qName, String value,
+            int level) throws IOException {
         if (value == null || value.trim().equals("")) {
             formatNode(out, "<h:" + qName + "/>", level, true, true);
             return;
@@ -117,8 +118,8 @@ class XMLReporter extends AbstractReporter {
     }
 
     // got from harness.java
-    private void formatNode(Writer out, String node, int level, boolean indent,
-            boolean newline) throws IOException {
+    private void formatNode(Writer out, String node, int level,
+            boolean indent, boolean newline) throws IOException {
         if (indent) {
             int chunk = (level * charsperindent);
             while (chunk > 0) {
@@ -134,7 +135,9 @@ class XMLReporter extends AbstractReporter {
             out.write('\n');
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.Reporter#getPreferredFileExtension()
      */
     public String getPreferredFileExtension() {

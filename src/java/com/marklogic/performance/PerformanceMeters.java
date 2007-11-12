@@ -38,7 +38,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2007-05-30.2";
+    private static final String VERSION = "2007-07-07.1";
 
     private Configuration config;
 
@@ -51,8 +51,8 @@ public class PerformanceMeters {
     static Reporter reporter = null;
 
     public static void main(String args[]) throws Exception {
-        // start with getting the config parameters
-        // if the user supplied any args, assume they are properties files
+        // start with getting the configuration parameters
+        // if the user supplied any arguments, assume they are properties files
         Configuration config = new Configuration(args, true);
 
         showProgress(NAME + " starting, version " + VERSION);
@@ -62,13 +62,12 @@ public class PerformanceMeters {
         }
 
         // use reflection to create the reporter, for output
-        Class reporterClass = Class
-                .forName(config.getReporterClassName());
+        Class<? extends Reporter> reporterClass = Class
+                .forName(config.getReporterClassName()).asSubclass(Reporter.class);
         // System.err.println("reporter class: " + reporterClass.getName());
-        Constructor reporterConstructor = reporterClass
+        Constructor<? extends Reporter> reporterConstructor = reporterClass
                 .getConstructor(new Class[0]);
-        reporter = (Reporter) reporterConstructor
-                .newInstance(new Object[0]);
+        reporter = reporterConstructor.newInstance(new Object[0]);
 
         try {
             PerformanceMeters pm = new PerformanceMeters(config);
@@ -93,11 +92,11 @@ public class PerformanceMeters {
     void initializeTests() throws Exception {
         // this needs to allow for other test types too!
         // use reflection to create a TestList subclass constructor
-        Class testListClass = Class
-                .forName(config.getTestListClassName());
-        Constructor testListConstructor = testListClass
+        Class<? extends TestList> testListClass = Class.forName(
+                config.getTestListClassName()).asSubclass(TestList.class);
+        Constructor<? extends TestList> testListConstructor = testListClass
                 .getConstructor(new Class[0]);
-        tests = (TestList) testListConstructor.newInstance(new Object[0]);
+        tests = testListConstructor.newInstance(new Object[0]);
         tests.initialize(config);
 
         if (debug) {

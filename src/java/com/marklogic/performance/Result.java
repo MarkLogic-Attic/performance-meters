@@ -23,7 +23,7 @@ package com.marklogic.performance;
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-public class Result {
+public class Result implements ResultInterface {
 
     /**
      * 
@@ -93,10 +93,12 @@ public class Result {
         return new String[] { TEST_NAME, COMMENT, QUERY_RESULT, ERROR };
     }
 
-    /**
-     * @param _field
-     * @return
-     * @throws UnknownResultFieldException
+    public static String[] getFieldNames() {
+        return getFieldNames(false);
+    }
+    
+    /* (non-Javadoc)
+     * @see com.marklogic.performance.ResultInterface#getFieldValue(java.lang.String)
      */
     public String getFieldValue(String _field)
             throws UnknownResultFieldException {
@@ -132,8 +134,16 @@ public class Result {
                 + _field);
     }
 
+    public void setBegin(long _nanos) {
+        startNanos = _nanos;
+    }
+
     public void setStart(long _nanos) {
         startNanos = _nanos;
+    }
+
+    public void setStop(long _nanos) {
+        endNanos = _nanos;
     }
 
     public void setEnd(long _nanos) {

@@ -37,7 +37,7 @@ class HTTPSampler extends Sampler {
         super(ti, cfg);
     }
 
-    private HttpURLConnection setupConnection(Result res, String query)
+    private HttpURLConnection setupConnection(ResultInterface res, String query)
             throws IOException {
         URL url = new URL("http", host, port, "/evaluate.xqy");
         HttpURLConnection conn;

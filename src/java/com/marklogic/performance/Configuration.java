@@ -171,6 +171,13 @@ public class Configuration {
             load(System.getProperties());
         }
     }
+    
+    
+    // for unit testing
+    public Configuration(Properties _props) {
+        props = new Properties();
+        load(_props);
+    }
 
     /**
      * @param props

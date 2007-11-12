@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import java.util.Vector;
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-public class SummaryResults {
+public class SummaryResults implements ResultInterface {
 
     private static final String STANDARD_DEVIATION = "standard-deviation";
 
@@ -239,6 +239,7 @@ public class SummaryResults {
                 / Configuration.NANOS_PER_MILLI;
     }
 
+    // not static, because we might report different summary info in a run
     public String[] getFieldNames() {
         if (fields == null) {
             List<String> fieldsList = new Vector<String>();

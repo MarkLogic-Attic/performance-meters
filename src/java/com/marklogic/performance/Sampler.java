@@ -61,7 +61,12 @@ public abstract class Sampler extends Thread {
     protected Sampler(TestIterator ti, Configuration cfg) {
         testIterator = ti;
         config = cfg;
+        // ensure that results are never null
+        results = new ArrayList<Result>();
     }
+
+    protected abstract Result sample(TestInterface test)
+    throws IOException;
 
     public int getResultsCount() {
         return results.size();
@@ -71,8 +76,8 @@ public abstract class Sampler extends Thread {
         return results;
     }
 
-    public TestInterface[] getResultsArray() {
-        return results.toArray(new TestInterface[0]);
+    public ResultInterface[] getResultsArray() {
+        return results.toArray(new Result[0]);
     }
 
     public void run() {
@@ -85,7 +90,6 @@ public abstract class Sampler extends Thread {
         password = config.getPassword();
         host = config.getHost();
         port = config.getPort();
-        results = new ArrayList<Result>();
 
         // random tests only make sense as timed tests
         if (config.isTimedTest()) {
@@ -153,9 +157,6 @@ public abstract class Sampler extends Thread {
             System.exit(1);
         }
     }
-
-    protected abstract Result sample(TestInterface test)
-            throws IOException;
 
     void printResults() {
         System.out.println(results.size());
@@ -248,12 +249,12 @@ public abstract class Sampler extends Thread {
         if (errorCount > -1) {
             return errorCount;
         }
-
+        
         Result r = null;
-        Iterator i = results.iterator();
+        Iterator<Result> i = results.iterator();
         errorCount = 0;
         while (i.hasNext()) {
-            r = (Result) i.next();
+            r = i.next();
             if (r.isError()) {
                 errorCount++;
             }
