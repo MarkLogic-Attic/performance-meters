@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,17 +16,21 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 import java.io.IOException;
 import java.io.Reader;
 
+import com.marklogic.performance.Configuration;
+import com.marklogic.performance.Result;
+import com.marklogic.performance.TestInterface;
+import com.marklogic.performance.TestIterator;
 import com.marklogic.xdbc.XDBCException;
 import com.marklogic.xdbc.XDBCResultSequence;
 import com.marklogic.xdbc.XDBCStatement;
 import com.marklogic.xdmp.XDMPConnection;
 
-class XDBCSampler extends Sampler {
+public class XDBCSampler extends Sampler {
 
     // use char instead of superclass byte
     char[] readBuffer = new char[readsize];
@@ -35,11 +39,11 @@ class XDBCSampler extends Sampler {
      * @param ti
      * @param cfg
      */
-    XDBCSampler(TestIterator ti, Configuration cfg) {
+    public XDBCSampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
-    protected Result sample(TestInterface test) throws IOException {
+    public Result sample(TestInterface test) throws IOException {
 
         // time to make sure we have a connection:
         // do this per sample, in case Java's thread management isn't fair

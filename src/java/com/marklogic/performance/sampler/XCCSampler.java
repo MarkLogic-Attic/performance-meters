@@ -16,11 +16,15 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 import java.io.IOException;
 import java.io.Reader;
 
+import com.marklogic.performance.Configuration;
+import com.marklogic.performance.Result;
+import com.marklogic.performance.TestInterface;
+import com.marklogic.performance.TestIterator;
 import com.marklogic.xcc.ContentSource;
 import com.marklogic.xcc.ContentSourceFactory;
 import com.marklogic.xcc.Request;
@@ -31,7 +35,7 @@ import com.marklogic.xcc.Session;
 import com.marklogic.xcc.exceptions.XccException;
 import com.marklogic.xcc.types.XdmVariable;
 
-class XCCSampler extends Sampler {
+public class XCCSampler extends Sampler {
 
     // use char instead of superclass byte
     char[] readBuffer = new char[readsize];
@@ -40,11 +44,11 @@ class XCCSampler extends Sampler {
      * @param ti
      * @param cfg
      */
-    XCCSampler(TestIterator ti, Configuration cfg) {
+    public XCCSampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
-    protected Result sample(TestInterface test) throws IOException {
+    public Result sample(TestInterface test) throws IOException {
         // time to make sure we have a connection:
         // do this per sample, in case Java's thread management isn't fair
         // new connection every time, to distribute load more evenly

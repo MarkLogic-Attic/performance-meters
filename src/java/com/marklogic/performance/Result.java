@@ -165,7 +165,7 @@ public class Result implements ResultInterface {
         bytesReceived += res.length();
     }
 
-    void print() {
+    public void print() {
         System.out.println(queryResult);
     }
 

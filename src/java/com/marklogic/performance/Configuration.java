@@ -25,6 +25,9 @@ import java.util.Random;
 
 import com.marklogic.xdmp.XDMPConnection;
 
+import com.marklogic.performance.reporter.Reporter;
+import com.marklogic.performance.reporter.XMLReporter;
+
 public class Configuration {
 
     /**
@@ -40,7 +43,8 @@ public class Configuration {
     /**
      * 
      */
-    public static final String REPORTER_DEFAULT = "XMLReporter";
+    public static final String REPORTER_DEFAULT = XMLReporter.class
+            .getCanonicalName();
 
     /**
      * 
@@ -156,7 +160,8 @@ public class Configuration {
 
     public Configuration(String[] paths, boolean loadSystemProperties)
             throws IOException {
-        // set up the initial object using a set of paths, plus system properties
+        // set up the initial object using a set of paths, plus system
+        // properties
         // if the user wants to supply more properties,
         // the load() method is public.
         props = new Properties();
@@ -171,8 +176,7 @@ public class Configuration {
             load(System.getProperties());
         }
     }
-    
-    
+
     // for unit testing
     public Configuration(Properties _props) {
         props = new Properties();
@@ -290,9 +294,8 @@ public class Configuration {
         // System.err.println("reporterClassName = " + reporterClassName);
 
         if (reporterClassName.indexOf('.') < 1) {
-            // prepend this class's package name
-            reporterClassName = Configuration.class.getPackage()
-                    .getName()
+            // prepend the reporter package name
+            reporterClassName = Reporter.class.getPackage().getName()
                     + "." + reporterClassName;
         }
 
@@ -341,11 +344,11 @@ public class Configuration {
                 + recordResults + " -DtestType=" + testType;
     }
 
-    String getHost() {
+    public String getHost() {
         if (host == null) {
             return null;
         }
-        
+
         if (host.length < 2) {
             return host[0];
         }
@@ -353,11 +356,11 @@ public class Configuration {
         return host[hostIndex++ % host.length];
     }
 
-    String getUser() {
+    public String getUser() {
         return user;
     }
 
-    String getPassword() {
+    public String getPassword() {
         return password;
     }
 
@@ -373,19 +376,19 @@ public class Configuration {
         return numThreads;
     }
 
-    int getPort() {
+    public int getPort() {
         return port;
     }
 
-    boolean isReportTime() {
+    public boolean isReportTime() {
         return reportTime;
     }
 
-    long getRandomSeed() {
+    public long getRandomSeed() {
         return randomSeed;
     }
 
-    boolean getRecordResults() {
+    public boolean getRecordResults() {
         return recordResults;
     }
 

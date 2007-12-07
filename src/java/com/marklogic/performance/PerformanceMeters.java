@@ -27,6 +27,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.marklogic.performance.reporter.ReporterException;
+import com.marklogic.performance.reporter.Reporter;
+import com.marklogic.performance.sampler.HTTPSampler;
+import com.marklogic.performance.sampler.Sampler;
+import com.marklogic.performance.sampler.URISampler;
+import com.marklogic.performance.sampler.XCCSampler;
+import com.marklogic.performance.sampler.XDBCSampler;
+
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
@@ -64,7 +72,6 @@ public class PerformanceMeters {
         // use reflection to create the reporter, for output
         Class<? extends Reporter> reporterClass = Class
                 .forName(config.getReporterClassName()).asSubclass(Reporter.class);
-        // System.err.println("reporter class: " + reporterClass.getName());
         Constructor<? extends Reporter> reporterConstructor = reporterClass
                 .getConstructor(new Class[0]);
         reporter = reporterConstructor.newInstance(new Object[0]);
@@ -123,6 +130,7 @@ public class PerformanceMeters {
                 ti = new OffsetTestIterator(tests, i * offsetPerThread);
             }
 
+            // TODO use reflection instead?
             if (config.isHTTP()) {
                 sampler = new HTTPSampler(ti, config);
             } else if (config.isURI()) {

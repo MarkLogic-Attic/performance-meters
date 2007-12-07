@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,18 +16,22 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.reporter;
 
 import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
+
+import com.marklogic.performance.Result;
+import com.marklogic.performance.ResultInterface;
+import com.marklogic.performance.sampler.Sampler;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-class XMLReporter extends AbstractReporter {
+public class XMLReporter extends AbstractReporter {
 
     public XMLReporter() {
         super();

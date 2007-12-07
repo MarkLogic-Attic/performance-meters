@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,11 +18,13 @@
  */
 package com.marklogic.performance;
 
+import java.io.IOException;
+
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-public class UnknownResultFieldException extends ReporterException {
+public class UnknownResultFieldException extends IOException {
 
     /**
      * @param message

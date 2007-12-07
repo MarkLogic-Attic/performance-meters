@@ -25,6 +25,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import com.marklogic.performance.sampler.Sampler;
+
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 

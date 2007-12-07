@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,17 +16,19 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.reporter;
 
 import java.io.IOException;
 import java.io.Writer;
+
+import com.marklogic.performance.SummaryResults;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-interface Reporter {
+public interface Reporter {
 
     void report(Writer out, boolean reportTime) throws IOException;
 

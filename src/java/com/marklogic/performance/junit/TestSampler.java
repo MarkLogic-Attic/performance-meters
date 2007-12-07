@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2006-2007 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance.junit;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import com.marklogic.performance.Configuration;
 import com.marklogic.performance.Result;
-import com.marklogic.performance.Sampler;
+import com.marklogic.performance.sampler.Sampler;
 import com.marklogic.performance.TestInterface;
 import com.marklogic.performance.TestIterator;
 
@@ -30,7 +30,7 @@ public class TestSampler extends Sampler {
      * 
      * @see com.marklogic.performance.Sampler#sample(com.marklogic.performance.TestInterface)
      */
-    protected Result sample(TestInterface test) throws IOException {
+    public Result sample(TestInterface test) throws IOException {
         throw new IOException("unimplemented");
     }
 

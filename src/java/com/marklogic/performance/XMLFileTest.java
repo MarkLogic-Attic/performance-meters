@@ -30,8 +30,12 @@ import com.marklogic.xcc.ValueFactory;
 import com.marklogic.xcc.exceptions.UnimplementedFeatureException;
 import com.marklogic.xcc.types.ValueType;
 import com.marklogic.xcc.types.XName;
+import com.marklogic.xcc.types.XdmValue;
 import com.marklogic.xcc.types.XdmVariable;
 
+/*
+ * @author Ron Avnur @author Michael Blakeley
+ */
 class XMLFileTest extends AbstractTest {
 
     /**
@@ -70,6 +74,12 @@ class XMLFileTest extends AbstractTest {
     private static final String VARIABLE_TYPE_LOCAL_NAME = "type";
 
     private static final String VARIABLE_VALUE_LOCAL_NAME = "value";
+
+    private static final String VARIABLE_VALUELIST_LOCAL_NAME = "value-csv";
+
+    private static final String VARIABLE_MINVALUE_LOCAL_NAME = "min-value";
+
+    private static final String VARIABLE_MAXVALUE_LOCAL_NAME = "max-value";
 
     private String commentExpectedResult;
 
@@ -124,8 +134,10 @@ class XMLFileTest extends AbstractTest {
         }
         NodeList children = variablesNode.getChildNodes();
         int length = children.getLength();
-        variables = new XdmVariable[length];
+        variables = new ListVariable[length];
         Node n, name, namespaceNode, typeNode, value = null;
+        // TODO support variable ranges and lists of values
+        Node valuesCSV, minValue, maxValue = null;
         String namespace, type;
         NamedNodeMap attr;
         for (int i = 0; i < length; i++) {
@@ -152,22 +164,53 @@ class XMLFileTest extends AbstractTest {
                                 + VARIABLE_NAME_LOCAL_NAME);
             }
             if (null == value) {
+
+                // TODO look for value lists and ranges
+                valuesCSV = attr
+                        .getNamedItem(VARIABLE_VALUELIST_LOCAL_NAME);
+                if (null != valuesCSV) {
+                    variables[i] = new ListVariable(name.getNodeValue(),
+                            namespace, type, valuesCSV.getNodeValue()
+                                    .split(","));
+                    continue;
+                }
+
+                minValue = attr
+                        .getNamedItem(VARIABLE_MINVALUE_LOCAL_NAME);
+                maxValue = attr
+                        .getNamedItem(VARIABLE_MAXVALUE_LOCAL_NAME);
+                if (null != minValue && null != maxValue) {
+                    variables[i] = new RangeVariable(name.getNodeValue(),
+                            namespace, type, minValue.getNodeValue(),
+                            maxValue.getNodeValue());
+                    continue;
+                }
+
                 // values may not be needed
                 if (type.endsWith("?") || type.endsWith("*")) {
                     variables[i] = newVariable(name.getNodeValue(),
-                            namespace, type, null);
+                            namespace, type);
+                    continue;
                 }
                 throw new NullPointerException(
                         "missing required variable attribute: "
                                 + VARIABLE_VALUE_LOCAL_NAME
                                 + " (or child items)");
-            } else if (null != value) {
-                variables[i] = newVariable(name.getNodeValue(),
-                        namespace, type, value.getNodeValue());
             }
-            // System.err.println("variable " + variables[i].getName()
-            // + " = " + variables[i].getValue().asString());
+            variables[i] = newVariable(name.getNodeValue(), namespace,
+                    type, value.getNodeValue());
         }
+    }
+
+    /**
+     * @param name
+     * @param namespace
+     * @param type
+     * @return
+     */
+    private static XdmVariable newVariable(String name, String namespace,
+            String type) {
+        return newVariable(name, namespace, type, null);
     }
 
     /**
@@ -177,48 +220,47 @@ class XMLFileTest extends AbstractTest {
      * @param value
      * @return
      */
-    private XdmVariable newVariable(String name, String namespace,
+    private static XdmVariable newVariable(String name, String namespace,
             String type, String value) {
         XName xname = (null == namespace) ? new XName(name) : new XName(
                 namespace, name);
         // System.err.println("variable " + xname + " = " + value + " ("
         // + type + ")");
+        XdmValue xvalue = newValue(type, value);
+        return ValueFactory.newVariable(xname, xvalue);
+    }
+
+    static XdmValue newValue(String type, String value) {
         // if type is empty, we assume a string
         if (null == type) {
-            return newVariable(name, namespace, "xs:string", value);
+            return newValue("xs:string", value);
         }
         if (type.equals("xs:string")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSString(value));
+            return ValueFactory.newXSString(value);
         }
         if (type.equals("xs:boolean")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSBoolean(Boolean.parseBoolean(value)));
+            return ValueFactory.newXSBoolean(Boolean.parseBoolean(value));
         }
         if (type.equals("xs:integer")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSInteger(Integer.parseInt(value)));
+            return ValueFactory.newXSInteger(Integer.parseInt(value));
         }
         if (type.equals("xs:double")) {
-            return ValueFactory.newVariable(xname, ValueFactory.newValue(
-                    ValueType.XS_DOUBLE, Double.parseDouble(value)));
+            return ValueFactory.newValue(ValueType.XS_DOUBLE, Double
+                    .parseDouble(value));
         }
         if (type.equals("xs:date")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSDate(value, null, null));
+            return ValueFactory.newXSDate(value, null, null);
         }
         if (type.equals("xs:dateTime")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSDateTime(value, null, null));
+            return ValueFactory.newXSDateTime(value, null, null);
         }
         if (type.equals("xs:time")) {
-            return ValueFactory.newVariable(xname, ValueFactory
-                    .newXSTime(value, null, null));
+            return ValueFactory.newXSTime(value, null, null);
         }
 
         // TODO implement more types as needed
         throw new UnimplementedFeatureException(
-                "variable/@type not implemented: " + name);
+                "variable type not implemented: " + type);
     }
 
     /*
@@ -259,4 +301,5 @@ class XMLFileTest extends AbstractTest {
     public XdmVariable[] getVariables() {
         return variables;
     }
+
 }

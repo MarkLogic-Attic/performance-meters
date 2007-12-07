@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,13 +16,19 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import com.marklogic.performance.Configuration;
+import com.marklogic.performance.Result;
+import com.marklogic.performance.ResultInterface;
+import com.marklogic.performance.TestInterface;
+import com.marklogic.performance.TestIterator;
 
 // TODO implement fixed number of test loops (iterations)
 
@@ -58,14 +64,14 @@ public abstract class Sampler extends Thread {
 
     byte[] readBuffer = new byte[readsize];
 
-    protected Sampler(TestIterator ti, Configuration cfg) {
+    public Sampler(TestIterator ti, Configuration cfg) {
         testIterator = ti;
         config = cfg;
         // ensure that results are never null
         results = new ArrayList<Result>();
     }
 
-    protected abstract Result sample(TestInterface test)
+    public abstract Result sample(TestInterface test)
     throws IOException;
 
     public int getResultsCount() {

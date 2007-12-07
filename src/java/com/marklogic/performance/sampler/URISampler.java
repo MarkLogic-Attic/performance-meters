@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,13 +24,18 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import com.marklogic.performance.Configuration;
+import com.marklogic.performance.Result;
+import com.marklogic.performance.TestInterface;
+import com.marklogic.performance.TestIterator;
+
 /*
  * this class expects the query to contain a simple URI, which it attempts to
  * GET from the server
  */
-class URISampler extends Sampler {
+public class URISampler extends Sampler {
 
-    URISampler(TestIterator ti, Configuration cfg) {
+    public URISampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
@@ -79,7 +84,7 @@ class URISampler extends Sampler {
         }
     }
 
-    protected Result sample(TestInterface test) throws IOException {
+    public Result sample(TestInterface test) throws IOException {
         Result res = new Result(test.getName(), test
                 .getCommentExpectedResult());
         byte[] responseData = null;

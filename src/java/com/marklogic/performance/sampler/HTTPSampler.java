@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,13 +27,19 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-class HTTPSampler extends Sampler {
+import com.marklogic.performance.Configuration;
+import com.marklogic.performance.Result;
+import com.marklogic.performance.ResultInterface;
+import com.marklogic.performance.TestInterface;
+import com.marklogic.performance.TestIterator;
+
+public class HTTPSampler extends Sampler {
 
     public final static String AUTO_REDIRECTS = "HTTPSampler.auto_redirects";
 
     private static final String ENCODING = "UTF-8";
 
-    HTTPSampler(TestIterator ti, Configuration cfg) {
+    public HTTPSampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
@@ -91,7 +97,7 @@ class HTTPSampler extends Sampler {
         return w.toByteArray();
     }
 
-    protected Result sample(TestInterface test) throws IOException {
+    public Result sample(TestInterface test) throws IOException {
         Result res = new Result(test.getName(), test
                 .getCommentExpectedResult());
         byte[] responseData = null;

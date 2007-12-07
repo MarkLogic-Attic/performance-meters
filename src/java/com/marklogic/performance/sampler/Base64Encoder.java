@@ -15,7 +15,7 @@
  * 
  */
 
-package com.marklogic.performance;
+package com.marklogic.performance.sampler;
 
 /**
  * This class provides an implementation of Base64 encoding without relying on
