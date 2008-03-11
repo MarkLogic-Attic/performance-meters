@@ -16,7 +16,7 @@
  * The use of the Apache License does not indicate that this project is
  * affiliated with the Apache Software Foundation.
  */
-package com.marklogic.performance.junit;
+package com.marklogic.performance;
 
 import java.util.ArrayList;
 import java.util.Collections;

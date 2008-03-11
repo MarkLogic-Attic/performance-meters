@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2006 Mark Logic Corporation. All rights reserved.
  */
-package com.marklogic.performance.junit;
+package com.marklogic.performance;
 
 import java.io.IOException;
 
@@ -10,6 +10,7 @@ import junit.framework.TestCase;
 import com.marklogic.performance.Configuration;
 import com.marklogic.performance.Result;
 import com.marklogic.performance.SummaryResults;
+import com.marklogic.performance.MockSampler;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
@@ -19,8 +20,8 @@ public class SummaryResultsTest extends TestCase {
 
     public void testStandardDeviation2() throws IOException {
         Configuration config = new Configuration(new String[0], false);
-        TestSampler[] samplers = new TestSampler[1];
-        samplers[0] = new TestSampler(null, config);
+        MockSampler[] samplers = new MockSampler[1];
+        samplers[0] = new MockSampler(null, config);
         Result r1 = new Result("test1", null);
         r1.setStart(0);
         r1.setEnd(4);
@@ -42,8 +43,8 @@ public class SummaryResultsTest extends TestCase {
         double expected = 1.5811;
         long[] population = new long[] { 5L, 6L, 8L, 9L };
         Configuration config = new Configuration(new String[0], false);
-        TestSampler[] samplers = new TestSampler[1];
-        samplers[0] = new TestSampler(null, config);
+        MockSampler[] samplers = new MockSampler[1];
+        samplers[0] = new MockSampler(null, config);
 
         for (int i = 0; i < population.length; i++) {
             Result r = new Result("test" + i, null);

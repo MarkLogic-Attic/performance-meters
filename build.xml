@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<project name="performance-meters" basedir="." default="build">
+    <property name="name" value="performance-meters"/>
+    <property file="build.properties"/>
+
+    <property name="src.dir" value="src/java"/>
+    <property name="dist.dir" value="lib"/>
+    <property name="test.dir" value="test/java"/>
+    <property name="target.dir" value="classes/production"/>
+    <property name="target.test.dir" value="classes/test"/>
+    <property name="test.output.dir" value="test-results"/>
+
+    <path id="classpath">
+        <fileset dir="${dependencies}">
+            <include name="xcc.jar"/>
+            <include name="xdbc.jar"/>
+            <include name="xdmp.jar"/>
+            <include name="junit-4.4.jar"/>
+        </fileset>
+        <pathelement path="${target.dir}"/>
+    </path>
+
+    <target name="build"
+            description="Compile main source tree java files">
+        <mkdir dir="${target.dir}"/>
+        <javac destdir="${target.dir}" target="1.5">
+            <src path="${src.dir}"/>
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="build.test" depends="build" description="Compiles the JUnit tests">
+        <mkdir dir="${target.test.dir}"/>
+        <javac destdir="${target.test.dir}" target="1.5">
+            <src path="${test.dir}"/>
+            <classpath refid="classpath"/>
+        </javac>
+    </target>
+
+    <target name="build.all" description="Compiles the main src tree and the JUnit tests"
+            depends="build, build.test"/>
+
+    <target name="jar" depends="build"
+            description="generate the jarfile">
+        <mkdir dir="${dist.dir}"/>
+        <jar jarfile="${dist.dir}/${name}.jar" basedir="${target.dir}"
+             compress="true" index="true"
+             excludes="*.java,*.class,**/.*,**/*~"/>
+    </target>
+
+    <target name="clean" depends="build.test" description="Removes the compiled class files">
+        <delete dir="${target.dir}"/>
+        <delete dir="${target.test.dir}"/>
+    </target>
+
+    <target name="test" description="executes the JUnit tests">
+        <mkdir dir="${test.output.dir}"/>
+        <junit printsummary="yes" haltonfailure="yes">
+            <classpath>
+                <pathelement path="${target.test.dir}"/>
+                <pathelement path="${target.dir}"/>
+                <fileset dir="${dependencies}">
+                    <include name="junit-4.4.jar"/>
+                </fileset>
+            </classpath>
+
+            <formatter type="plain"/>
+
+            <batchtest fork="no" todir="${test.output.dir}">
+                <fileset dir="${test.dir}">
+                    <include name="**/*Test*.java"/>
+                </fileset>
+            </batchtest>
+        </junit>
+    </target>
+</project>

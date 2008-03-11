@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2006-2007 Mark Logic Corporation. All rights reserved.
  */
-package com.marklogic.performance.junit;
+package com.marklogic.performance;
 
 import java.io.IOException;
 
@@ -15,13 +15,13 @@ import com.marklogic.performance.TestIterator;
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
  */
-public class TestSampler extends Sampler {
+public class MockSampler extends Sampler {
 
     /**
      * @param ti
      * @param cfg
      */
-    TestSampler(TestIterator ti, Configuration cfg) {
+    MockSampler(TestIterator ti, Configuration cfg) {
         super(ti, cfg);
     }
 
