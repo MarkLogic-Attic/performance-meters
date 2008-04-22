@@ -10,14 +10,20 @@
     <property name="target.test.dir" value="classes/test"/>
     <property name="test.output.dir" value="test-results"/>
 
-    <path id="classpath">
-        <fileset dir="${dependencies}">
+    <path id="master-classpath">
+        <fileset dir="${java.library.user}">
+            <include name="junit.jar"/>
             <include name="xcc.jar"/>
             <include name="xdbc.jar"/>
             <include name="xdmp.jar"/>
-            <include name="junit-4.4.jar"/>
         </fileset>
-        <pathelement path="${target.dir}"/>
+        <fileset dir="${java.library.system}">
+            <include name="junit.jar"/>
+            <include name="xcc.jar"/>
+            <include name="xdbc.jar"/>
+            <include name="xdmp.jar"/>
+        </fileset>
+        <pathelement path="${build.dir}"/>
     </path>
 
     <target name="build"
@@ -25,7 +31,8 @@
         <mkdir dir="${target.dir}"/>
         <javac destdir="${target.dir}" target="1.5">
             <src path="${src.dir}"/>
-            <classpath refid="classpath"/>
+            <classpath refid="master-classpath"/>
+            <compilerarg value="-Xlint"/>
         </javac>
     </target>
 
@@ -33,7 +40,8 @@
         <mkdir dir="${target.test.dir}"/>
         <javac destdir="${target.test.dir}" target="1.5">
             <src path="${test.dir}"/>
-            <classpath refid="classpath"/>
+            <classpath refid="master-classpath"/>
+            <compilerarg value="-Xlint"/>
         </javac>
     </target>
 

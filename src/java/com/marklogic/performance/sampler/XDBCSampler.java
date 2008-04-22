@@ -18,8 +18,7 @@
  */
 package com.marklogic.performance.sampler;
 
-import java.io.IOException;
-import java.io.Reader;
+import java.io.InputStream;
 
 import com.marklogic.performance.Configuration;
 import com.marklogic.performance.Result;
@@ -32,9 +31,6 @@ import com.marklogic.xdmp.XDMPConnection;
 
 public class XDBCSampler extends Sampler {
 
-    // use char instead of superclass byte
-    char[] readBuffer = new char[readsize];
-
     /**
      * @param ti
      * @param cfg
@@ -43,98 +39,52 @@ public class XDBCSampler extends Sampler {
         super(ti, cfg);
     }
 
-    public Result sample(TestInterface test) throws IOException {
+    public String sample(Result result, String query, TestInterface test)
+            throws Exception {
 
         // time to make sure we have a connection:
         // do this per sample, in case Java's thread management isn't fair
-        XDMPConnection conn = null;
-
-        try {
-            // new connection every time, to distribute load more evenly
-            conn = new XDMPConnection(host, port, user, password);
-        } catch (XDBCException e) {
-            e.printStackTrace();
-            // bail!
-            System.exit(1);
-            // make Eclipse happy
-            return null;
-        }
-
-        Result res = new Result(test.getName(), test
-                .getCommentExpectedResult());
-        StringBuffer resultsBuffer = new StringBuffer();
-        XDBCResultSequence resultSeq = null;
-        // do some work
-        String query = test.getQuery();
-
-        int actual;
-        res.setStart();
+        // new connection every time, to distribute load more evenly
+        XDMPConnection conn = new XDMPConnection(host, port, user,
+                password);
         XDBCStatement statement = null;
+        XDBCResultSequence resultSeq = null;
+        StringBuffer resultsBuffer = new StringBuffer();
+
+        InputStream buf;
         try {
             statement = conn.createStatement();
             resultSeq = statement.executeQuery(query);
-            res.incrementBytesSent(query.length());
+            result.incrementBytesSent(query.length());
             while (resultSeq.hasNext()) {
-                Reader buf = resultSeq.nextReader();
-                do {
-                    actual = buf.read(readBuffer);
-                    if (actual > 0) {
-                        res.incrementBytesReceived(actual);
-                        if (!reportTime || recordResults) {
-                            resultsBuffer.append(readBuffer, 0, actual);
-                        }
-                    }
-                } while (actual < 1);
+                buf = resultSeq.nextInputStream();
+                resultsBuffer
+                        .append(new String(readResponse(result, buf)));
             }
-
-            // add the textual result to the results object,
-            // if the configuration demands it.
-            if (!reportTime || recordResults) {
-                String resultsString = resultsBuffer.toString().trim();
-                res.setQueryResult(resultsString);
-                if (checkResults
-                        && !test.getCommentExpectedResult().equals(
-                                resultsString)) {
-                    res.setError(true);
+            return resultsBuffer.toString();
+        } finally {
+            try {
+                if (null != resultSeq && !resultSeq.isClosed()) {
+                    resultSeq.close();
                 }
+            } catch (XDBCException e) {
+                // do nothing
             }
-        } catch (Exception e) {
-            System.err.println("Error running query: " + query);
-            e.printStackTrace();
-
-            res.setError(true);
-            String errorMessage = e.getMessage();
-            if (errorMessage == null) {
-                errorMessage = "NULL";
+            try {
+                if (null != statement && !statement.isClosed()) {
+                    statement.close();
+                }
+            } catch (XDBCException e) {
+                // do nothing
             }
-            if (!reportTime || recordResults) {
-                res.setQueryResult(errorMessage);
+            try {
+                if (null != conn && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (XDBCException e) {
+                // do nothing
             }
         }
-        res.setEnd();
-        try {
-            if (resultSeq != null && !resultSeq.isClosed()) {
-                resultSeq.close();
-            }
-            resultSeq = null;
-            if (statement != null && !statement.isClosed()) {
-                statement.close();
-            }
-            statement = null;
-            if (conn != null && !conn.isClosed()) {
-                conn.close();
-            }
-            conn = null;
-        } catch (XDBCException e) {
-            res.setError(true);
-            String errorMessage = e.getMessage();
-            e.printStackTrace();
-            if (errorMessage == null)
-                errorMessage = "NULL";
-            if (!reportTime || recordResults)
-                res.setQueryResult(errorMessage);
-        }
-        return res;
     }
 
 }

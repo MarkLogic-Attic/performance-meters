@@ -18,25 +18,30 @@
  */
 package com.marklogic.performance.sampler;
 
-import java.io.IOException;
-
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  *
  */
-public class SamplerException extends IOException {
+public class SamplerException extends RuntimeException {
 
     /**
      * 
      */
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 3L;
 
     /**
      * @param string
      */
     public SamplerException(String string) {
         super(string);
+    }
+
+    /**
+     * @param e
+     */
+    public SamplerException(Exception e) {
+        this.initCause(e);
     }
 
 }

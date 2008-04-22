@@ -34,7 +34,9 @@ import com.marklogic.xcc.types.XdmValue;
 import com.marklogic.xcc.types.XdmVariable;
 
 /*
- * @author Ron Avnur @author Michael Blakeley
+ * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * 
+ * @author Ron Avnur
  */
 class XMLFileTest extends AbstractTest {
 

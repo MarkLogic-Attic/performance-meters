@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2007-07-07.1";
+    private static final String VERSION = "2008-04-21.1";
 
     private Configuration config;
 
@@ -258,7 +258,7 @@ public class PerformanceMeters {
 
     }
 
-    void printTests() throws IOException {
+    void printTests() throws Exception {
         TestIterator ti = new SimpleTestIterator(tests);
         int i = 0;
         while (ti.hasNext()) {

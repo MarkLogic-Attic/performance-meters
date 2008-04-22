@@ -18,7 +18,12 @@
  */
 package com.marklogic.performance.sampler;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -71,8 +76,52 @@ public abstract class Sampler extends Thread {
         results = new ArrayList<Result>();
     }
 
-    public abstract Result sample(TestInterface test)
-    throws IOException;
+    public Result sample(TestInterface test) {
+        String name = test.getName();
+        String query = null;
+        try {
+            query = test.getQuery();
+        } catch (Exception e) {
+            // turn this into a fatal runtime exception
+            throw new SamplerException(e);
+        }
+        Result res = new Result(name, test.getCommentExpectedResult());
+        res.setStart();
+        try {
+            String responseData = sample(res, query, test);
+            res.incrementBytesReceived(responseData.length());
+            if (!config.isReportTime() || config.getRecordResults()) {
+                // TODO query result should be byte[] for binary results?
+                res.setQueryResult(responseData);
+            }
+            if (checkResults
+                    && !test.getCommentExpectedResult().equals(
+                            res.getQueryResult())) {
+                res.setError(true);
+            }
+        } catch (RuntimeException e) {
+            // fatal!
+            e.printStackTrace();
+            Runtime.getRuntime().exit(1);
+        } catch (Exception e) {
+            String errorMessage = e.toString() + " " + e.getMessage();
+            if (errorMessage == null) {
+                errorMessage = e.toString();
+            }
+            System.err.println("Error running query "
+                    + (null != name ? name : query) + ": " + errorMessage);
+            res.setError(true);
+            if (!config.isReportTime() || config.getRecordResults()) {
+                res.setQueryResult(errorMessage);
+            }
+        }
+        res.setEnd();
+        return res;
+    }
+
+    // TODO query result should be byte[] for binary results?
+    protected abstract String sample(Result result, String query,
+            TestInterface test) throws Exception;
 
     public int getResultsCount() {
         return results.size();
@@ -118,50 +167,45 @@ public abstract class Sampler extends Thread {
         long lastConfigUpdate = startTime;
         long updateNanos = Configuration.NANOS_PER_SECOND;
         long nowTime;
-        try {
-            do {
-                if (random != null) {
-                    testIterator.shuffle(random);
-                }
-                while (testIterator.hasNext()) {
-                    results.add(sample(testIterator.next()));
-                    if (testTimeNanos != 0) {
-                        if (testTimeNanos < System.nanoTime() - startTime) {
-                            // end of the timed test
-                            break;
-                        }
-                    }
-                    // try to avoid thread starvation
-                    yield();
-                    // config may contain multiple hosts,
-                    // so balance load by updating once in a while,
-                    // but not every time, or we have locking issues.
-                    nowTime = System.nanoTime();
-                    if (nowTime - updateNanos > lastConfigUpdate) {
-                        host = config.getHost();
-                        lastConfigUpdate = System.nanoTime();
+        do {
+            if (null != random) {
+                testIterator.shuffle(random);
+            }
+            while (testIterator.hasNext()) {
+                results.add(sample(testIterator.next()));
+                if (0 != testTimeNanos) {
+                    if (testTimeNanos < System.nanoTime() - startTime) {
+                        // end of the timed test
+                        break;
                     }
                 }
+                // try to avoid thread starvation
+                yield();
+                // config may contain multiple hosts,
+                // so balance load by updating once in a while,
+                // but not every time, or we have locking issues.
+                nowTime = System.nanoTime();
+                if (nowTime - updateNanos > lastConfigUpdate) {
+                    host = config.getHost();
+                    lastConfigUpdate = System.nanoTime();
+                }
+            }
 
-                if (testTimeNanos == 0) {
-                    // no more tests to run: exit the loop
-                    break;
-                }
+            if (0 == testTimeNanos) {
+                // no more tests to run: exit the loop
+                break;
+            }
 
-                if (testTimeNanos < System.nanoTime() - startTime) {
-                    // end of the timed test
-                    break;
-                }
-                testIterator.reset();
-                if (!testIterator.hasNext()) {
-                    throw new SamplerException("reset did not work for "
-                            + testIterator);
-                }
-            } while (testTimeNanos != 0);
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.exit(1);
-        }
+            if (testTimeNanos < System.nanoTime() - startTime) {
+                // end of the timed test
+                break;
+            }
+            testIterator.reset();
+            if (!testIterator.hasNext()) {
+                throw new SamplerException("reset failed for "
+                        + testIterator);
+            }
+        } while (testTimeNanos != 0);
     }
 
     void printResults() {
@@ -255,7 +299,7 @@ public abstract class Sampler extends Thread {
         if (errorCount > -1) {
             return errorCount;
         }
-        
+
         Result r = null;
         Iterator<Result> i = results.iterator();
         errorCount = 0;
@@ -266,6 +310,46 @@ public abstract class Sampler extends Thread {
             }
         }
         return errorCount;
+    }
+
+    protected HttpURLConnection setupConnection(URL url)
+            throws IOException {
+        HttpURLConnection.setFollowRedirects(true);
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        // using keepalive
+        conn.setRequestProperty("Connection", "keep-alive");
+        conn.setRequestProperty("Authorization", "Basic "
+                + Base64Encoder.encode(user + ":" + password));
+        return conn;
+    }
+
+    protected byte[] readResponse(Result result, HttpURLConnection conn)
+            throws IOException {
+        return readResponse(result, conn.getInputStream());
+    }
+
+    protected byte[] readResponse(Result result, InputStream in)
+            throws IOException {
+        ByteArrayOutputStream w = null;
+        BufferedInputStream bin = null;
+        try {
+            bin = new BufferedInputStream(in);
+            w = new ByteArrayOutputStream();
+            int actual = 0;
+            while ((actual = bin.read(readBuffer)) > -1) {
+                result.incrementBytesReceived(actual);
+                w.write(readBuffer, 0, actual);
+            }
+            w.flush();
+            return w.toByteArray();
+        } finally {
+            if (null != bin) {
+                bin.close();
+            }
+            if (null != w) {
+                w.close();
+            }
+        }
     }
 
 }

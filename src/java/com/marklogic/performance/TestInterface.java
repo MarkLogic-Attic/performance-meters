@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2007 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,6 @@
  */
 package com.marklogic.performance;
 
-import java.io.IOException;
-
 import com.marklogic.xcc.types.XdmVariable;
 
 /**
@@ -28,7 +26,7 @@ import com.marklogic.xcc.types.XdmVariable;
  */
 public interface TestInterface {
 
-    public abstract String getQuery() throws IOException;
+    public abstract String getQuery() throws Exception;
 
     public abstract String getName();
 

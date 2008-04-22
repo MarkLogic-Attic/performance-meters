@@ -18,9 +18,6 @@
  */
 package com.marklogic.performance.sampler;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -39,80 +36,19 @@ public class URISampler extends Sampler {
         super(ti, cfg);
     }
 
-    private HttpURLConnection setupConnection(String uri)
-            throws IOException {
-
-        URL url = new URL("http", host, port, uri);
-        HttpURLConnection.setFollowRedirects(true);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-        // using keepalive
-        conn.setRequestProperty("Connection", "keep-alive");
-        String authHeader = "Basic "
-                + Base64Encoder.encode(user + ":"
-                        + password);
-        conn.setRequestProperty("Authorization", authHeader);
-        // set post headers
+    public String sample(Result result, String uri, TestInterface test)
+            throws Exception {
+        if (null == host) {
+            throw new NullPointerException("host is null");
+        }
+        if (null == uri) {
+            throw new NullPointerException("uri is null");
+        }
+        HttpURLConnection conn = setupConnection(new URL("http", host, port, uri));
         conn.setRequestMethod("GET");
         conn.setDoOutput(true);
-        return conn;
-    }
-
-    private byte[] readResponse(HttpURLConnection conn)
-            throws IOException {
-        BufferedInputStream in = null;
-        ByteArrayOutputStream w = null;
-        try {
-            in = new BufferedInputStream(conn.getInputStream());
-            w = new ByteArrayOutputStream();
-            int x = 0;
-            boolean first = true;
-            while ((x = in.read(readBuffer)) > -1) {
-                if (first)
-                    first = false; // to capture latency end
-                w.write(readBuffer, 0, x);
-            }
-            w.flush();
-            return w.toByteArray();
-        } finally {
-            if (null != in) {
-                in.close();
-            }
-            if (null != w) {
-                w.close();
-            }
-        }
-    }
-
-    public Result sample(TestInterface test) throws IOException {
-        Result res = new Result(test.getName(), test
-                .getCommentExpectedResult());
-        byte[] responseData = null;
-        res.setStart();
-        String uri = test.getQuery();
-
-        try {
-            HttpURLConnection conn = setupConnection(uri);
-            res.incrementBytesSent(uri.length());
-            // get response
-            responseData = readResponse(conn);
-            res.incrementBytesReceived(responseData.length);
-            
-            if (!config.isReportTime()
-                    || config.getRecordResults()) {
-                res.setQueryResult(new String(responseData));
-            }
-        } catch (IOException e) {
-            res.setError(true);
-            String errorMessage = e.getMessage();
-            if (errorMessage == null)
-                errorMessage = "NULL";
-            if (!config.isReportTime() || config.getRecordResults()) {
-                res.setQueryResult(errorMessage);
-            }
-        }
-        res.setEnd();
-        return res;
+        result.incrementBytesSent(uri.length());
+        return new String(readResponse(result, conn));
     }
 
 }
