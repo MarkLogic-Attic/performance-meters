@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import org.w3c.dom.NodeList;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class XMLFileTestList extends TestList {
 
@@ -63,12 +63,25 @@ public class XMLFileTestList extends TestList {
         NodeList testList = scriptDocument.getDocumentElement()
                 .getChildNodes();
         Node childNode;
+        int weight;
+        Node attr;
         for (int i = 0; i < testList.getLength(); i++) {
             childNode = testList.item(i);
             if (childNode.getNodeType() != org.w3c.dom.Node.ELEMENT_NODE) {
                 continue;
             }
-            tests.add(new XMLFileTest(childNode));
+            // if a test is weighted, repeat it N times
+            weight = 1;
+            if (childNode.hasAttributes()) {
+                attr = childNode.getAttributes().getNamedItem(
+                        XMLFileTest.TEST_WEIGHT_LOCAL_NAME);
+                if (null != attr) {
+                    weight = Integer.parseInt(attr.getNodeValue());
+                }
+            }
+            for (int j = 0; j < weight; j++) {
+                tests.add(new XMLFileTest(childNode));
+            }
         }
     }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,33 +35,33 @@ import com.marklogic.xcc.types.XdmVariable;
 
 /*
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  * @author Ron Avnur
  */
 class XMLFileTest extends AbstractTest {
 
     /**
-     * 
+     *
      */
     private static final String TEST_LOCAL_NAME = "test";
 
     /**
-     * 
+     *
      */
     public static final String HARNESS_NAMESPACE = "http://marklogic.com/xdmp/harness";
 
     /**
-     * 
+     *
      */
     private static final String COMMENT_EXPECTED_RESULT_LOCAL_NAME = "comment-expected-result";
 
     /**
-     * 
+     *
      */
     private static final String NAME_LOCAL_NAME = "name";
 
     /**
-     * 
+     *
      */
     private static final String QUERY_LOCAL_NAME = "query";
 
@@ -82,6 +82,8 @@ class XMLFileTest extends AbstractTest {
     private static final String VARIABLE_MINVALUE_LOCAL_NAME = "min-value";
 
     private static final String VARIABLE_MAXVALUE_LOCAL_NAME = "max-value";
+
+    public static final String TEST_WEIGHT_LOCAL_NAME = "weight";
 
     private String commentExpectedResult;
 
@@ -267,7 +269,7 @@ class XMLFileTest extends AbstractTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.TestInterface#getQuery()
      */
     public String getQuery() {
@@ -276,7 +278,7 @@ class XMLFileTest extends AbstractTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.TestInterface#getCommentExpectedResult()
      */
     public String getCommentExpectedResult() {
@@ -285,7 +287,7 @@ class XMLFileTest extends AbstractTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.TestInterface#hasVariables()
      */
     public boolean hasVariables() {
@@ -297,7 +299,7 @@ class XMLFileTest extends AbstractTest {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.TestInterface#getVariables()
      */
     public XdmVariable[] getVariables() {

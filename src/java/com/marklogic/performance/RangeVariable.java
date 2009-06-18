@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2007 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2007-2008 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance;
 
@@ -14,7 +14,7 @@ import com.marklogic.xcc.types.XdmVariable;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class RangeVariable implements XdmVariable {
 
@@ -45,7 +45,7 @@ public class RangeVariable implements XdmVariable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.xcc.types.XdmVariable#getName()
      */
     public XName getName() {
@@ -54,7 +54,7 @@ public class RangeVariable implements XdmVariable {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.xcc.types.XdmVariable#getValue()
      */
     public XdmValue getValue() {
@@ -73,7 +73,7 @@ public class RangeVariable implements XdmVariable {
         }
 
         // TODO implement types as needed
-        
+
         throw new UnimplementedFeatureException(
                 "cannot use ranges of type " + type);
     }

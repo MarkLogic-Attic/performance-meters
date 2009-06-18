@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import com.marklogic.performance.SummaryResults;
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public interface Reporter {
 
@@ -39,7 +39,7 @@ public interface Reporter {
 
     /**
      * Preferred file extension, which includes the dot.
-     * 
+     *
      * @return
      */
     String getPreferredFileExtension();

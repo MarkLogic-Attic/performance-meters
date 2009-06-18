@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,10 +25,10 @@ public interface TestIterator {
     public boolean hasNext();
 
     public TestInterface next();
-    
+
     // random tests need to be able to shuffle the iterator
     public void shuffle(Random random);
-    
+
     // timed tests need to be able to reset the iterator
     public void reset();
 

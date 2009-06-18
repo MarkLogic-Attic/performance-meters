@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,17 +29,17 @@ public class DocumentUriTestList extends TestList {
 
     public void initialize(Configuration _config) throws Exception {
         super.initialize(_config);
-        
+
         if (configuration.checkResults()) {
             System.err.println("WARNING: ignoring checkResults");
         }
-        
+
         String inputPath = configuration.getInputPath();
         if (inputPath == null) {
             throw new IOException(
                     "missing required configuration parameter: inputPath");
         }
-        
+
         File inputFile = new File(inputPath);
         if (!inputFile.canRead()) {
             throw new IOException("missing or unreadable inputPath: "
@@ -50,5 +50,5 @@ public class DocumentUriTestList extends TestList {
         // we want the file to be unlimited in size
         tests.add(new DocumentUriTest(inputFile));
     }
-    
+
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2007 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2007-2008 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance;
 
@@ -26,7 +26,7 @@ public class ListVariable implements XdmVariable {
             String[] values) {
         xname = new XName(namespace, name);
         xvalues = new XdmValue[values.length];
-        // copy the input values 
+        // copy the input values
         for (int i = 0; i < values.length; i++) {
             xvalues[i] = XMLFileTest.newValue(type, values[i]);
         }

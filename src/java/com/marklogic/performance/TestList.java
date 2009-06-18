@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,7 @@ import java.util.Random;
 public abstract class TestList {
 
     List<AbstractTest> tests = new ArrayList<AbstractTest>();
-    
+
     protected Configuration configuration;
 
     /**
@@ -52,6 +52,8 @@ public abstract class TestList {
      * @return
      */
     public TestInterface get(int i) {
+        // TODO occasional java.lang.IndexOutOfBoundsException errors here
+        // more locking needed?
         return tests.get(i);
     }
 
@@ -61,5 +63,5 @@ public abstract class TestList {
     public void shuffle(Random random) {
         Collections.shuffle(tests, random);
     }
-    
+
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2006-2008 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance;
 
@@ -14,7 +14,7 @@ import com.marklogic.performance.MockSampler;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class SummaryResultsTest extends TestCase {
 

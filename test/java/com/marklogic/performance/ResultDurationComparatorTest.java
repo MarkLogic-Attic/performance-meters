@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2006 Mark Logic Corporation
+ * Copyright (c)2006-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import com.marklogic.performance.ResultDurationComparator;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class ResultDurationComparatorTest extends TestCase {
 
@@ -83,7 +83,7 @@ public class ResultDurationComparatorTest extends TestCase {
 //        System.err.println("b=" + b.getDurationNanos());
         assertTrue(comp.compare(a, b) > 0);
     }
-    
+
     public void testSorting() {
         long[] nanos = new long[] {4299025000L, 630758000L, 830774000L, 2159281000L};
         ArrayList<Result> results = new ArrayList<Result>();
@@ -94,15 +94,15 @@ public class ResultDurationComparatorTest extends TestCase {
 //            System.err.println("" + i + "=" + r.getDurationNanos());
             results.add(r);
         }
-        
+
         Comparator<Result> c = new ResultDurationComparator();
         Collections.sort(results, c);
-        
+
 //        Iterator<Result> iter = results.iterator();
 //        while (iter.hasNext()) {
-//            System.err.println("sorted=" + iter.next().getDurationNanos());            
+//            System.err.println("sorted=" + iter.next().getDurationNanos());
 //        }
-        
+
         assertEquals(results.get(0).getDurationNanos(), 630758000L);
         assertEquals(results.get(3).getDurationNanos(), 4299025000L);
     }

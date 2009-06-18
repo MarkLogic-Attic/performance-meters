@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import com.marklogic.performance.sampler.Sampler;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class SummaryResults implements ResultInterface {
 
@@ -41,52 +41,52 @@ public class SummaryResults implements ResultInterface {
     private static final String PERCENTILE_DURATION = "percentile-duration-";
 
     /**
-     * 
+     *
      */
     private static final String BYTES_PER_SECOND = "bytes-per-second";
 
     /**
-     * 
+     *
      */
     private static final String TESTS_PER_SECOND = "tests-per-second";
 
     /**
-     * 
+     *
      */
     private static final String TOTAL_BYTES_RECEIVED = "total-bytes-received";
 
     /**
-     * 
+     *
      */
     private static final String AVERAGE_MS = "average-ms";
 
     /**
-     * 
+     *
      */
     private static final String TOTAL_MS = "total-ms";
 
     /**
-     * 
+     *
      */
     private static final String TEST_DURATION_MS = "test-duration";
 
     /**
-     * 
+     *
      */
     private static final String TOTAL_BYTES_SENT = "total-bytes-sent";
 
     /**
-     * 
+     *
      */
     private static final String MAXIMUM_MS = "maximum-ms";
 
     /**
-     * 
+     *
      */
     private static final String MINIMUM_MS = "minimum-ms";
 
     /**
-     * 
+     *
      */
     private static final String NUMBER_OF_TESTS = "number-of-tests";
 
@@ -174,9 +174,9 @@ public class SummaryResults implements ResultInterface {
 
     /**
      * implement percentiles
-     * 
+     *
      * @param percentile
-     * 
+     *
      * @return
      */
     public long getPercentileDurationNanos(int percentile) {

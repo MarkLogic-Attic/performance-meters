@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,52 +21,52 @@ package com.marklogic.performance;
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class Result implements ResultInterface {
 
     /**
-     * 
+     *
      */
     private static final String BYTES_RECEIVED = "bytes-received";
 
     /**
-     * 
+     *
      */
     private static final String BYTES_SENT = "bytes-sent";
 
     /**
-     * 
+     *
      */
     private static final String END_MILLIS = "end-millis";
 
     /**
-     * 
+     *
      */
     private static final String START_MILLIS = "start-millis";
 
     /**
-     * 
+     *
      */
     private static final String DURATION_MILLIS = "duration-millis";
 
     /**
-     * 
+     *
      */
     private static final String ERROR = "got-error";
 
     /**
-     * 
+     *
      */
     private static final String QUERY_RESULT = "result-text";
 
     /**
-     * 
+     *
      */
     private static final String COMMENT = "comment-expected-result";
 
     /**
-     * 
+     *
      */
     private static final String TEST_NAME = "name";
 
@@ -96,7 +96,7 @@ public class Result implements ResultInterface {
     public static String[] getFieldNames() {
         return getFieldNames(false);
     }
-    
+
     /* (non-Javadoc)
      * @see com.marklogic.performance.ResultInterface#getFieldValue(java.lang.String)
      */
@@ -123,7 +123,7 @@ public class Result implements ResultInterface {
 
         if (_field.equals(DURATION_MILLIS))
             return "" + getDurationMillis();
-        
+
         if (_field.equals(BYTES_SENT))
             return "" + getBytesSent();
 
@@ -245,14 +245,14 @@ public class Result implements ResultInterface {
     }
 
     /**
-     * 
+     *
      */
     public void setStart() {
         setStart(System.nanoTime());
     }
 
     /**
-     * 
+     *
      */
     public void setEnd() {
         setEnd(System.nanoTime());

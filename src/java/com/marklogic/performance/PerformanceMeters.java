@@ -34,6 +34,7 @@ import com.marklogic.performance.sampler.Sampler;
 import com.marklogic.performance.sampler.URISampler;
 import com.marklogic.performance.sampler.XCCSampler;
 import com.marklogic.performance.sampler.XDBCSampler;
+import com.marklogic.xcc.Version;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
@@ -46,7 +47,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2008-04-21.1";
+    private static final String VERSION = "2008-05-16.1";
 
     private Configuration config;
 
@@ -60,18 +61,20 @@ public class PerformanceMeters {
 
     public static void main(String args[]) throws Exception {
         // start with getting the configuration parameters
-        // if the user supplied any arguments, assume they are properties files
+        // if the user supplied any arguments,
+        // assume they are properties files
         Configuration config = new Configuration(args, true);
 
-        showProgress(NAME + " starting, version " + VERSION);
+        showProgress(NAME + " starting, version " + VERSION + ", XCC "
+                + Version.getVersionString());
 
         if (debug) {
             showProgress(config.configString());
         }
 
         // use reflection to create the reporter, for output
-        Class<? extends Reporter> reporterClass = Class
-                .forName(config.getReporterClassName()).asSubclass(Reporter.class);
+        Class<? extends Reporter> reporterClass = Class.forName(
+                config.getReporterClassName()).asSubclass(Reporter.class);
         Constructor<? extends Reporter> reporterConstructor = reporterClass
                 .getConstructor(new Class[0]);
         reporter = reporterConstructor.newInstance(new Object[0]);

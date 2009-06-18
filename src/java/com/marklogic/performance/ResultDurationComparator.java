@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2006 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,12 +22,12 @@ import java.util.Comparator;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class ResultDurationComparator implements Comparator<Result> {
 
     /**
-     * 
+     *
      */
     public ResultDurationComparator() {
         super();
@@ -35,7 +35,7 @@ public class ResultDurationComparator implements Comparator<Result> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
      */
     public int compare(Result a, Result b) {
@@ -46,7 +46,7 @@ public class ResultDurationComparator implements Comparator<Result> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.util.Comparator#equals(java.lang.Object, java.lang.Object)
      */
     public boolean equals(Result a, Result b) {

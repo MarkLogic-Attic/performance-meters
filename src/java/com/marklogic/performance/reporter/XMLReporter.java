@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import com.marklogic.performance.sampler.Sampler;
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class XMLReporter extends AbstractReporter {
 
@@ -141,7 +141,7 @@ public class XMLReporter extends AbstractReporter {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.Reporter#getPreferredFileExtension()
      */
     public String getPreferredFileExtension() {

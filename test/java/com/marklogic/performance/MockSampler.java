@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2006-2007 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2006-2008 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance;
 
@@ -13,7 +13,7 @@ import com.marklogic.performance.TestIterator;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class MockSampler extends Sampler {
 
@@ -27,7 +27,7 @@ public class MockSampler extends Sampler {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see com.marklogic.performance.Sampler#sample(com.marklogic.performance.TestInterface)
      */
     public Result sample(TestInterface test) throws IOException {

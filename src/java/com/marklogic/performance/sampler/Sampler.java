@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2007 Mark Logic Corporation
+ * Copyright (c)2005-2008 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,7 +46,7 @@ public abstract class Sampler extends Thread {
 
     Random random = null;
 
-    private int index = 0;
+    private int threadIndex = 0;
 
     private int errorCount = -1;
 
@@ -108,8 +108,10 @@ public abstract class Sampler extends Thread {
             if (errorMessage == null) {
                 errorMessage = e.toString();
             }
-            System.err.println("Error running query "
-                    + (null != name ? name : query) + ": " + errorMessage);
+            System.err
+                    .println("Error running query "
+                            + (null != name ? name : query) + ": "
+                            + errorMessage);
             res.setError(true);
             if (!config.isReportTime() || config.getRecordResults()) {
                 res.setQueryResult(errorMessage);
@@ -146,17 +148,19 @@ public abstract class Sampler extends Thread {
         host = config.getHost();
         port = config.getPort();
 
-        // random tests only make sense as timed tests
-        if (config.isTimedTest()) {
-            if (config.isRandomTest()) {
-                random = new Random();
-                long randomSeed = config.getRandomSeed();
-                if (randomSeed != Configuration.RANDOMSEED_DEFAULT) {
-                    // adjust for thread identity: the exact technique
-                    // shouldn't matter much
-                    randomSeed = randomSeed + index;
-                    random.setSeed(randomSeed);
-                }
+        // random tests need some extra setup
+        // if shared, set up just once
+        if (config.isRandomTest()
+                && (0 == threadIndex || !config.isShared())) {
+            System.err.println("setting up for random test on "
+                    + threadIndex);
+            random = new Random();
+            long randomSeed = config.getRandomSeed();
+            if (randomSeed != Configuration.RANDOMSEED_DEFAULT) {
+                // adjust for thread identity: the exact technique
+                // shouldn't matter much
+                randomSeed = randomSeed + threadIndex;
+                random.setSeed(randomSeed);
             }
         }
 
@@ -168,6 +172,9 @@ public abstract class Sampler extends Thread {
         long updateNanos = Configuration.NANOS_PER_SECOND;
         long nowTime;
         do {
+            // if shared, only thread 0 will actually shuffle
+            // the other threads might stall while this happens...
+            // do we really need to shuffle again? new option?
             if (null != random) {
                 testIterator.shuffle(random);
             }
@@ -289,7 +296,7 @@ public abstract class Sampler extends Thread {
      * @param i
      */
     public void setIndex(int i) {
-        index = i;
+        threadIndex = i;
     }
 
     /**
