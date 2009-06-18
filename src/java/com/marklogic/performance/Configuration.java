@@ -111,6 +111,8 @@ public class Configuration {
 
     public static final long NANOS_PER_SECOND = 1000 * 1000 * 1000;
 
+    public static final String PROTOCOL_HTTPS = "https";
+
     private String protocol;
 
     private String[] host;
@@ -348,7 +350,7 @@ public class Configuration {
     }
 
     public String configString() {
-        return "-Dprotocol=" + protocol + "-Dhost=" + host[0]
+        return "-Dprotocol=" + protocol + " -Dhost=" + host[0]
                 + " -Dport=" + port + " -Duser=" + user + " -Dpassword="
                 + password + " -DinputPath=" + inputPath
                 + " -DoutputPath=" + outputPath + " -DnumThreads="

@@ -19,6 +19,14 @@
 package com.marklogic.performance.sampler;
 
 import java.io.InputStream;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 import com.marklogic.performance.Configuration;
 import com.marklogic.performance.Result;
@@ -29,6 +37,7 @@ import com.marklogic.xcc.ContentSourceFactory;
 import com.marklogic.xcc.Request;
 import com.marklogic.xcc.RequestOptions;
 import com.marklogic.xcc.ResultSequence;
+import com.marklogic.xcc.SecurityOptions;
 import com.marklogic.xcc.Session;
 import com.marklogic.xcc.types.XdmVariable;
 
@@ -39,12 +48,23 @@ import com.marklogic.xcc.types.XdmVariable;
  */
 public class XCCSampler extends Sampler {
 
+    protected SecurityOptions securityOptions;
+
+    protected boolean isSecure = false;
+
     /**
      * @param ti
      * @param cfg
+     * @throws NoSuchAlgorithmException
+     * @throws KeyManagementException
      */
-    public XCCSampler(TestIterator ti, Configuration cfg) {
+    public XCCSampler(TestIterator ti, Configuration cfg)
+            throws KeyManagementException, NoSuchAlgorithmException {
         super(ti, cfg);
+        isSecure = Configuration.PROTOCOL_HTTPS.equals(cfg.getProtocol());
+        if (isSecure) {
+            securityOptions = newTrustAnyoneOptions();
+        }
     }
 
     public String sample(Result result, String query, TestInterface test)
@@ -53,8 +73,10 @@ public class XCCSampler extends Sampler {
         // do this per sample, in case Java's thread management isn't fair
         // new connection every time, to distribute load more evenly
         StringBuffer resultsBuffer = new StringBuffer();
-        ContentSource cs = ContentSourceFactory.newContentSource(host,
-                port, user, password);
+        ContentSource cs = isSecure ? ContentSourceFactory
+                .newContentSource(host, port, user, password, null,
+                        securityOptions) : ContentSourceFactory
+                .newContentSource(host, port, user, password);
         Session sess = cs.newSession();
 
         try {
@@ -98,4 +120,34 @@ public class XCCSampler extends Sampler {
         }
     }
 
+    protected static SecurityOptions newTrustAnyoneOptions()
+            throws KeyManagementException, NoSuchAlgorithmException {
+        TrustManager[] trust = new TrustManager[] { new X509TrustManager() {
+            public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                return new X509Certificate[0];
+            }
+
+            /**
+             * @throws CertificateException  
+             */
+            public void checkClientTrusted(
+                    java.security.cert.X509Certificate[] certs,
+                    String authType) throws CertificateException {
+                // no exception means it's okay
+            }
+
+            /**
+             * @throws CertificateException  
+             */
+            public void checkServerTrusted(
+                    java.security.cert.X509Certificate[] certs,
+                    String authType) throws CertificateException {
+                // no exception means it's okay
+            }
+        } };
+
+        SSLContext sslContext = SSLContext.getInstance("SSLv3");
+        sslContext.init(null, trust, null);
+        return new SecurityOptions(sslContext);
+    }
 }
