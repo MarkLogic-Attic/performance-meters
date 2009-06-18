@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,6 +39,7 @@ import com.marklogic.xcc.Version;
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * @author Wayne Feick, wayne.feick@marklogic.com
  * 
  */
 public class PerformanceMeters {
@@ -47,7 +48,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2008-05-16.1";
+    private static final String VERSION = "2009-06-18.1";
 
     private Configuration config;
 

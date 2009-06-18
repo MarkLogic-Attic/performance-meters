@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,12 @@ import com.marklogic.xdmp.XDMPConnection;
 import com.marklogic.performance.reporter.Reporter;
 import com.marklogic.performance.reporter.XMLReporter;
 
+/**
+ * @author Ron Avnur, ron.avnur@marklogic.com
+ * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * @author Wayne Feick, wayne.feick@marklogic.com
+ * 
+ */
 public class Configuration {
 
     /**
@@ -70,6 +76,8 @@ public class Configuration {
 
     public static final boolean SHARED_DEFAULT = false;
 
+    public static final String PROTOCOL_DEFAULT = "http";
+
     public static final String HOST_DEFAULT = "localhost";
 
     public static final int PORT_DEFAULT = 8003;
@@ -102,6 +110,8 @@ public class Configuration {
     public static final long NANOS_PER_MILLI = 1000 * 1000;
 
     public static final long NANOS_PER_SECOND = 1000 * 1000 * 1000;
+
+    private String protocol;
 
     private String[] host;
 
@@ -202,6 +212,8 @@ public class Configuration {
          */
         port = Integer.parseInt(props.getProperty("port", ""
                 + PORT_DEFAULT));
+
+        protocol = props.getProperty("protocol", PROTOCOL_DEFAULT);
 
         user = props.getProperty("user", USER_DEFAULT);
 
@@ -336,12 +348,13 @@ public class Configuration {
     }
 
     public String configString() {
-        return "-Dhost=" + host[0] + " -Dport=" + port + " -Duser="
-                + user + " -Dpassword=" + password + " -DinputPath="
-                + inputPath + " -DoutputPath=" + outputPath
-                + " -DnumThreads=" + numThreads + " -Dshared=" + shared
-                + " -DreportTime=" + reportTime + " -DrecordResults="
-                + recordResults + " -DtestType=" + testType;
+        return "-Dprotocol=" + protocol + "-Dhost=" + host[0]
+                + " -Dport=" + port + " -Duser=" + user + " -Dpassword="
+                + password + " -DinputPath=" + inputPath
+                + " -DoutputPath=" + outputPath + " -DnumThreads="
+                + numThreads + " -Dshared=" + shared + " -DreportTime="
+                + reportTime + " -DrecordResults=" + recordResults
+                + " -DtestType=" + testType;
     }
 
     public String getHost() {
@@ -354,6 +367,10 @@ public class Configuration {
         }
         // round-robin across available hosts
         return host[hostIndex++ % host.length];
+    }
+
+    public String getProtocol() {
+        return protocol;
     }
 
     public String getUser() {

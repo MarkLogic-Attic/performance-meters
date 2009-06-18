@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,6 +37,12 @@ import com.marklogic.performance.TestIterator;
 
 // TODO implement fixed number of test loops (iterations)
 
+/**
+ * @author Ron Avnur, ron.avnur@marklogic.com
+ * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * @author Wayne Feick, wayne.feick@marklogic.com
+ * 
+ */
 public abstract class Sampler extends Thread {
     TestIterator testIterator;
 
@@ -64,6 +70,8 @@ public abstract class Sampler extends Thread {
     String password = Configuration.PASSWORD_DEFAULT;
 
     String host = Configuration.HOST_DEFAULT;
+
+    String protocol = Configuration.PROTOCOL_DEFAULT;
 
     int port = Configuration.PORT_DEFAULT;
 
@@ -147,6 +155,7 @@ public abstract class Sampler extends Thread {
         password = config.getPassword();
         host = config.getHost();
         port = config.getPort();
+        protocol = config.getProtocol();
 
         // random tests need some extra setup
         // if shared, set up just once

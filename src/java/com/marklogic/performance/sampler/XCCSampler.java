@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,6 +32,11 @@ import com.marklogic.xcc.ResultSequence;
 import com.marklogic.xcc.Session;
 import com.marklogic.xcc.types.XdmVariable;
 
+/**
+ * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * 
+ *         TODO support SSL
+ */
 public class XCCSampler extends Sampler {
 
     /**
@@ -42,8 +47,8 @@ public class XCCSampler extends Sampler {
         super(ti, cfg);
     }
 
-    public String sample(Result result, String query,
-            TestInterface test) throws Exception {
+    public String sample(Result result, String query, TestInterface test)
+            throws Exception {
         // time to make sure we have a connection:
         // do this per sample, in case Java's thread management isn't fair
         // new connection every time, to distribute load more evenly
@@ -67,7 +72,8 @@ public class XCCSampler extends Sampler {
             InputStream buf = null;
             while (rs.hasNext()) {
                 buf = rs.next().asInputStream();
-                resultsBuffer.append(new String(readResponse(result, buf)));
+                resultsBuffer
+                        .append(new String(readResponse(result, buf)));
             }
         } finally {
             sess.close();

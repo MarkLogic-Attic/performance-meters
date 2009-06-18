@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,6 +28,12 @@ import com.marklogic.performance.Result;
 import com.marklogic.performance.TestInterface;
 import com.marklogic.performance.TestIterator;
 
+/**
+ * @author Ron Avnur, ron.avnur@marklogic.com
+ * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * @author Wayne Feick, wayne.feick@marklogic.com
+ * 
+ */
 public class HTTPSampler extends Sampler {
 
     private static final String ENCODING = "UTF-8";
@@ -39,7 +45,8 @@ public class HTTPSampler extends Sampler {
     public String sample(Result result, String query, TestInterface test)
             throws Exception {
         String urlEncoded = URLEncoder.encode(query, ENCODING);
-        HttpURLConnection conn = setupConnection(new URL("http", host,
+        HttpURLConnection conn = setupConnection(new URL(
+                protocol, host,
                 port, "/evaluate.xqy"));
         // set post headers
         conn.setRequestMethod("POST");
