@@ -217,10 +217,6 @@ public abstract class Sampler extends Thread {
                 break;
             }
             testIterator.reset();
-            if (!testIterator.hasNext()) {
-                throw new SamplerException("reset failed for "
-                        + testIterator);
-            }
         } while (testTimeNanos != 0);
     }
 

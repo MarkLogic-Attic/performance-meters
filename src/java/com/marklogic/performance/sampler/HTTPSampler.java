@@ -55,6 +55,8 @@ public class HTTPSampler extends Sampler {
         conn.setRequestProperty("Content-Type",
                 "application/x-www-form-urlencoded");
         conn.setDoOutput(true);
+        // TODO doesn't this increment twice?
+        // TODO shouldn't bytes sent reflect the HTTP headers too?
         result.incrementBytesSent(query.length());
         PrintWriter out = new PrintWriter(conn.getOutputStream());
         out.print("query=" + urlEncoded);

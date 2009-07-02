@@ -199,6 +199,8 @@ public class Configuration {
      * @param props
      */
     public void load(Properties _props) {
+        // TODO warn about unexpected properties
+        
         // fill in the config from the supplied properties object:
         // allow it to override any existing properties
         props.putAll(_props);

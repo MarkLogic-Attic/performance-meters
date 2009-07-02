@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,11 +39,16 @@ class SharedTestIterator extends AbstractTestIterator {
     public TestInterface next() {
         // TODO bottleneck for lots of threads?
         synchronized (this) {
+            if (cursor >= super.tests.size()) {
+                super.reset();
+            }
             return super.next();
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.TestIterator#shuffle()
      */
     public void shuffle(Random random) {
@@ -52,8 +57,10 @@ class SharedTestIterator extends AbstractTestIterator {
             super.shuffle(random);
         }
     }
-    
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.TestIterator#reset()
      */
     public void reset() {

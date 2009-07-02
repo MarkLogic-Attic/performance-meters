@@ -44,7 +44,6 @@ import com.marklogic.xcc.types.XdmVariable;
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * 
- *         TODO support SSL
  */
 public class XCCSampler extends Sampler {
 

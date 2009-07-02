@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2009 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,8 +52,6 @@ public abstract class TestList {
      * @return
      */
     public TestInterface get(int i) {
-        // TODO occasional java.lang.IndexOutOfBoundsException errors here
-        // more locking needed?
         return tests.get(i);
     }
 
