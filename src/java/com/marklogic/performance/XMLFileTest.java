@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,65 +34,50 @@ import com.marklogic.xcc.types.XdmValue;
 import com.marklogic.xcc.types.XdmVariable;
 
 /*
- * @author Michael Blakeley, michael.blakeley@marklogic.com
+ * @author Michael Blakeley
  *
  * @author Ron Avnur
  */
-class XMLFileTest extends AbstractTest {
+public class XMLFileTest extends AbstractTest {
 
-    /**
-     *
-     */
-    private static final String TEST_LOCAL_NAME = "test";
-
-    /**
-     *
-     */
     public static final String HARNESS_NAMESPACE = "http://marklogic.com/xdmp/harness";
 
-    /**
-     *
-     */
-    private static final String COMMENT_EXPECTED_RESULT_LOCAL_NAME = "comment-expected-result";
+    public static final String TEST_LOCAL_NAME = "test";
 
-    /**
-     *
-     */
-    private static final String NAME_LOCAL_NAME = "name";
+    public static final String COMMENT_EXPECTED_RESULT_LOCAL_NAME = "comment-expected-result";
 
-    /**
-     *
-     */
-    private static final String QUERY_LOCAL_NAME = "query";
+    public static final String NAME_LOCAL_NAME = "name";
 
-    private static final String VARIABLES_LOCAL_NAME = "variables";
+    public static final String QUERY_LOCAL_NAME = "query";
 
-    private static final String VARIABLE_LOCAL_NAME = "variable";
+    public static final String VARIABLES_LOCAL_NAME = "variables";
 
-    private static final String VARIABLE_NAMESPACE_LOCAL_NAME = "namespace";
+    public static final String VARIABLE_LOCAL_NAME = "variable";
 
-    private static final String VARIABLE_NAME_LOCAL_NAME = "name";
+    public static final String VARIABLE_NAMESPACE_LOCAL_NAME = "namespace";
 
-    private static final String VARIABLE_TYPE_LOCAL_NAME = "type";
+    public static final String VARIABLE_NAME_LOCAL_NAME = "name";
 
-    private static final String VARIABLE_VALUE_LOCAL_NAME = "value";
+    public static final String VARIABLE_TYPE_LOCAL_NAME = "type";
 
-    private static final String VARIABLE_VALUELIST_LOCAL_NAME = "value-csv";
+    public static final String VARIABLE_VALUE_LOCAL_NAME = "value";
 
-    private static final String VARIABLE_MINVALUE_LOCAL_NAME = "min-value";
+    public static final String VARIABLE_SPECIAL_LOCAL_NAME = "special";
 
-    private static final String VARIABLE_MAXVALUE_LOCAL_NAME = "max-value";
+    public static final String VARIABLE_VALUELIST_LOCAL_NAME = "value-csv";
+
+    public static final String VARIABLE_MINVALUE_LOCAL_NAME = "min-value";
+
+    public static final String VARIABLE_MAXVALUE_LOCAL_NAME = "max-value";
 
     public static final String TEST_WEIGHT_LOCAL_NAME = "weight";
 
-    private String commentExpectedResult;
+    public static final String USER_LOCAL_NAME = "user";
 
-    private String query;
-
-    private XdmVariable[] variables = null;
+    public static final String PASSWORD_LOCAL_NAME = "password";
 
     public XMLFileTest(Node node) throws IOException {
-        if (node.getNamespaceURI() == null) {
+        if (null == node.getNamespaceURI()) {
             throw new IOException("invalid element: "
                     + node.getLocalName() + " in "
                     + node.getNamespaceURI() + " is not "
@@ -105,43 +90,61 @@ class XMLFileTest extends AbstractTest {
                     + node.getNamespaceURI() + " is not "
                     + TEST_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
         }
-        Node queryNode = (((Element) node).getElementsByTagNameNS(
-                HARNESS_NAMESPACE, QUERY_LOCAL_NAME).item(0));
-        Node variablesNode = (((Element) node).getElementsByTagNameNS(
-                HARNESS_NAMESPACE, VARIABLES_LOCAL_NAME).item(0));
-        Node nameNode = (((Element) node).getElementsByTagNameNS(
-                HARNESS_NAMESPACE, NAME_LOCAL_NAME).item(0));
-        Node commentExpectedResultNode = (((Element) node)
-                .getElementsByTagNameNS(HARNESS_NAMESPACE,
-                        COMMENT_EXPECTED_RESULT_LOCAL_NAME).item(0));
-        if (queryNode == null) {
+        Element elem = (Element) node;
+        Node queryNode = (elem.getElementsByTagNameNS(HARNESS_NAMESPACE,
+                QUERY_LOCAL_NAME).item(0));
+        Node nameNode = (elem.getElementsByTagNameNS(HARNESS_NAMESPACE,
+                NAME_LOCAL_NAME).item(0));
+        if (null == queryNode) {
             throw new NullPointerException("missing required element: "
                     + QUERY_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
         }
-        if (nameNode == null) {
+        if (null == nameNode) {
             throw new NullPointerException("missing required element: "
                     + NAME_LOCAL_NAME + " in " + HARNESS_NAMESPACE);
         }
-        query = queryNode.getTextContent();
-        configureVariables(variablesNode);
         name = nameNode.getTextContent();
+        query = queryNode.getTextContent();
+
+        Node commentExpectedResultNode = (elem.getElementsByTagNameNS(
+                HARNESS_NAMESPACE, COMMENT_EXPECTED_RESULT_LOCAL_NAME)
+                .item(0));
         if (null != commentExpectedResultNode) {
             commentExpectedResult = commentExpectedResultNode
                     .getTextContent().trim();
         }
+
+        configureVariables(elem.getElementsByTagNameNS(HARNESS_NAMESPACE,
+                VARIABLES_LOCAL_NAME).item(0));
+        configureAuthentication(elem.getElementsByTagNameNS(
+                HARNESS_NAMESPACE, USER_LOCAL_NAME).item(0), elem
+                .getElementsByTagNameNS(HARNESS_NAMESPACE,
+                        PASSWORD_LOCAL_NAME).item(0));
     }
 
-    private void configureVariables(Node variablesNode)
+    /**
+     * @param _user
+     * @param _password
+     */
+    protected void configureAuthentication(Node _user, Node _password) {
+        if (null == _user || null == _password) {
+            return;
+        }
+        user = _user.getTextContent().trim();
+        password = _password.getTextContent().trim();
+    }
+
+    protected void configureVariables(Node variablesNode)
             throws DOMException {
         if (null == variablesNode) {
             return;
         }
         NodeList children = variablesNode.getChildNodes();
         int length = children.getLength();
-        variables = new ListVariable[length];
+        variables = new XdmVariable[length];
         Node n, name, namespaceNode, typeNode, value = null;
-        // TODO support variable ranges and lists of values
-        Node valuesCSV, minValue, maxValue = null;
+        // support variable ranges and lists of values
+        Node valuesCSV, minValue, maxValue, specialValue = null;
         String namespace, type;
         NamedNodeMap attr;
         for (int i = 0; i < length; i++) {
@@ -168,8 +171,7 @@ class XMLFileTest extends AbstractTest {
                                 + VARIABLE_NAME_LOCAL_NAME);
             }
             if (null == value) {
-
-                // TODO look for value lists and ranges
+                // look for value lists and ranges
                 valuesCSV = attr
                         .getNamedItem(VARIABLE_VALUELIST_LOCAL_NAME);
                 if (null != valuesCSV) {
@@ -190,20 +192,38 @@ class XMLFileTest extends AbstractTest {
                     continue;
                 }
 
-                // values may not be needed
+                // does type specifies that value may be null?
                 if (type.endsWith("?") || type.endsWith("*")) {
                     variables[i] = newVariable(name.getNodeValue(),
                             namespace, type);
                     continue;
                 }
+
+                // check for special values
+                specialValue = attr
+                        .getNamedItem(VARIABLE_SPECIAL_LOCAL_NAME);
+                if (null != specialValue) {
+                    variables[i] = new SpecialVariable(name
+                            .getNodeValue(), namespace, specialValue
+                            .getNodeValue());
+                    continue;
+                }
+
                 throw new NullPointerException(
                         "missing required variable attribute: "
-                                + VARIABLE_VALUE_LOCAL_NAME
+                                + VARIABLE_VALUE_LOCAL_NAME + " or "
+                                + VARIABLE_VALUELIST_LOCAL_NAME + " or "
+                                + VARIABLE_SPECIAL_LOCAL_NAME + " or "
+                                + VARIABLE_MINVALUE_LOCAL_NAME + " and "
+                                + VARIABLE_MAXVALUE_LOCAL_NAME
                                 + " (or child items)");
             }
+
+            // use fixed value
             variables[i] = newVariable(name.getNodeValue(), namespace,
                     type, value.getNodeValue());
         }
+
     }
 
     /**
@@ -212,8 +232,8 @@ class XMLFileTest extends AbstractTest {
      * @param type
      * @return
      */
-    private static XdmVariable newVariable(String name, String namespace,
-            String type) {
+    protected static XdmVariable newVariable(String name,
+            String namespace, String type) {
         return newVariable(name, namespace, type, null);
     }
 
@@ -224,17 +244,15 @@ class XMLFileTest extends AbstractTest {
      * @param value
      * @return
      */
-    private static XdmVariable newVariable(String name, String namespace,
-            String type, String value) {
+    protected static XdmVariable newVariable(String name,
+            String namespace, String type, String value) {
         XName xname = (null == namespace) ? new XName(name) : new XName(
                 namespace, name);
-        // System.err.println("variable " + xname + " = " + value + " ("
-        // + type + ")");
         XdmValue xvalue = newValue(type, value);
         return ValueFactory.newVariable(xname, xvalue);
     }
 
-    static XdmValue newValue(String type, String value) {
+    protected static XdmValue newValue(String type, String value) {
         // if type is empty, we assume a string
         if (null == type) {
             return newValue("xs:string", value);
@@ -265,45 +283,6 @@ class XMLFileTest extends AbstractTest {
         // TODO implement more types as needed
         throw new UnimplementedFeatureException(
                 "variable type not implemented: " + type);
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.marklogic.performance.TestInterface#getQuery()
-     */
-    public String getQuery() {
-        return query;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.marklogic.performance.TestInterface#getCommentExpectedResult()
-     */
-    public String getCommentExpectedResult() {
-        return commentExpectedResult;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.marklogic.performance.TestInterface#hasVariables()
-     */
-    public boolean hasVariables() {
-        if (null == variables || 0 == variables.length) {
-            return false;
-        }
-        return true;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.marklogic.performance.TestInterface#getVariables()
-     */
-    public XdmVariable[] getVariables() {
-        return variables;
     }
 
 }

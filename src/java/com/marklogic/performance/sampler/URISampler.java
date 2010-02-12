@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,8 @@ public class URISampler extends Sampler {
         if (null == uri) {
             throw new NullPointerException("uri is null");
         }
-        HttpURLConnection conn = setupConnection(new URL(protocol, host, port, uri));
+        HttpURLConnection conn = setupConnection(new URL(protocol, host,
+                port, uri), test);
         conn.setRequestMethod("GET");
         conn.setDoOutput(true);
         result.incrementBytesSent(uri.length());

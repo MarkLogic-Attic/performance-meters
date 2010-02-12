@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -71,11 +71,15 @@ public class XCCSampler extends Sampler {
         // time to make sure we have a connection:
         // do this per sample, in case Java's thread management isn't fair
         // new connection every time, to distribute load more evenly
+        String testUser = test.getUser();
+        String testPassword = test.getPassword();
+        testUser = (null == testUser) ? user : testUser;
+        testPassword = (null == testPassword) ? password : testPassword;
         StringBuffer resultsBuffer = new StringBuffer();
         ContentSource cs = isSecure ? ContentSourceFactory
                 .newContentSource(host, port, user, password, null,
                         securityOptions) : ContentSourceFactory
-                .newContentSource(host, port, user, password);
+                .newContentSource(host, port, testUser, testPassword);
         Session sess = cs.newSession();
 
         try {

@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <!--
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,14 +67,6 @@ you may not need the library.
 </p>
 <ul>
   <li>MarkLogic <a href="http://developer.marklogic.com/">XCC</a></li>
-</ul>
-
-<h2>Optional libraries:</h2>
-<p>If you wish to test using the XDBC test-type,
-you need the XDBC libraries.
-</p>
-<ul>
-  <li>MarkLogic <a href="http://developer.marklogic.com/">XDBC</a></li>
 </ul>
 
 <h2>Available properties:</h2>
@@ -183,6 +175,18 @@ you need the XDBC libraries.
     standard deviation</a>.
   </td></tr>
 
+<tr><td class="code">samplerClass</td><td class="code">null</td>
+  <td>If set, this must be the name of a subclass of the abstract
+    class <code>com.marklogic.performance.sampler.Sampler</code>.
+    Sampler classes run tests, so this overrides the built-in
+    <code>testType</code> values with an arbitrary user-supplied class.
+    For example, you could write a class that generates
+    application-specific web service requests,
+    instead of using <code>testType=HTTP</code>.
+    Refer to the <code>com.marklogic.performance.sampler</code>
+    source code for examples.
+  </td></tr>
+
 <tr><td class="code">shared</td><td class="code">false</td>
   <td>If true, one TestList will be shared by all threads.
   In this case, the TestList must implement its own synchronization.
@@ -199,7 +203,9 @@ you need the XDBC libraries.
 
 <tr><td class="code">testType</td><td class="code">XCC</td>
   <td>Type of test to run (case-insensitive).
-  Supported values are XCC, XDBC, HTTP, and URI.
+  Supported values are XCC, HTTP, and URI.
+    See also the <code>samplerClass</code> property,
+    which allows new test types to be defined.
   </td></tr>
 
 <tr><td class="code">testListClass</td>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,10 +23,14 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
 
-import com.marklogic.xdmp.XDMPConnection;
-
 import com.marklogic.performance.reporter.Reporter;
 import com.marklogic.performance.reporter.XMLReporter;
+import com.marklogic.performance.sampler.HTTPSampler;
+import com.marklogic.performance.sampler.Sampler;
+import com.marklogic.performance.sampler.URISampler;
+import com.marklogic.performance.sampler.XCCSampler;
+import com.marklogic.xcc.exceptions.UnimplementedFeatureException;
+import com.marklogic.xdmp.XDMPConnection;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
@@ -94,6 +98,8 @@ public class Configuration {
 
     public static final boolean REPORTTIME_DEFAULT = true;
 
+    public static final String SAMPLERCLASS_KEY = "samplerClass";
+
     public static final String TESTLISTCLASS_KEY = "testListClass";
 
     public static final String TESTLISTCLASS_DEFAULT = XMLFileTestList.class
@@ -112,6 +118,8 @@ public class Configuration {
     public static final long NANOS_PER_SECOND = 1000 * 1000 * 1000;
 
     public static final String PROTOCOL_HTTPS = "https";
+
+    public static final String THREAD_NAME_PREFIX = "sampler-";
 
     private String protocol;
 
@@ -166,6 +174,8 @@ public class Configuration {
 
     private String testListClassName;
 
+    private String samplerClassName;
+
     private String elementQName;
 
     private boolean reportStandardDeviation = REPORTSTDDEV_DEFAULT;
@@ -200,7 +210,7 @@ public class Configuration {
      */
     public void load(Properties _props) {
         // TODO warn about unexpected properties
-        
+
         // fill in the config from the supplied properties object:
         // allow it to override any existing properties
         props.putAll(_props);
@@ -210,10 +220,7 @@ public class Configuration {
         String hostString = props.getProperty("host", HOST_DEFAULT);
         host = hostString.split("\\s+");
 
-        /*
-         * a connection-string would be simpler for xcc, but not for xdbc...
-         * someday we'll remove xdbc support.
-         */
+        // TODO connection-string would be simpler for xcc
         port = Integer.parseInt(props.getProperty("port", ""
                 + PORT_DEFAULT));
 
@@ -289,21 +296,8 @@ public class Configuration {
                 props.getProperty("shared", "" + SHARED_DEFAULT))
                 .booleanValue();
 
-        testType = props.getProperty("testType", "XCC");
-
-        if (isXCC()) {
-            // no need to tune XCC limits
-        }
-
-        if (isXDBC()) {
-            // tune XDBC limits
-            if (numThreads > XDMPConnection.getMaxOpenDocInsertStreams()) {
-                XDMPConnection.setMaxOpenDocInsertStreams(numThreads);
-            }
-            if (numThreads > XDMPConnection.getMaxOpenResultSequences()) {
-                XDMPConnection.setMaxOpenResultSequences(numThreads);
-            }
-        }
+        // determine which sampler to use
+        String testType = props.getProperty("testType", "XCC");
 
         reporterClassName = props.getProperty(REPORTER_KEY,
                 REPORTER_DEFAULT);
@@ -315,13 +309,30 @@ public class Configuration {
                     + "." + reporterClassName;
         }
 
+        // no default value for sampler class name
+        samplerClassName = props.getProperty(SAMPLERCLASS_KEY);
+        if (null != samplerClassName) {
+            if (samplerClassName.indexOf('.') < 1) {
+                // prepend the abstract class's package name
+                samplerClassName = Sampler.class.getPackage().getName()
+                        + "." + samplerClassName;
+            }
+        } else if ("URI".equalsIgnoreCase(testType)) {
+            samplerClassName = URISampler.class.getName();
+        } else if ("HTTP".equalsIgnoreCase(testType)) {
+            samplerClassName = HTTPSampler.class.getName();
+        } else {
+            // default
+            samplerClassName = XCCSampler.class.getName();
+        }
+
+        // handle test list class plug-in
         testListClassName = props.getProperty(TESTLISTCLASS_KEY,
                 TESTLISTCLASS_DEFAULT);
         // System.err.println("testListClassName = " + testListClassName);
         if (testListClassName.indexOf('.') < 1) {
-            // prepend this class's package name
-            testListClassName = Configuration.class.getPackage()
-                    .getName()
+            // prepend package name
+            testListClassName = TestList.class.getPackage().getName()
                     + "." + testListClassName;
         }
 
@@ -417,29 +428,6 @@ public class Configuration {
         return shared;
     }
 
-    String getTestType() {
-        return testType;
-    }
-
-    boolean isHTTP() {
-        return testType.compareToIgnoreCase("HTTP") == 0;
-    }
-
-    boolean isURI() {
-        return testType.compareToIgnoreCase("URI") == 0;
-    }
-
-    boolean isXDBC() {
-        return testType.compareToIgnoreCase("XDBC") == 0;
-    }
-
-    /**
-     * @return
-     */
-    public boolean isXCC() {
-        return testType.compareToIgnoreCase("XCC") == 0;
-    }
-
     /**
      * @return
      */
@@ -514,6 +502,13 @@ public class Configuration {
 
     public boolean isReportStandardDeviation() {
         return reportStandardDeviation;
+    }
+
+    /**
+     * @return
+     */
+    public String getSamplerClassName() {
+        return samplerClassName;
     }
 
 }

@@ -14,13 +14,11 @@
         <fileset dir="${java.library.user}">
             <include name="junit.jar"/>
             <include name="xcc.jar"/>
-            <include name="xdbc.jar"/>
             <include name="xdmp.jar"/>
         </fileset>
         <fileset dir="${java.library.system}">
             <include name="junit.jar"/>
             <include name="xcc.jar"/>
-            <include name="xdbc.jar"/>
             <include name="xdmp.jar"/>
         </fileset>
         <pathelement path="${build.dir}"/>
@@ -29,7 +27,7 @@
     <target name="build"
             description="Compile main source tree java files">
         <mkdir dir="${target.dir}"/>
-        <javac destdir="${target.dir}" target="1.5">
+        <javac destdir="${target.dir}" debug="on" target="1.5">
             <src path="${src.dir}"/>
             <classpath refid="master-classpath"/>
             <compilerarg value="-Xlint"/>
@@ -38,7 +36,7 @@
 
     <target name="build.test" depends="build" description="Compiles the JUnit tests">
         <mkdir dir="${target.test.dir}"/>
-        <javac destdir="${target.test.dir}" target="1.5">
+        <javac destdir="${target.test.dir}" debug="on" target="1.5">
             <src path="${test.dir}"/>
             <classpath refid="master-classpath"/>
             <compilerarg value="-Xlint"/>

@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import com.marklogic.performance.sampler.Sampler;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- *
+ * 
  */
 public class SummaryResults implements ResultInterface {
 
@@ -174,9 +174,9 @@ public class SummaryResults implements ResultInterface {
 
     /**
      * implement percentiles
-     *
+     * 
      * @param percentile
-     *
+     * 
      * @return
      */
     public long getPercentileDurationNanos(int percentile) {
@@ -394,8 +394,10 @@ public class SummaryResults implements ResultInterface {
     }
 
     public double getBytesPerSecond() {
-        return (double) (Configuration.NANOS_PER_SECOND * (bytesSent + bytesReceived))
-                / durationNanos;
+        double bytes = (double) bytesSent + (double) bytesReceived;
+        double secs = (double) durationNanos
+                / (double) Configuration.NANOS_PER_SECOND;
+        return bytes / secs;
     }
 
     /**

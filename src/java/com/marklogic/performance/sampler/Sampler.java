@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -69,11 +70,11 @@ public abstract class Sampler extends Thread {
 
     String password = Configuration.PASSWORD_DEFAULT;
 
-    String host = Configuration.HOST_DEFAULT;
+    protected String host = Configuration.HOST_DEFAULT;
 
-    String protocol = Configuration.PROTOCOL_DEFAULT;
+    protected String protocol = Configuration.PROTOCOL_DEFAULT;
 
-    int port = Configuration.PORT_DEFAULT;
+    protected int port = Configuration.PORT_DEFAULT;
 
     byte[] readBuffer = new byte[readsize];
 
@@ -302,6 +303,15 @@ public abstract class Sampler extends Thread {
      */
     public void setIndex(int i) {
         threadIndex = i;
+        setName(Configuration.THREAD_NAME_PREFIX + i);
+        System.err.println(new Date() + ": " + getName());
+    }
+
+    /**
+     * @return
+     */
+    public int getIndex() {
+        return threadIndex;
     }
 
     /**
@@ -324,14 +334,23 @@ public abstract class Sampler extends Thread {
         return errorCount;
     }
 
-    protected HttpURLConnection setupConnection(URL url)
-            throws IOException {
+    protected HttpURLConnection setupConnection(URL url,
+            TestInterface test) throws IOException {
         HttpURLConnection.setFollowRedirects(true);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        // using keepalive
+        // using keep-alive
         conn.setRequestProperty("Connection", "keep-alive");
+        // TODO implement digest authentication
+        // use the test-specific user and password if available,
+        // otherwise fall back on the config user and password.
+        String testUser = test.getUser();
+        String testPassword = test.getPassword();
         conn.setRequestProperty("Authorization", "Basic "
-                + Base64Encoder.encode(user + ":" + password));
+                + Base64Encoder.encode(((null == testUser) ? user
+                        : testUser)
+                        + ":"
+                        + ((null == testPassword) ? password
+                                : testPassword)));
         return conn;
     }
 

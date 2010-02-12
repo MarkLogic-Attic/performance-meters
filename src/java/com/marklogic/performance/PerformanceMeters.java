@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2009 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,18 +22,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.marklogic.performance.reporter.ReporterException;
 import com.marklogic.performance.reporter.Reporter;
-import com.marklogic.performance.sampler.HTTPSampler;
+import com.marklogic.performance.reporter.ReporterException;
 import com.marklogic.performance.sampler.Sampler;
-import com.marklogic.performance.sampler.URISampler;
 import com.marklogic.performance.sampler.XCCSampler;
-import com.marklogic.performance.sampler.XDBCSampler;
 import com.marklogic.xcc.Version;
 
 /**
@@ -48,7 +44,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2009-07-01.1";
+    private static final String VERSION = "2010-02-12.1";
 
     private Configuration config;
 
@@ -66,8 +62,7 @@ public class PerformanceMeters {
         // assume they are properties files
         Configuration config = new Configuration(args, true);
 
-        showProgress(NAME + " starting, version " + VERSION + ", XCC "
-                + Version.getVersionString());
+        showProgress(NAME + " starting, version " + VERSION);
 
         if (debug) {
             showProgress(config.configString());
@@ -127,24 +122,25 @@ public class PerformanceMeters {
             offsetPerThread = tests.size() / numThreads;
         }
 
+        // use reflection to create a sampler constructor object
+        Class<? extends Sampler> samplerClass = Class.forName(
+                config.getSamplerClassName()).asSubclass(Sampler.class);
+        // constructor with test iterator and configuration arguments
+        Constructor<? extends Sampler> samplerConstructor = samplerClass
+                .getConstructor(new Class[] { TestIterator.class,
+                        Configuration.class });
+        if (XCCSampler.class == samplerClass) {
+            showProgress("XCC " + Version.getVersionString());
+        }
+
         Sampler sampler;
         for (int i = 0; i < numThreads; i++) {
             if (offsetPerThread != -1) {
-                // need a new ti every time
+                // new test iterator for each thread
                 ti = new OffsetTestIterator(tests, i * offsetPerThread);
             }
 
-            // TODO use reflection instead?
-            if (config.isHTTP()) {
-                sampler = new HTTPSampler(ti, config);
-            } else if (config.isURI()) {
-                sampler = new URISampler(ti, config);
-            } else if (config.isXDBC()) {
-                sampler = new XDBCSampler(ti, config);
-            } else {
-                // default to XCC
-                sampler = new XCCSampler(ti, config);
-            }
+            sampler = samplerConstructor.newInstance(ti, config);
             sampler.setIndex(i);
 
             samplers.add(sampler);
@@ -152,7 +148,6 @@ public class PerformanceMeters {
         }
 
         // with really large numbers of threads, creation time is significant
-        // TODO can we use java.util.concurrent? with a BlockingQueue?
         showProgress("starting...");
         startTime = System.nanoTime();
         for (int i = 0; i < numThreads; i++) {
@@ -209,17 +204,18 @@ public class PerformanceMeters {
 
         // report some generic information
         if (config.isReportTime()) {
-            System.out.println("Completed "
-                    + summaryResults.getNumberOfTests() + " tests in "
-                    + summaryResults.getDurationMillis()
-                    + " milliseconds, with "
-                    + summaryResults.getNumberOfErrors() + " errors.");
+            System.out.println(String.format(
+                    "Completed %d tests in %.0f ms, with %d errors.",
+                    summaryResults.getNumberOfTests(), summaryResults
+                            .getDurationMillis(), summaryResults
+                            .getNumberOfErrors()));
 
             // report min, max, avg response times
-            System.out.println("Response times (min/max/avg): "
-                    + summaryResults.getMinMillis() + "/"
-                    + summaryResults.getMaxMillis() + "/"
-                    + summaryResults.getAvgMillis() + " ms");
+            System.out.println(String.format(
+                    "Response times (min/max/avg): %.0f/%.0f/%.0f ms",
+                    summaryResults.getMinMillis(), summaryResults
+                            .getMaxMillis(), summaryResults
+                            .getAvgMillis()));
             if (config.isReportStandardDeviation()) {
                 // report standard deviation
                 System.out.println("Standard deviation: "
@@ -247,17 +243,11 @@ public class PerformanceMeters {
                     + summaryResults.getBytesReceived() + " B");
 
             // report throughput nicely
-            // be sure to use toString, to work around this issue:
-            // http://bugs.sun.com/bugdatabase/view_bug.do?bug_id=4863883
-            double tput = summaryResults.getTestsPerSecond();
-            int scale = 2;
-            System.out.println("Tests per second: "
-                    + new BigDecimal(Double.toString(tput)).setScale(
-                            scale, BigDecimal.ROUND_HALF_EVEN));
-            tput = summaryResults.getBytesPerSecond();
-            System.out.println("Average throughput: "
-                    + new BigDecimal(Double.toString(tput)).setScale(
-                            scale, BigDecimal.ROUND_HALF_EVEN) + " B/s");
+            System.out.println(String.format("Tests per second: %.0f",
+                    summaryResults.getTestsPerSecond()));
+            System.out.println(String.format(
+                    "Average throughput: %.0f B/s", summaryResults
+                            .getBytesPerSecond()));
         }
 
     }

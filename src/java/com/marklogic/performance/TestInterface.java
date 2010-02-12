@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,5 +41,15 @@ public interface TestInterface {
      * @return
      */
     public abstract XdmVariable[] getVariables();
+
+    /**
+     * @return
+     */
+    public abstract String getUser();
+
+    /**
+     * @return
+     */
+    public abstract String getPassword();
 
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2007-2008 Mark Logic Corporation. All rights reserved.
+ * Copyright (c) 2007-2010 Mark Logic Corporation. All rights reserved.
  */
 package com.marklogic.performance;
 
@@ -35,7 +35,6 @@ public class RangeVariable implements XdmVariable {
      */
     public RangeVariable(String name, String namespace, String type,
             String minValue, String maxValue) {
-        // TODO Auto-generated constructor stub
         xname = new XName(namespace, name);
         // prepare min, max values
         xMin = XMLFileTest.newValue(type, minValue);

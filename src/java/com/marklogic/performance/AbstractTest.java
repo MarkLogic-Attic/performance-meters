@@ -1,5 +1,5 @@
 /*
- * Copyright (c)2005-2008 Mark Logic Corporation
+ * Copyright (c)2005-2010 Mark Logic Corporation
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,18 +18,91 @@
  */
 package com.marklogic.performance;
 
+import java.io.IOException;
+
+import com.marklogic.xcc.types.XdmVariable;
+
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- *
+ * 
  */
 public abstract class AbstractTest implements TestInterface {
     protected String name;
 
-    /* (non-Javadoc)
+    protected String commentExpectedResult;
+
+    protected String query;
+
+    protected String user;
+
+    protected String password;
+
+    protected XdmVariable[] variables = null;
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see com.marklogic.performance.TestInterface#getName()
      */
     public String getName() {
         return name;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#getPassword()
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#getUser()
+     */
+    public String getUser() {
+        return user;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#getQuery()
+     */
+    @SuppressWarnings("unused")
+    public String getQuery() throws IOException {
+        return query;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#getCommentExpectedResult()
+     */
+    public String getCommentExpectedResult() {
+        return commentExpectedResult;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#hasVariables()
+     */
+    public boolean hasVariables() {
+        if (null == variables || 0 == variables.length) {
+            return false;
+        }
+        return true;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.marklogic.performance.TestInterface#getVariables()
+     */
+    public XdmVariable[] getVariables() {
+        return variables;
+    }
 }
