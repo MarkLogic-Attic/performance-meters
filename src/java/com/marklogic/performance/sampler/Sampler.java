@@ -25,7 +25,6 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
@@ -180,6 +179,7 @@ public abstract class Sampler extends Thread {
         long testTimeNanos = config.getTestTimeNanos();
         long lastConfigUpdate = startTime;
         long updateNanos = Configuration.NANOS_PER_SECOND;
+        long thinkMillis = config.getThinkMillis();
         long nowTime;
         do {
             // if shared, only thread 0 will actually shuffle
@@ -196,8 +196,17 @@ public abstract class Sampler extends Thread {
                         break;
                     }
                 }
+                
                 // try to avoid thread starvation
                 yield();
+                if (0 != thinkMillis) {
+                    try {
+                        Thread.sleep(thinkMillis);
+                    } catch (InterruptedException e) {
+                        // ignore the interruption and proceed
+                    }
+                }
+                
                 // config may contain multiple hosts,
                 // so balance load by updating once in a while,
                 // but not every time, or we have locking issues.
@@ -304,7 +313,6 @@ public abstract class Sampler extends Thread {
     public void setIndex(int i) {
         threadIndex = i;
         setName(Configuration.THREAD_NAME_PREFIX + i);
-        System.err.println(new Date() + ": " + getName());
     }
 
     /**

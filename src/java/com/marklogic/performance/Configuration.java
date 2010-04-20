@@ -29,8 +29,6 @@ import com.marklogic.performance.sampler.HTTPSampler;
 import com.marklogic.performance.sampler.Sampler;
 import com.marklogic.performance.sampler.URISampler;
 import com.marklogic.performance.sampler.XCCSampler;
-import com.marklogic.xcc.exceptions.UnimplementedFeatureException;
-import com.marklogic.xdmp.XDMPConnection;
 
 /**
  * @author Ron Avnur, ron.avnur@marklogic.com
@@ -121,6 +119,10 @@ public class Configuration {
 
     public static final String THREAD_NAME_PREFIX = "sampler-";
 
+    public static final String THINK_MILLIS_KEY = "thinkMillis";
+
+    public static final long THINK_MILLIS_DEFAULT = 0;
+
     private String protocol;
 
     private String[] host;
@@ -179,6 +181,8 @@ public class Configuration {
     private String elementQName;
 
     private boolean reportStandardDeviation = REPORTSTDDEV_DEFAULT;
+
+    private long thinkMillis = THINK_MILLIS_DEFAULT;
 
     public Configuration(String[] paths, boolean loadSystemProperties)
             throws IOException {
@@ -273,6 +277,9 @@ public class Configuration {
         isRandomTest = Boolean.valueOf(
                 props.getProperty(IS_RANDOM_TEST_KEY,
                         IS_RANDOM_TEST_DEFAULT)).booleanValue();
+
+        thinkMillis = Long.parseLong(props.getProperty(THINK_MILLIS_KEY,
+                "" + THINK_MILLIS_DEFAULT));
 
         // for backward compatibility
         recordResults = Boolean.valueOf(
@@ -369,6 +376,7 @@ public class Configuration {
                 + " -DoutputPath=" + outputPath + " -DnumThreads="
                 + numThreads + " -Dshared=" + shared + " -DreportTime="
                 + reportTime + " -DrecordResults=" + recordResults
+                + " -DthinkMillis=" + thinkMillis
                 + " -DtestType=" + testType;
     }
 
@@ -509,6 +517,13 @@ public class Configuration {
      */
     public String getSamplerClassName() {
         return samplerClassName;
+    }
+
+    /**
+     * @return
+     */
+    public long getThinkMillis() {
+        return thinkMillis;
     }
 
 }

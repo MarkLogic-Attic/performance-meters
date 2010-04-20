@@ -142,9 +142,7 @@ public class PerformanceMeters {
 
             sampler = samplerConstructor.newInstance(ti, config);
             sampler.setIndex(i);
-
             samplers.add(sampler);
-            sampler.setName("sampler #" + i);
         }
 
         // with really large numbers of threads, creation time is significant
