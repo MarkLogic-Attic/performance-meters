@@ -8,8 +8,11 @@ cd $BASE
 pwd
 BASE=`basename $PWD`
 PAGES=$BASE-gh-pages
+
+git status
+
 echo releasing $BASE
-(cd src && ant jar) \
+ant jar \
     && cp lib/$BASE.jar ../$PAGES/ \
     && md5sum lib/$BASE.jar ../$PAGES/$BASE.jar \
     && (cd ../$PAGES && git commit $BASE.jar -m "new release" \

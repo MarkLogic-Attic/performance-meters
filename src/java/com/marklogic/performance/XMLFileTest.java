@@ -37,6 +37,9 @@ import com.marklogic.xcc.types.XdmVariable;
  * @author Michael Blakeley
  *
  * @author Ron Avnur
+ *
+ * @author Joe Hoy
+ *
  */
 public class XMLFileTest extends AbstractTest {
 
@@ -150,8 +153,8 @@ public class XMLFileTest extends AbstractTest {
         for (int i = 0; i < length; i++) {
             n = children.item(i);
             if (Node.ELEMENT_NODE != n.getNodeType()
-                    || n.getNamespaceURI() != HARNESS_NAMESPACE
-                    || n.getLocalName() != VARIABLE_LOCAL_NAME) {
+                || ! HARNESS_NAMESPACE.equals(n.getNamespaceURI())
+                || ! VARIABLE_LOCAL_NAME.equals(n.getLocalName())) {
                 // NB - some variable entries may be null!
                 continue;
             }
