@@ -41,7 +41,7 @@ import com.marklogic.performance.TestIterator;
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * @author Wayne Feick, wayne.feick@marklogic.com
- * 
+ *
  */
 public abstract class Sampler extends Thread {
     TestIterator testIterator;
@@ -196,7 +196,7 @@ public abstract class Sampler extends Thread {
                         break;
                     }
                 }
-                
+
                 // try to avoid thread starvation
                 yield();
                 if (0 != thinkMillis) {
@@ -206,7 +206,7 @@ public abstract class Sampler extends Thread {
                         // ignore the interruption and proceed
                     }
                 }
-                
+
                 // config may contain multiple hosts,
                 // so balance load by updating once in a while,
                 // but not every time, or we have locking issues.
@@ -362,12 +362,12 @@ public abstract class Sampler extends Thread {
         return conn;
     }
 
-    protected byte[] readResponse(Result result, HttpURLConnection conn)
+    protected byte[] readResponse(HttpURLConnection conn)
             throws IOException {
-        return readResponse(result, conn.getInputStream());
+        return readResponse(conn.getInputStream());
     }
 
-    protected byte[] readResponse(Result result, InputStream in)
+    protected byte[] readResponse(InputStream in)
             throws IOException {
         ByteArrayOutputStream w = null;
         BufferedInputStream bin = null;
@@ -376,7 +376,7 @@ public abstract class Sampler extends Thread {
             w = new ByteArrayOutputStream();
             int actual = 0;
             while ((actual = bin.read(readBuffer)) > -1) {
-                result.incrementBytesReceived(actual);
+                // NB - the sample() method will record the number of bytes
                 w.write(readBuffer, 0, actual);
             }
             w.flush();

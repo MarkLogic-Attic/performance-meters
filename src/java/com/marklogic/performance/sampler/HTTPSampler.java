@@ -32,7 +32,7 @@ import com.marklogic.performance.TestIterator;
  * @author Ron Avnur, ron.avnur@marklogic.com
  * @author Michael Blakeley, michael.blakeley@marklogic.com
  * @author Wayne Feick, wayne.feick@marklogic.com
- * 
+ *
  */
 public class HTTPSampler extends Sampler {
 
@@ -62,7 +62,7 @@ public class HTTPSampler extends Sampler {
         out.flush();
         out.close(); // needed?
         result.incrementBytesSent(urlEncoded.length());
-        return new String(readResponse(result, conn));
+        return new String(readResponse(conn));
     }
 
 }

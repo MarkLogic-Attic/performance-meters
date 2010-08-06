@@ -43,7 +43,7 @@ import com.marklogic.xcc.types.XdmVariable;
 
 /**
  * @author Michael Blakeley, michael.blakeley@marklogic.com
- * 
+ *
  */
 public class XCCSampler extends Sampler {
 
@@ -98,7 +98,7 @@ public class XCCSampler extends Sampler {
             while (rs.hasNext()) {
                 buf = rs.next().asInputStream();
                 resultsBuffer
-                        .append(new String(readResponse(result, buf)));
+                        .append(new String(readResponse(buf)));
             }
         } finally {
             sess.close();
@@ -131,7 +131,7 @@ public class XCCSampler extends Sampler {
             }
 
             /**
-             * @throws CertificateException  
+             * @throws CertificateException
              */
             public void checkClientTrusted(
                     java.security.cert.X509Certificate[] certs,
@@ -140,7 +140,7 @@ public class XCCSampler extends Sampler {
             }
 
             /**
-             * @throws CertificateException  
+             * @throws CertificateException
              */
             public void checkServerTrusted(
                     java.security.cert.X509Certificate[] certs,

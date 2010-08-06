@@ -49,7 +49,7 @@ public class URISampler extends Sampler {
         conn.setRequestMethod("GET");
         conn.setDoOutput(true);
         result.incrementBytesSent(uri.length());
-        return new String(readResponse(result, conn));
+        return new String(readResponse(conn));
     }
 
 }
