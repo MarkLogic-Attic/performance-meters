@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 
-ant \
+ant jar \
     && rsync -vaP lib/performance-meters.jar /home/mblakele/lib/java/ \
     && rsync -vaP lib/performance-meters.jar ../performance-meters-gh-pages/ \
     && rsync -vaP lib/performance-meters.jar $HOME/lib/java/ \

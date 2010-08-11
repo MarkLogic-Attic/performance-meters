@@ -18,6 +18,7 @@
  */
 package com.marklogic.performance;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.w3c.dom.DOMException;
@@ -67,7 +68,11 @@ public class XMLFileTest extends AbstractTest {
 
     public static final String VARIABLE_SPECIAL_LOCAL_NAME = "special";
 
-    public static final String VARIABLE_VALUELIST_LOCAL_NAME = "value-csv";
+    public static final String VARIABLE_VALUESLIST_LOCAL_NAME = "value-csv";
+
+    public static final String VARIABLE_VALUESLIST_SEQUENTIAL_LOCAL_NAME = "value-list-sequential";
+
+    public static final String VARIABLE_VALUESPATH_LOCAL_NAME = "value-path";
 
     public static final String VARIABLE_MINVALUE_LOCAL_NAME = "min-value";
 
@@ -138,7 +143,7 @@ public class XMLFileTest extends AbstractTest {
     }
 
     protected void configureVariables(Node variablesNode)
-            throws DOMException {
+            throws DOMException, IOException {
         if (null == variablesNode) {
             return;
         }
@@ -147,14 +152,16 @@ public class XMLFileTest extends AbstractTest {
         variables = new XdmVariable[length];
         Node n, name, namespaceNode, typeNode, value = null;
         // support variable ranges and lists of values
-        Node valuesCSV, minValue, maxValue, specialValue = null;
+        Node valuesSpecifier = null;
+        Node minValue, maxValue, specialValue = null;
         String namespace, type;
         NamedNodeMap attr;
+        File valuesFile;
         for (int i = 0; i < length; i++) {
             n = children.item(i);
             if (Node.ELEMENT_NODE != n.getNodeType()
-                || ! HARNESS_NAMESPACE.equals(n.getNamespaceURI())
-                || ! VARIABLE_LOCAL_NAME.equals(n.getLocalName())) {
+                    || !HARNESS_NAMESPACE.equals(n.getNamespaceURI())
+                    || !VARIABLE_LOCAL_NAME.equals(n.getLocalName())) {
                 // NB - some variable entries may be null!
                 continue;
             }
@@ -175,12 +182,45 @@ public class XMLFileTest extends AbstractTest {
             }
             if (null == value) {
                 // look for value lists and ranges
-                valuesCSV = attr
-                        .getNamedItem(VARIABLE_VALUELIST_LOCAL_NAME);
-                if (null != valuesCSV) {
-                    variables[i] = new ListVariable(name.getNodeValue(),
-                            namespace, type, valuesCSV.getNodeValue()
-                                    .split(","));
+                valuesSpecifier = attr
+                        .getNamedItem(VARIABLE_VALUESLIST_LOCAL_NAME);
+                if (null != valuesSpecifier) {
+                    variables[i] = new ListVariable(
+                            name.getNodeValue(),
+                            namespace,
+                            type,
+                            valuesSpecifier.getNodeValue().split(","),
+                            nodeBoolean(
+                                    attr
+                                            .getNamedItem(VARIABLE_VALUESLIST_SEQUENTIAL_LOCAL_NAME),
+                                    false));
+                    continue;
+                }
+
+                // look for a value path
+                valuesSpecifier = attr
+                        .getNamedItem(VARIABLE_VALUESPATH_LOCAL_NAME);
+                if (null != valuesSpecifier) {
+                    valuesFile = new File(valuesSpecifier.getNodeValue());
+                    if (!valuesFile.exists()) {
+                        throw new IOException(
+                                "values path does not exist: "
+                                        + valuesSpecifier.getNodeValue());
+                    }
+                    if (!valuesFile.canRead()) {
+                        throw new IOException(
+                                "cannot read from values path: "
+                                        + valuesSpecifier.getNodeValue());
+                    }
+                    variables[i] = new ListVariable(
+                            name.getNodeValue(),
+                            namespace,
+                            type,
+                            valuesFile,
+                            nodeBoolean(
+                                    attr
+                                            .getNamedItem(VARIABLE_VALUESLIST_SEQUENTIAL_LOCAL_NAME),
+                                    false));
                     continue;
                 }
 
@@ -215,7 +255,8 @@ public class XMLFileTest extends AbstractTest {
                 throw new NullPointerException(
                         "missing required variable attribute: "
                                 + VARIABLE_VALUE_LOCAL_NAME + " or "
-                                + VARIABLE_VALUELIST_LOCAL_NAME + " or "
+                                + VARIABLE_VALUESLIST_LOCAL_NAME + " or "
+                                + VARIABLE_VALUESPATH_LOCAL_NAME + " or "
                                 + VARIABLE_SPECIAL_LOCAL_NAME + " or "
                                 + VARIABLE_MINVALUE_LOCAL_NAME + " and "
                                 + VARIABLE_MAXVALUE_LOCAL_NAME
@@ -227,6 +268,16 @@ public class XMLFileTest extends AbstractTest {
                     type, value.getNodeValue());
         }
 
+    }
+
+    /**
+     * @param _node
+     * @param b
+     * @return
+     */
+    private boolean nodeBoolean(Node _node, boolean b) {
+        return Boolean.parseBoolean((null == _node) ? ("" + b) : _node
+                .getNodeValue());
     }
 
     /**

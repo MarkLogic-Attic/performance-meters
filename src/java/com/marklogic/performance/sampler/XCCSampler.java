@@ -39,6 +39,7 @@ import com.marklogic.xcc.RequestOptions;
 import com.marklogic.xcc.ResultSequence;
 import com.marklogic.xcc.SecurityOptions;
 import com.marklogic.xcc.Session;
+import com.marklogic.xcc.ValueFactory;
 import com.marklogic.xcc.types.XdmVariable;
 
 /**
@@ -97,8 +98,7 @@ public class XCCSampler extends Sampler {
             InputStream buf = null;
             while (rs.hasNext()) {
                 buf = rs.next().asInputStream();
-                resultsBuffer
-                        .append(new String(readResponse(buf)));
+                resultsBuffer.append(new String(readResponse(buf)));
             }
         } finally {
             sess.close();
@@ -115,10 +115,15 @@ public class XCCSampler extends Sampler {
             return;
         }
 
+        // XCC assumes variables are idempotent, so clone names and values
         XdmVariable[] variables = test.getVariables();
+        XdmVariable xv;
         for (int i = 0; i < variables.length; i++) {
             if (null != variables[i]) {
-                req.setVariable(variables[i]);
+                xv = variables[i];
+                xv = ValueFactory
+                        .newVariable(xv.getName(), xv.getValue());
+                req.setVariable(xv);
             }
         }
     }
