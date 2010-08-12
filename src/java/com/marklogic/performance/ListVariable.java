@@ -73,7 +73,6 @@ public class ListVariable implements XdmVariable {
         br.close();
         xvalues = values.toArray(new XdmValue[0]);
         isSequential = sequential;
-        System.err.println("isSequential=" + isSequential);
     }
 
     /*
@@ -98,8 +97,6 @@ public class ListVariable implements XdmVariable {
                 if (valuesIndex >= xvalues.length) {
                     valuesIndex = 0;
                 }
-                System.err.println("valuesIndex=" + valuesIndex + " => "
-                        + xvalues[valuesIndex]);
                 return xvalues[valuesIndex];
             }
         }
