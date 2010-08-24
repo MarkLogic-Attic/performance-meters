@@ -203,7 +203,8 @@ public abstract class Sampler extends Thread {
                     try {
                         Thread.sleep(thinkMillis);
                     } catch (InterruptedException e) {
-                        // ignore the interruption and proceed
+                        // reset interrupt status and continue
+                        Thread.interrupted();
                     }
                 }
 

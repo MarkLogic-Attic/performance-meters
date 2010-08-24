@@ -44,7 +44,7 @@ public class PerformanceMeters {
 
     private static final String NAME = PerformanceMeters.class.getName();
 
-    private static final String VERSION = "2010-08-12.1";
+    private static final String VERSION = "2010-08-24.1";
 
     private Configuration config;
 
@@ -157,7 +157,8 @@ public class PerformanceMeters {
             try {
                 (samplers.get(i)).join();
             } catch (InterruptedException e) {
-                /* should not happen */
+                // reset interrupt status and continue
+                Thread.interrupted();
                 continue;
             }
         }
