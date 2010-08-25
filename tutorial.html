@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+          "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+/*
+ * Copyright (c)2005-2010 Mark Logic Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * The use of the Apache License does not indicate that this project is
+ * affiliated with the Apache Software Foundation.
+ */
+-->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>PerformanceMeters Tutorial</title>
+    <meta name="description" content="tutorial for performance-meters, a simple test harness for XQuery and MarkLogic Server" />
+    <meta name="keywords" content="xquery marklogic harness performance test" />
+    <link rel="stylesheet" type="text/css"
+          href="screen.css" media="screen" />
+  </head>
+  <body class="sub_page layout2">
+    <h2>PerformanceMeters: Test Harness for XQuery</h2>
+    <div class="author">Michael Blakeley</div>
+    <div class="date">Last updated 2010-08-25</div>
+    <br />
+PerformanceMeters is a Java-based, XML-driven tool for
+testing XQuery with MarkLogic Server.
+Capabilities include:
+<ul>
+        <li>test arbitrary queries</li>
+        <li>test via xcc, xdbc, or http</li>
+        <li>configure via XML</li>
+        <li>supports setup and tear-down queries</li>
+        <li>performance metrics, including percentile-response times</li>
+        <li>support for arbitrary query generator classes</li>
+        <li>support for arbitrary result formatter classes</li>
+      </ul><p>
+If you need a development or QA test tool,
+why not use <a href="http://junit.org/">JUnit</a>,
+ or <a href="http://xmlunit.sf.net/">XmlUnit</a>?
+Both of those tools require programming:
+since PerformanceMeters is configured
+entirely via properties and XML,
+there's no programming needed.
+</p><p>
+If you need a performance test tool,
+why not use
+<a href="http://jakarta.apache.org/jmeter/">JMeter</a>,
+<a href="http://mercury.com/">LoadRunner</a>
+or another general-purpose performance tool?
+For some users, it's enough to note that LoadRunner costs money,
+while PerformanceMeters is free.
+Aside from the cost, however, LoadRunner would only
+be useful for HTTP testing, out of the box.
+Testing XDBC servers (using XCC or XDBC) would require development work.
+However, LoadRunner is still the right answer for some applications,
+since it supports web browser simulation
+and much more sophisticated test scenarios than PerformanceMeters does.
+</p><a name="setup"></a><h3><a name="n2ab0c28316efa9bd"></a>Setting up PerformanceMeters</h3><p>
+PerformanceMeters is a Java program,
+and requires a Java 5 runtime environment.
+If you don't have Java 5,
+<a href="http://www.oracle.com/technetwork/java/javase/downloads/">download</a>
+and install it.
+</p><p>Next, we'll need PerformanceMeters itself: simply download
+<a href="http://marklogic.github.com/performance-meters/performance-meters.jar">
+performance-meters.jar</a>.
+</p><p>Since PerformanceMeters connects to a MarkLogic Server,
+you'll need the MarkLogic XCC libraries, too.
+You can download the XCC Java zip archive
+<a href="http://developer.marklogic.com/download">here</a>.
+After you download the zip archive, unpack it and find the jar files.
+You can put <code>xcc.jar</code>
+anywhere on your disk, but for this tutorial I'll assume
+that both files are in the current directory.
+</p><a name="running"></a><h3><a name="n2ab0c2832e030d0c"></a>Running PerformanceMeters</h3><p>Now that we have a Java environment and all the libraries we need,
+let's try it out with the simplest possible invocation.
+</p><div class="code-block">$ java -cp performance-meters.jar:xcc.jar \
+  com.marklogic.performance.PerformanceMeters
+</div><p>Java command lines can get pretty ugly. I'll keep using them
+for this tutorial, but you might want to put all of that into
+a shell script (or a batch file, on Windows).
+Remember, I put all my jar files in the current directory.
+You might have used another location:
+if so, just change the classpath in your command-line to match.
+</p><p>OK, so we copied that command-line and pasted it into a shell.
+What happened?
+
+</p><div class="code-block">$ java -cp performance-meters.jar:xcc.jar \
+  com.marklogic.performance.PerformanceMeters
+Exception in thread "main" java.lang.NoClassDefFoundError: com/marklogic/xcc/Request
+        at com.marklogic.performance.PerformanceMeters.run(PerformanceMeters.java:145)
+        at com.marklogic.performance.PerformanceMeters.main(PerformanceMeters.java:92)
+</div><p>Oh, that doesn't look good. Hmm... looks like we forgot to put
+xcc.jar into the current directory. We'll do that, and try again...
+</p><div class="code-block">$ java -cp performance-meters.jar:xcc.jar \
+  com.marklogic.performance.PerformanceMeters
+Tue Jul 11 10:44:50 PDT 2006: com.marklogic.performance.PerformanceMeters starting, version 2006-07-11.2
+Tue Jul 11 10:44:50 PDT 2006: configuration: -Dhost=localhost -Dport=8003 -Duser=admin -Dpassword=admin -DinputPath=null -DoutputPath= -DnumThreads=1 -Dshared=false -DreportTime=true -DrecordResults=false -DtestType=XCC
+java.io.IOException: missing required configuration parameter: inputPath
+        at com.marklogic.performance.XMLFileTestList.initialize(XMLFileTestList.java:44)
+        at com.marklogic.performance.PerformanceMeters.initializeTests(PerformanceMeters.java:114)
+        at com.marklogic.performance.PerformanceMeters.main(PerformanceMeters.java:88)
+</div><p>Now we're getting somewhere: PerformanceMeters started up,
+but exited immediately because it didn't see a required part of its
+configuration. Let's learn more about that configuration.
+</p><a name="configuration"></a><h3><a name="n2ab0c283433dd90d"></a>Configuring PerformanceMeters</h3><p>PerformanceMeters is configured via properties.
+In Java, properties are
+simply name-value pairs, such as <code>SIZE=1</code>
+or <code>PATH=/lib/java</code>.
+You can find a list of all the properties
+that PerformanceMeters understands in the <a href="index.html">README</a>.
+</p><p>
+
+PerformanceMeters already
+gave us some clues about the properties we need to set, though.
+The first line of the error message tells us the defaults for a handful
+of important properties.
+</p><ul>
+        <li>host=localhost</li>
+        <li>port=8003</li>
+        <li>user=admin</li>
+        <li>password=admin</li>
+        <li>inputPath=null</li>
+      </ul><p>According to the error message, we have to set <code>inputPath</code>
+to proceed. It should be set to the filesystem path
+to an XML file. That XML file will describe the tests
+that we want to run:
+we can start with an
+<a href="http://github.com/marklogic/performance-meters/tree/master/src/tests/">example</a>
+from the PerformanceMeters source code.
+</p>
+
+The following test configuration XML comes from
+<a href="http://github.com/marklogic/performance-meters/tree/master/src/tests/simple.xml">simple.xml</a>:
+
+<div class="code-block">&lt;h:script xmlns:h="http://marklogic.com/xdmp/harness"&gt;
+  &lt;h:test&gt;
+    &lt;h:name&gt;simple test 1&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;hello world&lt;/h:comment-expected-result&gt;
+    &lt;h:set-up/&gt;
+    &lt;h:query&gt;"hello world"&lt;/h:query&gt;
+    &lt;h:tear-down/&gt;
+  &lt;/h:test&gt;
+  &lt;h:test&gt;
+    &lt;h:name&gt;simple test 2&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;2&lt;/h:comment-expected-result&gt;
+    &lt;h:set-up/&gt;
+    &lt;h:query&gt;1 + 1&lt;/h:query&gt;
+    &lt;h:tear-down/&gt;
+  &lt;/h:test&gt;
+  &lt;h:test&gt;
+    &lt;h:name&gt;simple test 3&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;0&lt;/h:comment-expected-result&gt;
+    &lt;h:set-up/&gt;
+    &lt;h:query&gt;xdmp:estimate(doc())&lt;/h:query&gt;
+    &lt;h:tear-down/&gt;
+  &lt;/h:test&gt;
+&lt;/h:script&gt;</div>
+<p>This is fairly easy to read: the entire document describes
+a script, or test scenario, which is made of individual tests.
+Each test has a name and a query: the name can be any text,
+while the query must be a valid XQuery expression.
+When PerformanceMeters sees this script, it will run
+each test individually.
+</p><p>How will each test run? That's where the host, port,
+user, and password come in. If those
+properties aren't set, PerformanceMeters
+will use the default values: that is, it will try
+to submit each test to an XDBC server on localhost:8003.
+If there is no XDBC server on localhost:8003,
+or if the default user and password aren't valid,
+you'll see another error.
+</p><div class="code-block">$ java -cp performance-meters.jar:xcc.jar \
+  -DinputPath=../src/tests/simple.xml \
+  com.marklogic.performance.PerformanceMeters
+Tue Jul 11 10:49:18 PDT 2006: com.marklogic.performance.PerformanceMeters starting, version 2006-07-11.2
+Tue Jul 11 10:49:18 PDT 2006: creating 1 threads...
+Tue Jul 11 10:49:18 PDT 2006: starting...
+2006-07-11 10:49:18.767 WARNING [10] (AbstractRequestController.runRequest): Cannot obtain connection: Connection refused
+Error running query: "hello world"
+com.marklogic.xcc.exceptions.ServerConnectionException: Connection refused
+ [Session: user=admin, cb={default} [ContentSource: user=admin, cb={none} [provider: address=localhost/127.0.0.1:8003, pool=0/64]]]
+</div><p>Sure enough, I don't have an XDBC server on port 8003.
+But I do have one on port 9000: let's tell PerformanceMeters to use it.
+If you don't have an XDBC server, you'll need to configure one:
+it can be on any port, as long as you set the property to match.
+</p><div class="code-block">Tue Jul 11 10:50:18 PDT 2006: com.marklogic.performance.PerformanceMeters starting, version 2006-07-11.2
+Tue Jul 11 10:50:18 PDT 2006: creating 1 threads...
+Tue Jul 11 10:50:18 PDT 2006: starting...
+Tue Jul 11 10:50:18 PDT 2006: Reporting results...
+Tue Jul 11 10:50:18 PDT 2006: Writing results to com.marklogic.performance.PerformanceMeters-1152640218939.xml
+Completed 3 tests in 227 milliseconds, with 0 errors.
+Response times (min/max/avg): 9/108/42 ms
+Bytes (sent/received): 38/13 B
+Tests per second: 13.22
+Average throughput: 224.00 B/s
+</div><p>Hey, it worked! We can see that all three tests ran successfully,
+and there were no errors. PerformanceMeters also wrote the results
+to an XML file in the current directory
+(we could change the location using the <code>outputPath</code> property).
+
+</p><div class="code-block">$ cat com.marklogic.performance.PerformanceMeters-1152640218939.xml
+&lt;h:results xmlns:h="http://marklogic.com/xdmp/harness"&gt;
+  &lt;h:number-of-tests&gt;3&lt;/h:number-of-tests&gt;
+  &lt;h:number-of-errors&gt;0&lt;/h:number-of-errors&gt;
+  &lt;h:number-of-threads&gt;1&lt;/h:number-of-threads&gt;
+  &lt;h:minimum-ms&gt;42&lt;/h:minimum-ms&gt;
+  &lt;h:maximum-ms&gt;74&lt;/h:maximum-ms&gt;
+  &lt;h:average-ms&gt;63&lt;/h:average-ms&gt;
+  &lt;h:total-ms&gt;189&lt;/h:total-ms&gt;
+  &lt;h:test-duration&gt;262&lt;/h:test-duration&gt;
+  &lt;h:total-bytes-sent&gt;38&lt;/h:total-bytes-sent&gt;
+  &lt;h:total-bytes-received&gt;13&lt;/h:total-bytes-received&gt;
+  &lt;h:tests-per-second&gt;11.450381679389313&lt;/h:tests-per-second&gt;
+  &lt;h:bytes-per-second&gt;194.0&lt;/h:bytes-per-second&gt;
+  &lt;h:result&gt;
+    &lt;h:name&gt;simple test 1&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;hello world&lt;/h:comment-expected-result&gt;
+    &lt;h:result-text/&gt;
+    &lt;h:got-error&gt;false&lt;/h:got-error&gt;
+    &lt;h:start-millis&gt;1151438357863&lt;/h:start-millis&gt;
+    &lt;h:end-millis&gt;1151438357937&lt;/h:end-millis&gt;
+
+    &lt;h:bytes-sent&gt;13&lt;/h:bytes-sent&gt;
+    &lt;h:bytes-received&gt;11&lt;/h:bytes-received&gt;
+    &lt;h:thread&gt;0&lt;/h:thread&gt;
+  &lt;/h:result&gt;
+  &lt;h:result&gt;
+    &lt;h:name&gt;simple test 2&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;2&lt;/h:comment-expected-result&gt;
+    &lt;h:result-text/&gt;
+    &lt;h:got-error&gt;false&lt;/h:got-error&gt;
+    &lt;h:start-millis&gt;1151438357941&lt;/h:start-millis&gt;
+    &lt;h:end-millis&gt;1151438357983&lt;/h:end-millis&gt;
+    &lt;h:bytes-sent&gt;5&lt;/h:bytes-sent&gt;
+    &lt;h:bytes-received&gt;1&lt;/h:bytes-received&gt;
+    &lt;h:thread&gt;0&lt;/h:thread&gt;
+  &lt;/h:result&gt;
+  &lt;h:result&gt;
+    &lt;h:name&gt;simple test 3&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;0&lt;/h:comment-expected-result&gt;
+    &lt;h:result-text/&gt;
+    &lt;h:got-error&gt;false&lt;/h:got-error&gt;
+    &lt;h:start-millis&gt;1151438357987&lt;/h:start-millis&gt;
+    &lt;h:end-millis&gt;1151438358060&lt;/h:end-millis&gt;
+    &lt;h:bytes-sent&gt;20&lt;/h:bytes-sent&gt;
+    &lt;h:bytes-received&gt;1&lt;/h:bytes-received&gt;
+    &lt;h:thread&gt;0&lt;/h:thread&gt;
+  &lt;/h:result&gt;
+&lt;/h:results&gt;
+</div><p>
+Here we see much the same information as above:
+a summary of the number of tests, the number of errors,
+and some overall performance metrics.
+In addition, we can see a <code>result</code>
+element for every test that was run,
+showing its timing information and other useful data.
+</p><p>Now that we have a basic working test scenario,
+let's look at other ways to customize it.
+</p><p>After a while, you'll get tired of typing
+all these properties. This is an easy problem to solve:
+instead of using the <code>-Dkey=value</code> technique,
+just put your properties into a file.
+This also makes it very easy to re-run the same test
+scenarios.
+</p><div class="code-block">$ java -cp performance-meters.jar:xcc.jar \
+  com.marklogic.performance.PerformanceMeters \
+  tests/simple.properties
+</div><a name="custom-output"></a><h3><a name="n2ab0c2838e01c8e4"></a>Customizing the Output</h3><p>
+The results above were in XML. This is great if you want XML,
+but if you plan to import the results into a spreadsheet,
+you might prefer comma-separated values (CSV).
+PerformanceMeters supports arbitrary output plug-ins
+via the <code>Reporter</code> interface,
+but you don't have to write one yourself:
+just set <code>reporter=CSVReporter</code> and run the test again.
+
+</p><div class="code-block">$ cat com.marklogic.performance.PerformanceMeters-1151439192585.csv
+number-of-tests,number-of-errors,number-of-threads,minimum-ms,maximum-ms,average-ms,total-ms,test-duration,total-bytes-sent,total-bytes-received,tests-per-second,bytes-per-second
+3,0,1,41,78,63,189,251,38,13,11.952191235059761,203.0
+
+name,comment-expected-result,result-text,got-error,start-millis,end-millis,bytes-sent,bytes-received
+"simple test 1","hello world",,false,1151439192388,1151439192458,13,11
+"simple test 2",2,,false,1151439192462,1151439192503,5,1
+"simple test 3",0,,false,1151439192506,1151439192584,20,1
+</div><p>This time, the output file name ends with ".csv",
+and we can see that the output is suitable OpenOffice Calc,
+Microsoft Excel, or other consumers of CSV files.
+</p><p>What if we want to record the actual results of every test?
+That's easy: just set <code>recordResults=true</code>
+in your test properties.
+</p><p>By default, PerformanceMeters will only report errors
+if the server refused the connection, or threw some exception.
+We can check every expected-result element in our test scenario
+by setting <code>checkResults=true</code>
+(for this to work, you must also set <code>recordResults=true</code>).
+</p><p>In many test situations, it's useful to
+report more timing information than just minimum, maximum, and average.
+Performance requirements are often expressed in terms of
+95th-percentile response times, or 98th-percentile response times.
+PerformanceMeters supports this via an optional property:
+set <code>reportPercentileDuration=95</code>
+or <code>reportPercentileDuration=98</code>
+
+in your test properties.
+</p><div class="code-block">Completed 3 tests in 254 milliseconds, with 0 errors.
+Response times (min/max/avg): 41/79/63 ms
+Response time (95th percentile): 79
+</div><p>Of course, the 95th percentile of three test iterations
+isn't very interesting. Let's look at more configuration
+options, this time aimed at customizing test execution.
+</p><a name="customizing-execution"></a><h3><a name="n2ab0c283b5b27df1"></a>Customizing Test Execution</h3><p>By default, PerformanceMeters runs every test in the scenario,
+and runs it only once. We can change this behavior
+to run a timed test, instead:
+setting <code>testTime=60</code> will run a 60-second test.
+Now our 95th-percentile response times are more interesting:
+</p><div class="code-block">Response times (min/max/avg): 1/170/4 ms
+Response time (95th percentile): 10
+</div><p>We can also tell PerformanceMeters to shuffle the tests,
+instead of running them sequentially, by setting
+the <code>isRandomTest=true</code> property.
+When running random tests, it's sometimes useful
+to repeat the same sequence of pseudo-random numbers.
+You can arrange for this to happen by setting <code>randomSeed</code>
+
+to the same value every time.
+</p><p>What if you want to test multi-threaded performance?
+That's easy, too: set the <code>numThreads</code>
+property to the number of threads you'd like to run.
+</p><p>You can also use PerformanceMeters to test
+with the older XDBC api, or to test HTTP servers,
+or to perform simple document fetches.
+To do this, set the <code>testType</code>
+property.
+</p><a name="tips"></a><h3><a name="n2ab0c283d1635b83"></a>Helpful Hints</h3><p>
+When writing your test queries, remember that you are writing
+XQuery expressions as XML text. This is usually fine,
+but sometimes you'll need to escape certain expressions.
+For example, suppose we want to change our
+"hello world" test, above, to output a p element
+with the "hello world" message.
+Our first attempt doesn't work:
+</p><div class="code-block">&lt;h:test&gt;
+    &lt;h:name&gt;simple test 1&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;/h:comment-expected-result&gt;
+    &lt;h:query&gt;&lt;p&gt;hello world&lt;/p&gt;&lt;/h:query&gt;
+&lt;/h:test&gt;</div>
+<p>When we run this test, PerformanceMeters returns an error:
+</p><div class="code-block">Error running query:
+com.marklogic.xcc.exceptions.XQueryException: XDMP-UNEXPECTED: Unexpected token syntax error, unexpected $end
+</div><p>It looks like we need some escaping.
+The query needs to look like flat text to PerformanceMeters.
+We could escape every &lt; and &gt; in the p elements,
+but it's much cleaner to use a CDATA section instead.
+</p><div class="code-block">&lt;h:test&gt;
+    &lt;h:name&gt;simple test 1&lt;/h:name&gt;
+    &lt;h:comment-expected-result&gt;&lt;![CDATA[&lt;p&gt;hello world&lt;/p&gt;]]&gt;&lt;/h:comment-expected-result&gt;
+    &lt;h:query&gt;&lt;![CDATA[&lt;p&gt;hello world&lt;/p&gt;]]&gt;&lt;/h:query&gt;
+&lt;/h:test&gt;</div>
+<p>Now our test runs successfully.
+</p><a name="conclusion"></a><h3><a name="n2ab0c283e4c59036"></a>Conclusion</h3><p>
+PerformanceMeters provides a rich framework
+for automated testing of XQuery,
+whether for QA or performance measurement.
+We hope it finds a place in your toolbox.
+</p>
+    </body>
+</html>
