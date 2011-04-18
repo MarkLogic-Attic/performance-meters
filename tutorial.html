@@ -41,7 +41,6 @@ Capabilities include:
         <li>test arbitrary queries</li>
         <li>test via xcc, xdbc, or http</li>
         <li>configure via XML</li>
-        <li>supports setup and tear-down queries</li>
         <li>performance metrics, including percentile-response times</li>
         <li>support for arbitrary query generator classes</li>
         <li>support for arbitrary result formatter classes</li>
@@ -148,23 +147,17 @@ The following test configuration XML comes from
   &lt;h:test&gt;
     &lt;h:name&gt;simple test 1&lt;/h:name&gt;
     &lt;h:comment-expected-result&gt;hello world&lt;/h:comment-expected-result&gt;
-    &lt;h:set-up/&gt;
     &lt;h:query&gt;"hello world"&lt;/h:query&gt;
-    &lt;h:tear-down/&gt;
   &lt;/h:test&gt;
   &lt;h:test&gt;
     &lt;h:name&gt;simple test 2&lt;/h:name&gt;
     &lt;h:comment-expected-result&gt;2&lt;/h:comment-expected-result&gt;
-    &lt;h:set-up/&gt;
     &lt;h:query&gt;1 + 1&lt;/h:query&gt;
-    &lt;h:tear-down/&gt;
   &lt;/h:test&gt;
   &lt;h:test&gt;
     &lt;h:name&gt;simple test 3&lt;/h:name&gt;
     &lt;h:comment-expected-result&gt;0&lt;/h:comment-expected-result&gt;
-    &lt;h:set-up/&gt;
     &lt;h:query&gt;xdmp:estimate(doc())&lt;/h:query&gt;
-    &lt;h:tear-down/&gt;
   &lt;/h:test&gt;
 &lt;/h:script&gt;</div>
 <p>This is fairly easy to read: the entire document describes
